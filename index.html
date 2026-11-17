@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelvane Studio — Booking-ready websites for med spas and tattoo studios</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234B2A3B'/%3E%3Cpath d='M22 16v32' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M44 16L24 33' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M29 36l7 8 14-18' stroke='%23D3E3EC' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<meta name="description" content="Kelvane Studio designs and builds websites for med spas and tattoo studios with online booking and deposits built in, so clients book and pay a deposit without leaving your site.">
+<meta property="og:title" content="Kelvane Studio — Websites that book the appointment">
+<meta property="og:description" content="Booking-ready websites for med spas and tattoo studios. Launch in 21 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F9;
+  --white:#FFFFFF;
+  --ink:#2A1A24;
+  --plum:#4B2A3B;
+  --plum-2:#5E3A4D;
+  --powder:#D3E3EC;
+  --powder-2:#E8F0F5;
+  --gold:#B8975A;
+  --muted:#6B6470;
+  --line:#DCDDE3;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --sans:"Figtree", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;letter-spacing:-.02em;line-height:1.04}
+h1{font-size:clamp(44px,6.4vw,88px);font-weight:700}
+h2{font-size:clamp(34px,4.2vw,58px)}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.muted{color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;font:600 16px/1 var(--sans);padding:17px 26px;cursor:pointer;text-decoration:none;transition:background .2s,box-shadow .2s}
+.btn-plum{background:var(--plum);color:#fff}
+.btn-plum:hover{background:var(--plum-2)}
+.btn-line{box-shadow:inset 0 0 0 1.5px currentColor;color:var(--ink)}
+.btn-line:hover{background:var(--powder-2)}
+.btn-light{background:#fff;color:var(--ink)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:30;background:rgba(246,247,249,.9);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.site.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:var(--plum);display:grid;place-items:center}
+.logo small{font-family:var(--sans);font-weight:500;font-size:15px;color:var(--muted);letter-spacing:0}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-weight:500;font-size:15.5px}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--plum);text-decoration:underline;text-underline-offset:6px}
+.nav .btn{padding:13px 20px;font-size:15px}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:420px){.logo small{display:none}}
+
+/* hero */
+.hero{padding:clamp(48px,7vw,96px) 0 clamp(64px,8vw,120px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1 span{display:block}
+.lede{font-size:clamp(18px,1.6vw,21px);max-width:34ch;margin:28px 0 36px;color:#4A3D46}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.fineprint{margin-top:22px;font-size:14.5px;color:var(--muted)}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
+
+/* phone */
+.stage{position:relative;display:grid;place-items:center;min-height:600px}
+.stage::before{content:"";position:absolute;inset:6% 4%;border-radius:40px;background:linear-gradient(160deg,var(--powder) 0%,var(--powder-2) 55%,#F1E9EE 100%)}
+.phone{position:relative;width:300px;height:600px;background:#1D1219;border-radius:46px;padding:12px;box-shadow:0 50px 90px -40px rgba(42,26,36,.55)}
+.screen{position:relative;width:100%;height:100%;background:#fff;border-radius:36px;overflow:hidden;font-size:13px}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;background:#1D1219;border-radius:20px;z-index:3}
+.url{position:absolute;top:44px;left:14px;right:14px;height:30px;border-radius:10px;background:#F2F3F5;display:flex;align-items:center;gap:6px;padding:0 10px;font-size:11.5px;color:#55505A;z-index:2}
+.url svg{width:11px;height:11px}
+.app{position:absolute;top:86px;left:0;right:0;bottom:0;padding:16px 16px 20px}
+.app-brand{font-family:Georgia,serif;font-size:18px;color:#16312D;margin-bottom:12px}
+.bar{display:flex;gap:4px;margin-bottom:14px}
+.bar i{flex:1;height:3px;border-radius:3px;background:#DCE5E0}
+.bar i.on{background:#16312D}
+.scene{position:absolute;left:16px;right:16px;top:150px;opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
+.scene.show{opacity:1;transform:none}
+.scene .q{font-size:12px;color:#5E6864;margin-bottom:10px}
+.opt{border:1.5px solid #CBD5D0;border-radius:12px;padding:11px 12px;margin-bottom:8px;color:#16312D;font-weight:500;display:flex;justify-content:space-between;transition:background .3s,border-color .3s}
+.opt small{color:#5E6864;font-weight:400}
+.opt.pick{background:#DCE5E0;border-color:#16312D}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slots span{border:1.5px solid #CBD5D0;border-radius:8px;text-align:center;padding:8px 0;color:#16312D;font-weight:500;transition:background .3s,color .3s}
+.slots span.pick{background:#16312D;color:#fff;border-color:#16312D}
+.slots span.off{opacity:.35;text-decoration:line-through}
+.sum{background:#F2F4F1;border-radius:12px;padding:12px;display:grid;gap:6px;color:#16312D}
+.sum div{display:flex;justify-content:space-between}
+.sum div span:first-child{color:#5E6864}
+.pay{margin-top:12px;background:#16312D;color:#fff;border-radius:999px;text-align:center;padding:12px;font-weight:600;transition:transform .2s}
+.pay.press{transform:scale(.96)}
+.done{text-align:left}
+.done .tick{width:46px;height:46px;border-radius:50%;background:#DCE5E0;display:grid;place-items:center;margin-bottom:12px}
+.done b{display:block;font-family:Georgia,serif;font-weight:400;font-size:22px;color:#16312D;margin-bottom:6px}
+.badge{position:absolute;right:-18px;bottom:96px;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 20px 40px -18px rgba(42,26,36,.4);font-size:13.5px;line-height:1.35;max-width:200px;display:flex;gap:10px;align-items:flex-start}
+.badge .dot{width:10px;height:10px;border-radius:50%;background:#3E8E6E;flex:none;margin-top:4px}
+.stage-cap{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font-size:13.5px;color:var(--muted)}
+@media (max-width:960px){.stage{min-height:560px}.badge{right:4px}}
+
+/* problem band */
+.dark{background:var(--ink);color:#EFE8EC}
+.dark .muted{color:#B9AAB3}
+section.band{padding:clamp(80px,10vw,136px) 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(44px,6vw,72px)}
+.intro p{max-width:46ch;font-size:18px}
+@media (max-width:860px){.intro{grid-template-columns:1fr}}
+.leaks{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #4A3743}
+.leaks div{padding:30px 28px 8px 0;border-right:1px solid #4A3743}
+.leaks div:last-child{border-right:0}
+.leaks div + div{padding-left:28px}
+.leaks h3{color:#fff;margin-bottom:12px}
+@media (max-width:860px){.leaks{grid-template-columns:1fr}.leaks div{border-right:0;border-bottom:1px solid #4A3743;padding:26px 0}.leaks div + div{padding-left:0}}
+
+/* package */
+.package{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,80px);align-items:start}
+.package .sticky{position:sticky;top:110px}
+.package .sticky p{margin:22px 0 30px;max-width:38ch;font-size:18px;color:#4A3D46}
+.items{border-top:1.5px solid var(--ink)}
+.item{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid var(--line)}
+.item svg{width:30px;height:30px;color:var(--plum)}
+.item h3{margin-bottom:6px}
+.item p{color:var(--muted)}
+@media (max-width:900px){.package{grid-template-columns:1fr}.package .sticky{position:static}}
+
+/* case */
+.case{background:var(--powder-2)}
+.case-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,5vw,64px);align-items:center}
+.browser{background:#fff;border-radius:18px;box-shadow:0 40px 80px -40px rgba(42,26,36,.4),0 0 0 1px var(--line);overflow:hidden}
+.browser .top{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
+.browser .top i{width:10px;height:10px;border-radius:50%;background:#E3E1E6}
+.browser .top span{margin-left:12px;font-size:12px;color:var(--muted)}
+.mini{position:relative;aspect-ratio:16/10;background:linear-gradient(160deg,#EEF2EF,#E3E9E5);overflow:hidden;color:#16312D}
+.mini .rings{position:absolute;right:-12%;top:-30%;width:75%;opacity:.6}
+.mini h4{position:absolute;left:6%;bottom:16%;margin:0;font-family:Georgia,serif;font-weight:400;font-size:clamp(26px,3.6vw,46px);line-height:.98;max-width:9ch}
+.mini .card{position:absolute;right:6%;bottom:12%;width:34%;background:#FAFBF9;border-radius:14px;padding:12px;box-shadow:0 20px 40px -20px rgba(22,49,45,.4);font-size:11px}
+.mini .card b{display:block;font-family:Georgia,serif;font-weight:400;font-size:14px;margin-bottom:8px}
+.mini .card span{display:block;border:1px solid #CBD5D0;border-radius:8px;padding:6px 8px;margin-bottom:5px;background:#F2F4F1}
+.mini .card em{display:block;font-style:normal;background:#16312D;color:#fff;border-radius:999px;text-align:center;padding:6px;margin-top:6px}
+.mini .logo-o{position:absolute;left:6%;top:8%;font-family:Georgia,serif;font-size:16px}
+.case-copy p{margin:20px 0 26px;font-size:18px;color:#4A3D46}
+.case-copy ul{margin:0 0 30px;padding-left:20px;color:#4A3D46}
+.case-copy li{margin:6px 0}
+.tag{display:inline-block;font-size:13.5px;border:1px solid var(--plum);color:var(--plum);border-radius:999px;padding:5px 12px;margin-bottom:20px}
+@media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.steps div{border-top:1.5px solid var(--ink);padding-top:18px}
+.steps .n{font-family:var(--display);font-size:15px;font-weight:600;color:var(--plum);display:block;margin-bottom:16px}
+.steps h3{margin-bottom:8px}
+.steps p{color:var(--muted);font-size:16px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* pricing */
+.prices{display:grid;grid-template-columns:1.25fr 1fr;gap:24px}
+.price{background:#fff;border-radius:28px;padding:clamp(28px,3.4vw,44px);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column}
+.price.main{background:var(--plum);color:#F3ECF0;box-shadow:none}
+.price .amt{font-family:var(--display);font-weight:700;font-size:clamp(52px,6vw,80px);letter-spacing:-.03em;line-height:1;margin:18px 0 6px}
+.price .amt small{font-family:var(--sans);font-weight:500;font-size:17px;letter-spacing:0}
+.price ul{list-style:none;margin:24px 0 30px;padding:0;border-top:1px solid rgba(127,120,128,.35)}
+.price li{padding:11px 0;border-bottom:1px solid rgba(127,120,128,.35)}
+.price .btn{margin-top:auto;align-self:flex-start}
+.founding{margin-top:18px;border:1px dashed rgba(243,236,240,.5);border-radius:16px;padding:14px 16px;font-size:15.5px}
+.founding b{color:#fff}
+.addons{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.addon{background:#fff;border-radius:20px;padding:22px;box-shadow:0 0 0 1px var(--line)}
+.addon h3{font-size:18px;margin-bottom:8px}
+.addon p{font-size:15px;color:var(--muted)}
+.addons-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-top:56px;flex-wrap:wrap}
+.addons-head h3{font-size:26px}
+.guarantee{margin-top:40px;display:flex;gap:18px;align-items:center;background:var(--powder);border-radius:20px;padding:22px 26px}
+.guarantee svg{width:34px;height:34px;flex:none;color:var(--plum)}
+@media (max-width:960px){.prices{grid-template-columns:1fr}.addons{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.addons{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:start}
+.about p{font-size:18px;color:#4A3D46;margin-bottom:16px;max-width:52ch}
+.facts{display:grid;gap:0;border-top:1.5px solid var(--ink)}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.facts div span:first-child{color:var(--muted)}
+.facts div span:last-child{font-weight:600;text-align:right}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 2fr;gap:56px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1.5px solid var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--display);font-weight:600;font-size:clamp(19px,1.8vw,22px);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-weight:400;font-size:28px;line-height:1;transition:transform .25s;color:var(--plum)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--muted);max-width:62ch}
+@media (max-width:860px){.faq{grid-template-columns:1fr;gap:20px}}
+
+/* cta */
+.cta{background:var(--plum);color:#F3ECF0;border-radius:36px;padding:clamp(40px,6vw,80px);display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:end}
+.cta h2{color:#fff}
+.cta p{margin-top:18px;font-size:18px;max-width:44ch}
+.cta .contact{display:grid;gap:12px;justify-items:start}
+.cta .mail{font-size:15px;color:#E2D6DC}
+.copy{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:9px 14px;font:500 14px var(--sans);cursor:pointer}
+@media (max-width:860px){.cta{grid-template-columns:1fr}}
+
+footer{padding:40px 0 60px;font-size:14.5px;color:var(--muted)}
+.kmark{flex:none}
+/* niches */
+.niches{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.niche{background:#fff;border-radius:28px;padding:clamp(28px,3.4vw,44px);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column}
+.niche h3{font-size:clamp(26px,2.4vw,34px);letter-spacing:-.02em}
+.niche ul{margin:22px 0 30px;padding:0;list-style:none;border-top:1px solid var(--line)}
+.niche li{padding:12px 0;border-bottom:1px solid var(--line)}
+.niche .btn{margin-top:auto;align-self:flex-start}
+.dark-niche{background:#10233A;color:#EDE6D8;box-shadow:none}
+.dark-niche ul,.dark-niche li{border-color:#2C4566}
+@media (max-width:860px){.niches{grid-template-columns:1fr}}
+/* cases */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.casecard{text-decoration:none;display:flex;flex-direction:column;gap:22px}
+.casecard:hover .browser{box-shadow:0 40px 80px -36px rgba(42,26,36,.55),0 0 0 1px var(--plum)}
+.casetext h3{font-size:28px;margin:4px 0 8px}
+.mini.tat{background:#10233A;color:#EDE6D8}
+.mini .logo-t{position:absolute;left:6%;top:8%;font-family:"Pirata One",Georgia,serif;font-size:20px}
+.mini.tat h4{font-family:var(--display);font-weight:800;letter-spacing:-.02em;max-width:8.5ch;font-size:clamp(20px,2.3vw,30px);line-height:1}
+.mini.tat h4 em{font-style:normal;color:#C8322B}
+.mini .card.t{background:#F6F1E7;color:#10233A;border-radius:6px;box-shadow:8px 8px 0 #C8322B}
+.mini .card.t span{border-color:#D6CDBC;background:#fff}
+.mini .card.t em{background:#C8322B;border-radius:4px}
+.founding-line{margin-top:20px;font-size:16px;color:var(--muted)}
+.founding-line b{color:var(--ink)}
+@media (max-width:860px){.cases{grid-template-columns:1fr}}
+
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site" id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Kelvane Studio home">
+      <svg class="kmark" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#4B2A3B"/><path d="M22 16v32" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><path d="M44 16L24 33" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><path d="M29 36l7 8 14-18" stroke="#D3E3EC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Kelvane <small>Studio</small>
+    </a>
+    <ul>
+      <li><a href="#who">Who it's for</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-plum" href="#contact">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span>Websites that</span><span>book the</span><span>appointment.</span></h1>
+      <p class="lede">We design and build websites for med spas and tattoo studios, with online booking and deposits built right into your site. Clients choose what they want, pick a time and pay to hold their spot, without ever leaving your brand.</p>
+      <div class="ctas">
+        <a class="btn btn-plum" href="#contact">Book a 15-minute call</a>
+        <a class="btn btn-line" href="#work">See a sample site</a>
+      </div>
+      <p class="fineprint">Launch in 21 days. Pay once or monthly with $0 down. Works with the booking software you already use.</p>
+    </div>
+
+    <div class="stage" aria-label="Animated example of a booking flow on a med spa website">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="notch"></div>
+          <div class="url"><svg viewBox="0 0 12 12"><rect x="2" y="5" width="8" height="6" rx="1.5" fill="none" stroke="currentColor"/><path d="M4 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor"/></svg>yourmedspa.com/book</div>
+          <div class="app">
+            <div class="app-brand">Your Med Spa</div>
+            <div class="bar" id="pbar"><i class="on"></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="scene" data-s="0">
+            <p class="q">What would you like to work on?</p>
+            <div class="opt" data-pick>Lines and wrinkles</div>
+            <div class="opt">Volume and contour</div>
+            <div class="opt">Texture and scarring</div>
+            <div class="opt">Spots and redness</div>
+          </div>
+          <div class="scene" data-s="1">
+            <p class="q">Choose a treatment</p>
+            <div class="opt" data-pick>Botox <small>$260</small></div>
+            <div class="opt">Free consultation <small>Free</small></div>
+          </div>
+          <div class="scene" data-s="2">
+            <p class="q">Thursday, 2 open times left</p>
+            <div class="slots"><span class="off">9:00</span><span>10:15</span><span class="off">11:30</span><span class="off">1:00</span><span data-pick>2:30</span><span class="off">4:00</span></div>
+          </div>
+          <div class="scene" data-s="3">
+            <p class="q">Review and hold your spot</p>
+            <div class="sum"><div><span>Botox</span><span>$260</span></div><div><span>Thu, 2:30 pm</span><span>Jess, RN</span></div><div><span>Due today</span><span><b>$50</b></span></div></div>
+            <div class="pay" id="pay">Pay $50 deposit</div>
+          </div>
+          <div class="scene done" data-s="4">
+            <div class="tick"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M5 11.5l4 4 8-9" fill="none" stroke="#16312D" stroke-width="2.2"/></svg></div>
+            <b>You're booked.</b>
+            <p class="q">Deposit comes off the bill on the day. Reminder text 48 hours before.</p>
+          </div>
+        </div>
+      </div>
+      <div class="badge"><span class="dot"></span><span><b>New booking, deposit paid</b><br>Never left your website</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="problem">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Many studios lose the booking at the last step.</h2>
+      <p class="muted">Some send clients off to a third-party booking page with a different look, right when they're ready to commit. Others still book through Instagram DMs and chase deposits by hand.</p>
+    </div>
+    <div class="leaks">
+      <div><h3>The Book button leaves your site</h3><p class="muted">A new domain, a different design, a login screen. Some clients stop there and call someone else.</p></div>
+      <div><h3>No deposit, no commitment</h3><p class="muted">Without a deposit, an empty chair at 3 pm costs you the full appointment. A small deposit at booking changes that.</p></div>
+      <div><h3>Hidden prices mean more messages</h3><p class="muted">When prices and policies aren't on the page, people call or DM to ask, or don't bother. Someone spends the day answering the same questions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="who">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Built for two kinds of studio.</h2>
+      <p class="muted">Same idea, different details. We build around how your clients actually choose and book.</p>
+    </div>
+    <div class="niches">
+      <div class="niche">
+        <h3>Med spas and aesthetic clinics</h3>
+        <ul>
+          <li>Treatments grouped by concern, with prices on the page</li>
+          <li>Clinician profiles and memberships</li>
+          <li>Deposits on treatments, free consults without one</li>
+          <li>Works with Boulevard, Vagaro, Mangomint, Mindbody</li>
+        </ul>
+        <a class="btn btn-line" href="/oriel/">See the med spa sample</a>
+      </div>
+      <div class="niche dark-niche">
+        <h3>Tattoo studios</h3>
+        <ul>
+          <li>A portfolio and calendar for each artist</li>
+          <li>Deposits set by session size, collected at booking</li>
+          <li>Idea, placement and reference intake before the session</li>
+          <li>Works with Square, Vagaro, Fresha and similar tools</li>
+        </ul>
+        <a class="btn btn-light" href="/tattoo/">See the tattoo sample</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how" style="padding-top:0">
+  <div class="wrap package">
+    <div class="sticky">
+      <h2>The Booking-Ready Website</h2>
+      <p>One package, built around booking. Everything a client needs to go from "just looking" to "booked and paid" in under two minutes.</p>
+      <a class="btn btn-plum" href="#pricing">See pricing</a>
+    </div>
+    <div class="items">
+      <div class="item"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="22" height="20" rx="3"/><path d="M4 11h22M10 3v4M20 3v4M10 17h4"/></svg><div><h3>Booking and deposits on your own site</h3><p>We connect the booking software you already use, from Boulevard and Mindbody to Square and Vagaro, so the whole flow stays on your domain, with your deposit policy shown before they pay.</p></div></div>
+      <div class="item"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 4c-4 4-4 18 0 22 4-4 4-18 0-22Z"/><circle cx="15" cy="15" r="11"/></svg><div><h3>Custom design, built for phones first</h3><p>No templates. A site that looks the way your studio feels, and works where your clients actually book: on their phone.</p></div></div>
+      <div class="item"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h18M6 14h18M6 20h11"/></svg><div><h3>We write the words</h3><p>Service pages, prices, FAQs and policies, written in plain, warm English that answers questions before they become calls or DMs.</p></div></div>
+      <div class="item"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="13" cy="13" r="8"/><path d="M19 19l7 7"/></svg><div><h3>Found on Google, locally</h3><p>Search basics done properly: page titles, local business markup, a fast site and a clean link to your Google Business Profile.</p></div></div>
+      <div class="item"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 24V14M12 24V8M19 24V12M26 24V5"/></svg><div><h3>Know what the site brings in</h3><p>We track visits and every click on "Book", so you can see how many appointments started on your website each month.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band case" id="work">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Two sample sites you can try.</h2>
+      <p class="muted">Concept projects for fictional studios, built to show what a booking-ready website feels like. Go ahead and book something; nothing is charged.</p>
+    </div>
+    <div class="cases">
+      <a class="casecard" href="/oriel/">
+        <div class="browser">
+          <div class="top"><i></i><i></i><i></i><span>oriel aesthetics</span></div>
+          <div class="mini" aria-hidden="true">
+            <svg class="rings" viewBox="0 0 400 400"><g fill="none" stroke="#9FB5AA"><ellipse cx="200" cy="200" rx="60" ry="42"/><ellipse cx="200" cy="200" rx="100" ry="70"/><ellipse cx="200" cy="200" rx="140" ry="98"/><ellipse cx="200" cy="200" rx="180" ry="126"/></g></svg>
+            <span class="logo-o">Oriel</span>
+            <h4>Look like yourself on a good day.</h4>
+            <div class="card"><b>Book a visit</b><span>Lines and wrinkles</span><span>Volume and contour</span><em>Continue</em></div>
+          </div>
+        </div>
+        <div class="casetext"><span class="tag">Med spa concept</span><h3>Oriel Aesthetics</h3><p class="muted">Booking by concern, every price published, a $50 deposit to hold the spot.</p></div>
+      </a>
+      <a class="casecard" href="/tattoo/">
+        <div class="browser">
+          <div class="top"><i></i><i></i><i></i><span>ironwren tattoo</span></div>
+          <div class="mini tat" aria-hidden="true">
+            <span class="logo-t">Ironwren</span>
+            <h4>Custom work, <em>booked</em> in two minutes.</h4>
+            <div class="card t"><b>Book a session</b><span>Mara Quill</span><span>Ilse Navarro</span><em>Continue</em></div>
+          </div>
+        </div>
+        <div class="casetext"><span class="tag">Tattoo studio concept</span><h3>Ironwren Tattoo</h3><p class="muted">Pick an artist, choose a session size, share your idea and pay the deposit, without a single DM.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="intro">
+      <h2>From first call to launch in 21 days.</h2>
+      <p class="muted">You spend about two hours of your time on the whole project. We handle the rest and keep you updated every week.</p>
+    </div>
+    <div class="steps">
+      <div><span class="n">Day 1</span><h3>15-minute call</h3><p>We look at your current site and booking setup together and tell you honestly whether we can help.</p></div>
+      <div><span class="n">Week 1</span><h3>Plan and words</h3><p>One 45-minute interview. We write every page and send it to you for approval.</p></div>
+      <div><span class="n">Week 2</span><h3>Design and build</h3><p>You see the design on your phone, request changes, and we connect your booking software.</p></div>
+      <div><span class="n">Week 3</span><h3>Launch</h3><p>We test every booking path, move your domain and go live. Your old site stays up until the new one is ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Pay once, or pay monthly with $0 down.</h2>
+      <p class="muted">The same website either way. Pick the option that fits your cash flow.</p>
+    </div>
+    <div class="prices">
+      <div class="price main">
+        <h3 style="color:#fff">Pay monthly</h3>
+        <p class="amt">$249<small> a month</small></p>
+        <p>$0 down. 12-month minimum, then month to month.</p>
+        <ul>
+          <li>The full Booking-Ready Website</li>
+          <li>Hosting, security and backups included</li>
+          <li>Up to 1 hour of updates every month</li>
+          <li>Monthly report: visits and booking clicks</li>
+          <li>The site is yours after 24 months</li>
+        </ul>
+        <a class="btn btn-light" href="#contact">Book a 15-minute call</a>
+      </div>
+      <div class="price">
+        <h3>Pay once</h3>
+        <p class="amt"><small>from </small>$2,900</p>
+        <p class="muted">Half to start, half at launch. Yours from day one.</p>
+        <ul>
+          <li>Custom design, 5 to 7 pages</li>
+          <li>Booking and deposits built into your site</li>
+          <li>All copy written for you</li>
+          <li>Local search setup and analytics</li>
+          <li>Optional Care Plan: $199 a month for hosting, updates and reports</li>
+        </ul>
+        <a class="btn btn-line" href="#contact">Get a quote</a>
+      </div>
+    </div>
+    <p class="founding-line"><b>Founding partner pricing.</b> We're taking on our first few studios at a reduced rate in exchange for a case study and an honest review. Ask about it on the call.</p>
+
+    <div class="addons-head">
+      <h3>Growth add-ons</h3>
+      <p class="muted">Automations that work with the booking software you already have. Priced per project.</p>
+    </div>
+    <div class="addons">
+      <div class="addon"><h3>Fill cancelled slots</h3><p>When someone cancels, your waitlist gets a text with the open time.</p></div>
+      <div class="addon"><h3>More Google reviews</h3><p>A friendly review request goes out after each visit, automatically.</p></div>
+      <div class="addon"><h3>Win back past clients</h3><p>A personal note to clients who haven't booked in 90 days.</p></div>
+      <div class="addon"><h3>Service pages</h3><p>Extra pages for the treatments or styles you want to rank for locally.</p></div>
+    </div>
+
+    <div class="guarantee">
+      <svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 3l11 4v9c0 7-5 12-11 15C11 28 6 23 6 16V7l11-4Z"/><path d="M12 17l4 4 7-8"/></svg>
+      <p><b>The 21-day promise.</b> If your site isn't live within 21 days of receiving your materials, your first three months of hosting and updates are free.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div>
+      <h2>A small studio, on purpose.</h2>
+    </div>
+    <div>
+      <p>Kelvane Studio is run by Agustín Wazne, a writer and web designer who works with clients across the US. You'll talk to the person who writes your words and builds your site, not an account manager.</p>
+      <p>We work with a handful of studios at a time, so each project gets full attention and launches on schedule.</p>
+      <div class="facts">
+        <div><span>Based in</span><span>Buenos Aires, Argentina</span></div>
+        <div><span>Working hours</span><span>US Eastern business hours</span></div>
+        <div><span>Language</span><span>English and Spanish</span></div>
+        <div><span>Projects at a time</span><span>Two</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <h2>Questions</h2>
+    <div>
+      <details><summary>Do I need to change my booking software?</summary><p>No. We work with what you already use, including Boulevard, Vagaro, Mangomint, Mindbody, Square and Fresha. If your current setup can't take deposits, we'll show you the simplest way to turn them on.</p></details>
+      <details><summary>What do you need from me?</summary><p>A 45-minute interview, your logo, your current prices and photos of your space and team. If you don't have good photos, we'll suggest a local photographer.</p></details>
+      <details><summary>Who owns the website?</summary><p>Your domain is always yours. If you pay once, the site is yours from day one. On the monthly plan, it becomes fully yours after 24 months, or earlier if you pay the remaining balance.</p></details>
+      <details><summary>What's the difference between paying once and monthly?</summary><p>The website is the same. Paying once costs less over time. Paying monthly means $0 down, with hosting and updates included, so you can launch now and pay as the site brings in bookings.</p></details>
+      <details><summary>What about client data, consent forms and HIPAA?</summary><p>Client information, intake and consent forms stay inside your booking software, which handles compliance. Your website never stores medical records or ID documents.</p></details>
+      <details><summary>Can you work with my existing website?</summary><p>Usually we rebuild it, because it's faster and cheaper than patching an old design. We keep your domain and anything that already ranks well on Google.</p></details>
+      <details><summary>How do we pay?</summary><p>By bank transfer or card, in US dollars. Pay once in two parts, half to start and half at launch, or monthly with $0 down.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>See what your site could book.</h2>
+        <p>Send us your website and we'll reply within one business day with three specific things we'd change, whether or not we work together.</p>
+      </div>
+      <div class="contact">
+        <a class="btn btn-light" href="mailto:hello@kelvanestudio.com?subject=Website%20review">Email us your website</a>
+        <span class="mail">hello@kelvanestudio.com</span>
+        <button class="copy" type="button" id="copyBtn">Copy email address</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kelvane Studio, booking-ready websites for med spas and tattoo studios.</span>
+    <span>© 2026 Kelvane Studio</span>
+  </div>
+</footer>
+
+<script>
+/* header border on scroll */
+(function(){const h=document.getElementById('hdr');const f=()=>h.classList.toggle('scrolled',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();
+
+/* copy email */
+document.getElementById('copyBtn').addEventListener('click',async e=>{try{await navigator.clipboard.writeText('hello@kelvanestudio.com');e.target.textContent='Copied'}catch(_){e.target.textContent='hello@kelvanestudio.com'}});
+
+/* phone booking loop */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scenes=[...document.querySelectorAll('.scene')];
+  const bars=[...document.querySelectorAll('#pbar i')];
+  const pay=document.getElementById('pay');
+  let i=0;
+  function show(n){
+    scenes.forEach(s=>{s.classList.toggle('show',+s.dataset.s===n);s.querySelectorAll('[data-pick]').forEach(p=>p.classList.remove('pick'))});
+    bars.forEach((b,k)=>b.classList.toggle('on',k<=Math.min(n,3)));
+  }
+  if(reduce){show(3);return}
+  function step(){
+    show(i);
+    const cur=scenes[i];const pick=cur.querySelector('[data-pick]');
+    if(pick)setTimeout(()=>pick.classList.add('pick'),1100);
+    if(i===3)setTimeout(()=>pay.classList.add('press'),1300),setTimeout(()=>pay.classList.remove('press'),1550);
+    i=(i+1)%scenes.length;
+    setTimeout(step,i===0?3200:2200);
+  }
+  step();
+})();
+</script>
+</body>
+</html>

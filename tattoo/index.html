@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ironwren Tattoo — Tattoo studio demo by Kelvane Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#10233A;
+  --navy-2:#1A3150;
+  --bone:#EDE6D8;
+  --bone-2:#F6F1E7;
+  --red:#C8322B;
+  --red-2:#A92720;
+  --gold:#D9A441;
+  --mute:#9AA6B5;
+  --line:#2C4566;
+  --sans:"Archivo", system-ui, sans-serif;
+  --black:"Pirata One", Georgia, serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--bone);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+h1,h2,h3{margin:0;font-weight:900;letter-spacing:-.02em;line-height:.95}
+p{margin:0}
+.ribbon{background:var(--red);color:#fff;text-align:center;font-size:14px;padding:8px 16px}
+.ribbon a{color:#fff}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:4px;font:800 15px/1 var(--sans);padding:16px 24px;cursor:pointer;text-decoration:none;letter-spacing:.01em;transition:background .2s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-2)}
+.btn-bone{background:var(--bone);color:var(--navy)}
+.btn-ghost{box-shadow:inset 0 0 0 2px var(--bone);color:var(--bone)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px}
+.logo{font-family:var(--black);font-size:38px;text-decoration:none;color:var(--bone);line-height:1}
+.nav{display:flex;gap:28px;font-weight:600;font-size:15px}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--gold)}
+@media (max-width:860px){.nav{display:none}}
+
+/* hero */
+.hero{padding:40px 0 90px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.hero h1{font-size:clamp(64px,10vw,168px);text-transform:none}
+.hero h1 em{font-style:normal;font-family:var(--black);font-weight:400;color:var(--red);font-size:1.08em}
+.hero p.lede{font-size:20px;max-width:34ch;margin:28px 0 32px;color:#D5CEC0}
+.hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;font-size:15px;color:var(--mute)}
+.hero .meta b{color:var(--bone);display:block;font-size:22px}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
+
+/* booking */
+.book{background:var(--bone-2);color:var(--navy);border-radius:10px;padding:26px;min-height:560px;display:flex;flex-direction:column;box-shadow:12px 12px 0 var(--red)}
+.book-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.book-top strong{font-weight:900;font-size:24px;letter-spacing:-.02em}
+.pips{display:flex;gap:5px}
+.pips i{width:20px;height:5px;background:#D6CDBC;border-radius:2px}
+.pips i.on{background:var(--red)}
+.step{display:none;flex:1;flex-direction:column}
+.step.active{display:flex}
+.q{font-size:14.5px;color:#4A5568;margin-bottom:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.list{display:flex;flex-direction:column;gap:9px}
+.opt{appearance:none;text-align:left;border:2px solid #D6CDBC;background:#fff;border-radius:6px;padding:13px 14px;font:600 15.5px/1.3 var(--sans);color:var(--navy);cursor:pointer}
+.opt small{display:block;font-weight:400;font-size:13px;color:#4A5568;margin-top:3px}
+.opt:hover{border-color:var(--navy)}
+.opt[aria-pressed="true"]{border-color:var(--red);background:#FBEAE8}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.days{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.day{flex:none;border:2px solid #D6CDBC;background:#fff;border-radius:6px;padding:8px 12px;text-align:center;font:600 13px/1.3 var(--sans);color:var(--navy);cursor:pointer}
+.day b{display:block;font-size:20px;font-weight:900}
+.day[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.time{border:2px solid #D6CDBC;background:#fff;border-radius:6px;padding:10px 0;font:600 14px var(--sans);color:var(--navy);cursor:pointer}
+.time[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.time:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+label.fl{font-size:14px;font-weight:600;display:block;margin:2px 0 6px}
+textarea,select{width:100%;border:2px solid #D6CDBC;border-radius:6px;padding:11px 12px;font:400 15px/1.4 var(--sans);color:var(--navy);background:#fff}
+textarea{min-height:96px;resize:vertical}
+.sum{background:#fff;border:2px solid #D6CDBC;border-radius:6px;padding:14px;display:grid;gap:7px;font-size:15px}
+.sum .row span:first-child{color:#4A5568}
+.policy{font-size:13.5px;color:#4A5568;margin-top:12px;border-left:4px solid var(--red);padding-left:10px}
+.paybox{margin-top:10px;font-size:13.5px;border:2px dashed #C9BEA9;border-radius:6px;padding:10px 12px;color:#4A5568}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px}
+.back{background:none;border:0;font:600 15px var(--sans);color:#4A5568;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.back[hidden]{display:none}
+.done h3{font-size:34px;margin:10px 0}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}.times{grid-template-columns:repeat(2,1fr)}.book{box-shadow:7px 7px 0 var(--red)}}
+
+/* artists */
+section.band{padding:clamp(80px,10vw,130px) 0;border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.head h2{font-size:clamp(48px,7vw,104px)}
+.head p{max-width:40ch;color:#D5CEC0}
+.artists{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.artist{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--navy-2)}
+.flash{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.flash div{background:var(--bone-2);aspect-ratio:1;display:grid;place-items:center}
+.flash svg{width:70%;height:70%}
+.artist .info{padding:22px}
+.artist h3{font-size:30px;margin-bottom:6px}
+.artist .style{color:var(--gold);font-weight:600;font-size:15px;margin-bottom:12px}
+.artist p{color:#C9C2B4;font-size:15.5px}
+.artist .rate{display:flex;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;color:var(--mute)}
+.artist .rate b{color:var(--bone)}
+@media (max-width:900px){.artists{grid-template-columns:1fr}}
+
+/* sizes */
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--bone)}
+.sizes div{padding:26px 22px 8px 0;border-right:1px solid var(--line)}
+.sizes div + div{padding-left:22px}
+.sizes div:last-child{border-right:0}
+.sizes h3{font-size:26px;margin-bottom:10px}
+.sizes .price{font-size:40px;font-weight:900;letter-spacing:-.03em}
+.sizes .dep{color:var(--gold);font-weight:600;font-size:15px;margin:4px 0 12px}
+.sizes p{color:#C9C2B4;font-size:15px}
+@media (max-width:900px){.sizes{grid-template-columns:1fr 1fr}.sizes div{border-right:0;border-bottom:1px solid var(--line);padding:22px 0}.sizes div + div{padding-left:0}}
+
+/* policy band */
+.red{background:var(--red);color:#fff;border-bottom:0}
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.policy-grid div{border-top:2px solid #fff;padding-top:16px}
+.policy-grid h3{font-size:28px;margin-bottom:10px}
+@media (max-width:860px){.policy-grid{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 2fr;gap:56px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:2px solid var(--bone)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:800;font-size:21px;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red);font-size:28px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:#C9C2B4;max-width:62ch}
+@media (max-width:860px){.faq{grid-template-columns:1fr;gap:20px}}
+
+footer{padding:60px 0 80px;color:var(--mute);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .logo{font-size:56px}
+footer a{color:var(--bone)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ribbon">Concept site for a fictional tattoo studio, designed by Kelvane Studio. Bookings here are not real. <a href="/">See Kelvane Studio</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Ironwren</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#artists">Artists</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#policy">Deposits</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-red" href="#book">Book a session</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Custom work, <em>booked</em> in two minutes.</h1>
+      <p class="lede">Three artists, one private studio on East Cesar Chavez in Austin. Pick your artist, choose a session and hold your date with a deposit. No DMs, no waiting.</p>
+      <a class="btn btn-ghost" href="#artists">Meet the artists</a>
+      <div class="meta">
+        <span><b>3</b>resident artists</span>
+        <span><b>$50+</b>deposit holds your date</span>
+        <span><b>48 h</b>free rescheduling</span>
+      </div>
+    </div>
+
+    <div class="book" id="book" aria-live="polite">
+      <div class="book-top"><strong id="stitle">Book a session</strong><div class="pips" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+
+      <div class="step active" data-step="1"><p class="q">Step 1 of 5. Who do you want to work with?</p><div class="list" id="artistList"></div></div>
+      <div class="step" data-step="2"><p class="q">Step 2 of 5. How big is the piece?</p><div class="grid2" id="sizeList"></div></div>
+      <div class="step" data-step="3"><p class="q">Step 3 of 5. Pick a day and time.</p><div class="days" id="days"></div><div class="times" id="times"></div></div>
+      <div class="step" data-step="4"><p class="q">Step 4 of 5. Tell us about your idea.</p>
+        <label class="fl" for="idea">Idea, placement and any references</label>
+        <textarea id="idea" placeholder="A fine-line swallow on the inner forearm, about 3 inches, black and grey."></textarea>
+        <label class="fl" for="first" style="margin-top:12px">Is this your first tattoo?</label>
+        <select id="first"><option>No</option><option>Yes</option></select>
+      </div>
+      <div class="step" data-step="5"><p class="q">Step 5 of 5. Review and hold your date.</p><div class="sum" id="sum"></div>
+        <p class="policy">The deposit is non-refundable and comes off the final price. Reschedule free up to 48 hours before.</p>
+        <p class="paybox">In the live site, this step opens the studio's own card checkout (Square or Stripe). Nothing is charged in this demo.</p>
+      </div>
+      <div class="step done" data-step="6">
+        <h3>You're booked.</h3>
+        <p id="doneText" style="color:#4A5568"></p>
+        <p style="color:#4A5568;margin-top:8px">Your artist will reply within 48 hours with a first sketch or questions.</p>
+        <button class="btn btn-red" id="again" type="button" style="margin-top:20px;align-self:flex-start">Book another session</button>
+      </div>
+      <div class="foot" id="foot"><button class="back" id="back" type="button" hidden>Back</button><span></span><button class="btn btn-red" id="next" type="button" disabled>Continue</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="artists">
+  <div class="wrap">
+    <div class="head"><h2>The artists</h2><p>Every artist books directly through this page, with their own calendar and deposit rules.</p></div>
+    <div class="artists">
+      <article class="artist">
+        <div class="flash" aria-hidden="true">
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="3" stroke-linejoin="round"><path d="M50 8v58"/><path d="M38 66h24"/><path d="M50 66v24"/><path d="M44 90h12"/><path d="M50 8l-6 10h12z" fill="#C8322B"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="3" stroke-linecap="round"><path d="M14 56c14-4 26-14 34-30 4 14 14 22 26 24-12 2-22 10-26 24-6-10-18-16-34-18z"/><circle cx="58" cy="40" r="2.5" fill="#10233A"/><path d="M74 50l14-6M74 52l12 4" stroke="#C8322B"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="3"><circle cx="50" cy="44" r="18"/><path d="M50 26c6 6 6 30 0 36M50 26c-6 6-6 30 0 36M32 44h36"/><path d="M50 62v26M40 78c4-6 16-6 20 0" stroke="#C8322B"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="3" stroke-linecap="round"><path d="M64 18a32 32 0 1 0 18 52 26 26 0 1 1-18-52z" fill="#D9A441" fill-opacity=".35"/><path d="M30 22l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" stroke="#C8322B"/></svg></div>
+        </div>
+        <div class="info"><h3>Mara Quill</h3><p class="style">Traditional and neo-traditional</p><p>Bold lines and saturated color that hold up for decades. Loves daggers, swallows and anything with a moon.</p><p class="rate"><span>Rate</span><b>$180 / hour</b></p></div>
+      </article>
+      <article class="artist">
+        <div class="flash" aria-hidden="true">
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="1.6" stroke-linecap="round"><path d="M50 88V40"/><path d="M50 60c-10-2-16-10-16-20 10 0 16 8 16 20zM50 50c10-2 16-10 16-20-10 0-16 8-16 20z"/><path d="M50 40c-4-8-4-18 0-26 4 8 4 18 0 26z"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="1.6"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="10"/><path d="M20 50h60M50 20v60"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="1.6" stroke-linecap="round"><path d="M20 70c10-30 50-30 60 0"/><path d="M30 70c8-18 32-18 40 0"/><path d="M14 74h72"/><circle cx="50" cy="36" r="6"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="1.6" stroke-linecap="round"><path d="M30 80c0-20 40-20 40-40S50 16 40 26"/><path d="M40 26c-4 4-2 10 4 10" /></svg></div>
+        </div>
+        <div class="info"><h3>Ilse Navarro</h3><p class="style">Fine line and botanical</p><p>Delicate single-needle work, small florals and geometric pieces. Great for first tattoos.</p><p class="rate"><span>Rate</span><b>$160 / hour</b></p></div>
+      </article>
+      <article class="artist">
+        <div class="flash" aria-hidden="true">
+          <div><svg viewBox="0 0 100 100" fill="#10233A"><path d="M50 14c18 0 30 14 30 30 0 12-6 18-10 22v12H30V66c-4-4-10-10-10-22 0-16 12-30 30-30z"/><circle cx="38" cy="46" r="7" fill="#F6F1E7"/><circle cx="62" cy="46" r="7" fill="#F6F1E7"/><path d="M40 78v8M50 78v8M60 78v8" stroke="#F6F1E7" stroke-width="3"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="5" stroke-linecap="round"><path d="M16 50c10-20 24-20 34 0s24 20 34 0"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="#10233A"><path d="M50 10l34 80H16z"/><path d="M50 40l14 34H36z" fill="#F6F1E7"/></svg></div>
+          <div><svg viewBox="0 0 100 100" fill="none" stroke="#10233A" stroke-width="3"><path d="M20 50c10-16 50-16 60 0-10 16-50 16-60 0z"/><circle cx="50" cy="50" r="9" fill="#10233A"/></svg></div>
+        </div>
+        <div class="info"><h3>Dez Oyelaran</h3><p class="style">Blackwork and illustrative</p><p>Heavy black, strong shapes and large-scale pieces. Books full-day sessions for sleeves and back work.</p><p class="rate"><span>Rate</span><b>$200 / hour</b></p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="pricing">
+  <div class="wrap">
+    <div class="head"><h2>Session pricing</h2><p>Starting prices. Your artist confirms the final quote after seeing your idea, before you're charged anything beyond the deposit.</p></div>
+    <div class="sizes">
+      <div><h3>Small</h3><p class="price">from $150</p><p class="dep">$50 deposit</p><p>Up to 2 inches. Fine line, script, small flash.</p></div>
+      <div><h3>Medium</h3><p class="price">from $350</p><p class="dep">$100 deposit</p><p>Palm-sized, one session of 2 to 3 hours.</p></div>
+      <div><h3>Large</h3><p class="price">from $700</p><p class="dep">$150 deposit</p><p>Half sleeve, thigh or back pieces. Half-day session.</p></div>
+      <div><h3>Full day</h3><p class="price">from $1,200</p><p class="dep">$200 deposit</p><p>Six-hour session for sleeves and large custom work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band red" id="policy">
+  <div class="wrap">
+    <div class="head"><h2>How deposits work</h2></div>
+    <div class="policy-grid">
+      <div><h3>It holds your date</h3><p>Your deposit reserves the artist's time and pays for the design work done before your session.</p></div>
+      <div><h3>It comes off the price</h3><p>The full deposit is taken off your final total on the day. It's never an extra charge.</p></div>
+      <div><h3>Plans change</h3><p>Reschedule free up to 48 hours before. Later changes or no-shows keep the deposit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap faq">
+    <h2 style="font-size:clamp(44px,6vw,80px)">Questions</h2>
+    <div>
+      <details><summary>Do you take walk-ins?</summary><p>On Saturdays from 12 to 6 pm, for small flash pieces only. Everything else is by appointment.</p></details>
+      <details><summary>How old do I need to be?</summary><p>18 or older, with a valid photo ID on the day of your session. No exceptions.</p></details>
+      <details><summary>When will I see my design?</summary><p>Your artist sends a first sketch or questions within 48 hours of booking, and you'll see the final design at your session.</p></details>
+      <details><summary>Can I bring a friend?</summary><p>One guest is welcome for sessions up to three hours. For full-day sessions, please come alone.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="logo">Ironwren</span><p style="margin-top:12px">East Cesar Chavez, Austin, TX</p></div>
+    <div style="max-width:42ch;align-self:end"><p>Ironwren Tattoo is a fictional studio. Names, artists, prices and designs on this page are examples.</p><p style="margin-top:8px">Design and booking system by <a href="/">Kelvane Studio</a></p></div>
+  </div>
+</footer>
+
+<script>
+const ARTISTS=[["Mara Quill","Traditional and neo-traditional, $180/h"],["Ilse Navarro","Fine line and botanical, $160/h"],["Dez Oyelaran","Blackwork and illustrative, $200/h"],["First available","Earliest opening with any artist"]];
+const SIZES=[["Small","Up to 2 in, from $150",50],["Medium","Palm-sized, from $350",100],["Large","Half-day, from $700",150],["Full day","Six hours, from $1,200",200]];
+const S={step:1,artist:null,size:null,day:null,time:null};
+const $=q=>document.querySelector(q);
+const titles={1:"Book a session",2:"Choose a size",3:"Choose a time",4:"Your idea",5:"Review",6:"Confirmed"};
+function opt(html,on,fn){const b=document.createElement('button');b.type='button';b.className='opt';b.innerHTML=html;b.setAttribute('aria-pressed',on?'true':'false');b.onclick=fn;return b}
+function rArtists(){const l=$('#artistList');l.innerHTML='';ARTISTS.forEach((a,i)=>l.appendChild(opt(`${a[0]}<small>${a[1]}</small>`,S.artist===i,()=>{S.artist=i;rArtists();sync()})))}
+function rSizes(){const l=$('#sizeList');l.innerHTML='';SIZES.forEach((s,i)=>l.appendChild(opt(`${s[0]}<small>${s[1]}<br>$${s[2]} deposit</small>`,S.size===i,()=>{S.size=i;rSizes();sync()})))}
+function days(){const o=[],n=new Date();for(let k=1;o.length<7;k++){const d=new Date(n);d.setDate(n.getDate()+k);if(d.getDay()===0||d.getDay()===1)continue;o.push(d)}return o}
+function rDays(){const el=$('#days');el.innerHTML='';days().forEach(d=>{const key=d.toDateString();const b=document.createElement('button');b.type='button';b.className='day';b.innerHTML=`${d.toLocaleDateString('en-US',{weekday:'short'})}<b>${d.getDate()}</b>`;b.setAttribute('aria-pressed',S.day===key?'true':'false');b.onclick=()=>{S.day=key;S.time=null;rDays();sync()};el.appendChild(b)});rTimes()}
+function rTimes(){const el=$('#times');el.innerHTML='';if(!S.day){el.innerHTML='<p class="q" style="grid-column:1/-1">Choose a day to see open times.</p>';return}
+  const full=S.size===3;const slots=full?['11:00 am']:['11:00 am','12:30 pm','2:00 pm','3:30 pm','5:00 pm','6:30 pm'];const seed=new Date(S.day).getDate();
+  slots.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='time';b.textContent=t;if(!full&&(i*5+seed)%3===0)b.disabled=true;b.setAttribute('aria-pressed',S.time===t?'true':'false');b.onclick=()=>{S.time=t;rTimes();sync()};el.appendChild(b)})}
+function fd(){return new Date(S.day).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}
+function rSum(){const s=SIZES[S.size];$('#sum').innerHTML=`<div class="row"><span>Artist</span><span>${ARTISTS[S.artist][0]}</span></div><div class="row"><span>Session</span><span>${s[0]}</span></div><div class="row"><span>When</span><span>${fd()}, ${S.time}</span></div><div class="row"><span><b style="color:#10233A">Due today</b></span><span><b>$${s[2]} deposit</b></span></div>`}
+function sync(){const ok={1:S.artist!==null,2:S.size!==null,3:!!S.time,4:true,5:true}[S.step];$('#next').disabled=!ok;$('#next').textContent=S.step===5?`Pay $${SIZES[S.size][2]} deposit and book`:'Continue'}
+function go(n){S.step=n;document.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',+s.dataset.step===n));document.querySelectorAll('.pips i').forEach((p,i)=>p.classList.toggle('on',i<Math.min(n,5)));$('#stitle').textContent=titles[n];$('#back').hidden=n===1||n===6;$('#foot').style.display=n===6?'none':'flex';
+  if(n===2)rSizes();if(n===3)rDays();if(n===5)rSum();if(n===6)$('#doneText').textContent=`${SIZES[S.size][0]} session with ${ARTISTS[S.artist][0]}, ${fd()} at ${S.time}. Your $${SIZES[S.size][2]} deposit comes off the final price.`;sync()}
+$('#next').onclick=()=>go(S.step+1);$('#back').onclick=()=>go(S.step-1);
+$('#again').onclick=()=>{Object.assign(S,{artist:null,size:null,day:null,time:null});$('#idea').value='';rArtists();go(1)};
+rArtists();sync();
+</script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oriel Aesthetics — Med spa demo by Kelvane Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --porcelain:#F2F4F1;
+  --paper:#FAFBF9;
+  --spruce:#16312D;
+  --spruce-2:#24453F;
+  --sage:#9FB5AA;
+  --sage-soft:#DCE5E0;
+  --lilac:#D6D0EC;
+  --stone:#5E6864;
+  --line:#CBD5D0;
+  --serif:"Young Serif", Georgia, serif;
+  --sans:"Hanken Grotesk", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--porcelain);color:var(--spruce);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.015em}
+p{margin:0}
+.muted{color:var(--stone)}
+
+/* film grain over everything, very light */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;font:600 15px/1 var(--sans);padding:15px 24px;cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn-dark{background:var(--spruce);color:#fff}
+.btn-dark:hover{background:var(--spruce-2)}
+.btn-light{background:var(--paper);color:var(--spruce)}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* top bar */
+.topbar{position:absolute;top:0;left:0;right:0;z-index:10}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{font-family:var(--serif);font-size:28px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:28px;height:28px}
+.demo-tag{font-size:13.5px;color:var(--stone);max-width:30ch;text-align:right;line-height:1.35}
+
+/* HERO: full-bleed art-directed light field */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
+  background:
+    radial-gradient(60% 70% at 78% 30%, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 60%),
+    radial-gradient(45% 55% at 92% 85%, #CFC8EA 0%, rgba(207,200,234,0) 70%),
+    radial-gradient(70% 80% at 10% 100%, #C9D8D0 0%, rgba(201,216,208,0) 70%),
+    linear-gradient(160deg,#EEF2EF 0%,#E3E9E5 100%)}
+.contours{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.contours path{fill:none;stroke:#9FB5AA;stroke-width:1}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end;padding-top:120px;padding-bottom:56px;width:100%}
+.hero h1{font-size:clamp(52px,8.4vw,132px);line-height:.95;max-width:11ch}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.hero h1 .ln span{display:block;transform:translateY(105%);filter:blur(8px);opacity:0;animation:rise 1.1s cubic-bezier(.2,.7,.1,1) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
+.hero h1 .ln:nth-child(3) span{animation-delay:.24s}
+@keyframes rise{to{transform:none;filter:none;opacity:1}}
+.hero-sub{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-end;margin-top:40px;opacity:0;animation:fade .8s .7s forwards}
+.hero-sub p{font-size:19px;max-width:34ch;color:var(--spruce-2)}
+@keyframes fade{to{opacity:1}}
+
+/* live widget (corner) */
+.live{display:flex;gap:14px;align-items:center;background:rgba(250,251,249,.75);backdrop-filter:blur(12px);border:1px solid rgba(22,49,45,.12);border-radius:16px;padding:12px 16px;font-size:14.5px;line-height:1.35;max-width:300px}
+.pulse{width:10px;height:10px;border-radius:50%;background:#3E8E6E;flex:none;box-shadow:0 0 0 0 rgba(62,142,110,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(62,142,110,0)}100%{box-shadow:0 0 0 0 rgba(62,142,110,0)}}
+.live b{font-weight:600}
+
+/* booking card */
+.booker{background:var(--paper);border-radius:28px;box-shadow:0 40px 80px -40px rgba(22,49,45,.45),0 0 0 1px rgba(22,49,45,.08);padding:26px;min-height:520px;display:flex;flex-direction:column;opacity:0;transform:translateY(16px);animation:card .9s .45s cubic-bezier(.2,.7,.1,1) forwards}
+@keyframes card{to{opacity:1;transform:none}}
+.booker-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.booker-top strong{font-family:var(--serif);font-weight:400;font-size:24px}
+.steps{display:flex;gap:6px}
+.steps i{width:22px;height:4px;border-radius:4px;background:var(--sage-soft);transition:background .3s}
+.steps i.on{background:var(--spruce)}
+.step{display:none;flex:1;flex-direction:column}
+.step.active{display:flex;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q{font-size:15px;color:var(--stone);margin-bottom:14px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.chip{appearance:none;border:1.5px solid var(--line);background:var(--porcelain);border-radius:14px;padding:14px 15px;text-align:left;font:500 15.5px/1.3 var(--sans);color:var(--spruce);cursor:pointer;transition:border-color .15s,background .15s}
+.chip small{display:block;font-weight:400;font-size:13px;color:var(--stone);margin-top:3px}
+.chip:hover{border-color:var(--sage)}
+.chip[aria-pressed="true"]{border-color:var(--spruce);background:var(--sage-soft)}
+.list{display:flex;flex-direction:column;gap:9px}
+.row{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.price{font-weight:600;white-space:nowrap}
+.slots-day{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.day{flex:none;border:1.5px solid var(--line);background:var(--paper);border-radius:14px;padding:9px 13px;text-align:center;cursor:pointer;font:500 13.5px/1.3 var(--sans);color:var(--spruce)}
+.day b{display:block;font-family:var(--serif);font-weight:400;font-size:21px}
+.day[aria-pressed="true"]{background:var(--spruce);color:#fff;border-color:var(--spruce)}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.time{border:1.5px solid var(--line);background:var(--porcelain);border-radius:8px;padding:10px 0;font:500 14.5px var(--sans);color:var(--spruce);cursor:pointer}
+.time[aria-pressed="true"]{background:var(--spruce);color:#fff;border-color:var(--spruce)}
+.time:disabled{text-decoration:line-through;opacity:.4;cursor:not-allowed}
+.summary{background:var(--porcelain);border-radius:14px;padding:16px;display:grid;gap:7px;font-size:15px}
+.summary .row span:first-child{color:var(--stone)}
+.policy{font-size:13.5px;color:var(--stone);margin-top:14px;padding-left:12px;border-left:3px solid var(--lilac)}
+.paybox{margin-top:12px;border:1.5px dashed var(--sage);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--spruce-2)}
+.booker-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:20px;gap:12px}
+.back{background:none;border:0;font:500 15px var(--sans);color:var(--stone);cursor:pointer;padding:8px 0;text-decoration:underline;text-underline-offset:4px}
+.back[hidden]{display:none}
+.done{align-items:flex-start;gap:14px}
+.tick{width:56px;height:56px;border-radius:50%;background:var(--sage-soft);display:grid;place-items:center}
+.tick path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .6s .1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr;padding-top:110px}.hero{align-items:flex-start}.demo-tag{display:none}}
+@media (max-width:520px){.booker{padding:20px;border-radius:22px}.chips{grid-template-columns:1fr}.times{grid-template-columns:repeat(2,1fr)}}
+
+/* marquee band */
+.marquee{background:var(--spruce);color:#E5EDE9;overflow:hidden;white-space:nowrap;padding:26px 0;border-block:1px solid #2C4B45}
+.marquee .track{display:inline-flex;gap:56px;animation:slide 40s linear infinite;font-family:var(--serif);font-size:clamp(36px,5vw,72px);line-height:1}
+.marquee .track span{display:inline-flex;align-items:center;gap:56px}
+.marquee svg{width:28px;height:28px;flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* section heads: Swiss meta row */
+section.band{padding:clamp(80px,10vw,140px) 0}
+.meta{display:grid;grid-template-columns:1fr 2fr 1fr;gap:24px;border-top:1px solid currentColor;padding-top:14px;font-size:14.5px;margin-bottom:clamp(40px,6vw,72px)}
+.meta span:last-child{text-align:right}
+.big{font-size:clamp(40px,5.4vw,84px);line-height:1;max-width:16ch;margin-bottom:clamp(40px,6vw,72px)}
+@media (max-width:700px){.meta{grid-template-columns:1fr 1fr}.meta span:nth-child(2){display:none}}
+
+/* treatments as table rows */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:10px 18px;font:500 15px var(--sans);color:var(--spruce);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--spruce);border-color:var(--spruce);color:#fff}
+.trows{border-top:1.5px solid var(--spruce)}
+.trow{display:grid;grid-template-columns:2fr 2.4fr 1fr 1fr;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.trow h3{font-size:clamp(24px,2.4vw,34px)}
+.trow .what{color:var(--stone);font-size:16px}
+.trow .dur{font-size:15px;color:var(--stone)}
+.trow .cost{text-align:right;font-weight:600;font-size:17px}
+.trow:hover{background:linear-gradient(90deg,var(--sage-soft),transparent 80%);padding-left:16px}
+@media (max-width:800px){.trow{grid-template-columns:1fr auto}.trow .what{grid-column:1/-1;order:3}.trow .dur{display:none}}
+
+/* clinicians: dark, list not cards */
+.dark{background:var(--spruce);color:#E5EDE9}
+.dark .muted{color:#9FB5AA}
+.people{border-top:1px solid #3A5A54}
+.person{display:grid;grid-template-columns:110px 2fr 2fr 1.2fr;gap:28px;align-items:center;padding:30px 0;border-bottom:1px solid #3A5A54}
+.mono{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:34px;color:var(--spruce)}
+.person h3{font-size:clamp(28px,2.8vw,40px);color:#fff}
+.person .yrs{text-align:right;font-family:var(--serif);font-size:44px;color:#fff;line-height:1}
+.person .yrs small{display:block;font-family:var(--sans);font-size:13.5px;color:#9FB5AA;margin-top:6px}
+@media (max-width:860px){.person{grid-template-columns:72px 1fr}.mono{width:64px;height:64px;font-size:24px}.person .yrs,.person .desc{grid-column:2}.person .yrs{text-align:left}}
+
+.director{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:end;margin-top:clamp(56px,8vw,96px)}
+.director blockquote{margin:0;font-family:var(--serif);font-size:clamp(26px,2.8vw,40px);line-height:1.25;color:#fff}
+.sig{width:100%;max-width:300px}
+.sig path{fill:none;stroke:#D6D0EC;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1)}
+.sig.drawn path{stroke-dashoffset:0}
+@media (max-width:860px){.director{grid-template-columns:1fr}}
+
+/* results */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.quote{margin:0;border-top:1.5px solid var(--spruce);padding-top:22px}
+.quote blockquote{margin:0 0 20px;font-family:var(--serif);font-size:clamp(21px,1.9vw,26px);line-height:1.35}
+.quote figcaption{font-size:14.5px;color:var(--stone)}
+.quote figcaption b{color:var(--spruce);font-weight:600}
+.stat{display:flex;gap:clamp(32px,6vw,96px);flex-wrap:wrap;margin-bottom:clamp(48px,6vw,80px)}
+.stat div{font-size:15px;color:var(--stone);max-width:20ch}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(56px,7vw,104px);line-height:1;color:var(--spruce);margin-bottom:8px}
+.disclaimer{font-size:13.5px;color:var(--stone);margin-top:40px}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+
+/* deposit: lilac block */
+.lilac{background:var(--lilac)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.how div{border-top:1.5px solid var(--spruce);padding-top:18px}
+.how .n{font-family:var(--serif);font-size:56px;line-height:1;display:block;margin-bottom:18px}
+.how h3{font-size:26px;margin-bottom:8px}
+.how p{color:var(--spruce-2)}
+@media (max-width:760px){.how{grid-template-columns:1fr}}
+
+/* membership */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.plan{border-radius:28px;padding:clamp(28px,3.4vw,44px);background:var(--paper);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column}
+.plan.feature{background:var(--spruce);color:#E5EDE9;box-shadow:none}
+.plan h3{font-size:30px}
+.plan .amount{font-family:var(--serif);font-size:clamp(64px,7vw,96px);line-height:1;margin:22px 0 10px}
+.plan .amount small{font-family:var(--sans);font-size:17px}
+.plan ul{margin:24px 0 32px;padding:0;list-style:none;border-top:1px solid currentColor}
+.plan li{padding:12px 0;border-bottom:1px solid rgba(127,140,135,.35)}
+.plan .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+
+/* faq */
+.faqgrid{display:grid;grid-template-columns:1fr 2fr;gap:56px}
+details{border-bottom:1px solid var(--line);padding:24px 0}
+details:first-child{border-top:1.5px solid var(--spruce)}
+summary{cursor:pointer;font-family:var(--serif);font-size:clamp(21px,2vw,26px);list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-size:28px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--stone);max-width:62ch}
+@media (max-width:860px){.faqgrid{grid-template-columns:1fr;gap:24px}}
+
+/* footer with giant wordmark */
+footer{background:var(--spruce);color:#C9D8D1;padding:clamp(72px,9vw,120px) 0 120px;font-size:15px;overflow:hidden}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+.foot h3{color:#fff;font-size:clamp(32px,3.6vw,52px);line-height:1.05;margin-bottom:24px;max-width:14ch}
+.foot .lbl{color:#fff;font-weight:600;margin-bottom:8px}
+.wordmark{font-family:var(--serif);font-size:clamp(120px,27vw,420px);line-height:.8;color:#24453F;margin-top:72px;letter-spacing:-.04em;white-space:nowrap}
+.small{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:#93AAA1;margin-top:28px}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+
+/* floating pill nav */
+.pill{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:50;display:flex;align-items:center;gap:4px;background:rgba(22,49,45,.92);backdrop-filter:blur(14px);color:#E5EDE9;border-radius:999px;padding:6px 6px 6px 18px;box-shadow:0 20px 40px -16px rgba(0,0,0,.45);transition:transform .45s cubic-bezier(.2,.7,.1,1);max-width:calc(100vw - 24px)}
+.pill.show{transform:translate(-50%,0)}
+.pill a.lnk{text-decoration:none;font-size:14.5px;padding:10px 12px;border-radius:999px;white-space:nowrap}
+.pill a.lnk:hover{background:rgba(255,255,255,.1)}
+.pill .btn{padding:12px 18px;font-size:14.5px}
+@media (max-width:700px){.pill a.lnk{display:none}.pill{padding:6px;left:12px;right:12px;transform:translateY(140%)}.pill.show{transform:none}.pill .btn{width:100%}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 .ln span,.hero-sub,.booker{transform:none;filter:none;opacity:1}
+  .sig path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Oriel Aesthetics home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 4.8c-3.9 3.4-3.9 15 0 18.4 3.9-3.4 3.9-15 0-18.4Z" fill="currentColor"/></svg>
+      Oriel
+    </a>
+    <p class="demo-tag">Concept site for a fictional clinic, designed by <a href="/" style="color:inherit">Kelvane Studio</a>. Bookings here are not real.</p>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="contours"></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span class="ln"><span>Look like</span></span><span class="ln"><span>yourself on</span></span><span class="ln"><span>a good day.</span></span></h1>
+      <div class="hero-sub">
+        <p>Injectables, skin and laser treatments in Charleston, planned and performed by licensed clinicians.</p>
+        <div class="live" aria-live="off"><span class="pulse" aria-hidden="true"></span><span>Next opening <b id="nextOpen">today, 2:30 pm</b><br>with Jess Moreland, RN</span></div>
+      </div>
+    </div>
+
+    <div class="booker" id="book" aria-live="polite">
+      <div class="booker-top">
+        <strong id="stepTitle">Book a visit</strong>
+        <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="step active" data-step="1"><p class="q">Step 1 of 5. What would you like to work on?</p><div class="chips" id="concerns"></div></div>
+      <div class="step" data-step="2"><p class="q">Step 2 of 5. Choose a treatment, or start with a free consultation.</p><div class="list" id="treatList"></div></div>
+      <div class="step" data-step="3"><p class="q">Step 3 of 5. Who would you like to see?</p><div class="list" id="provList"></div></div>
+      <div class="step" data-step="4"><p class="q">Step 4 of 5. Pick a day and time.</p><div class="slots-day" id="days"></div><div class="times" id="times"></div></div>
+      <div class="step" data-step="5"><p class="q">Step 5 of 5. Review and hold your spot.</p><div class="summary" id="summary"></div>
+        <p class="policy">The deposit comes off your bill on the day. Cancel or reschedule up to 24 hours before for a full refund.</p>
+        <div class="paybox">In the live site this step opens the clinic's card form. Nothing is charged in this demo.</div></div>
+      <div class="step done" data-step="6">
+        <div class="tick"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M6 13.5l4.5 4.5L20 8.5" fill="none" stroke="#16312D" stroke-width="2.2"/></svg></div>
+        <h3 style="font-size:28px">You're booked.</h3>
+        <p class="muted" id="doneText"></p>
+        <p class="muted">We'll text a reminder 48 hours and 2 hours before, with a link to reschedule.</p>
+        <button class="btn btn-ghost" id="restart" type="button">Book another visit</button>
+      </div>
+      <div class="booker-foot" id="foot"><button class="back" id="back" type="button" hidden>Back</button><span></span><button class="btn btn-dark" id="next" type="button" disabled>Continue</button></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section class="band" id="treatments">
+  <div class="wrap">
+    <div class="meta"><span>Treatments</span><span>Prices shown before you book. Nothing is added without your agreement.</span><span>16 treatments</span></div>
+    <h2 class="big">Every price, on the page.</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="trows" id="trows" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="band dark" id="clinicians">
+  <div class="wrap">
+    <div class="meta"><span>Clinicians</span><span>The person who plans your treatment is the person who performs it.</span><span>3 licensed providers</span></div>
+    <h2 class="big" style="color:#fff">No sales consultants. Only clinicians.</h2>
+    <div class="people">
+      <div class="person"><div class="mono" style="background:#D6D0EC">NH</div><div><h3>Dr. Naomi Hale</h3><p class="muted">Medical director, board-certified dermatologist</p></div><p class="desc muted">Reviews every new treatment plan. Leads laser and energy-device treatments.</p><p class="yrs">14<small>years in practice</small></p></div>
+      <div class="person"><div class="mono" style="background:#DCE5E0">JM</div><div><h3>Jess Moreland, RN</h3><p class="muted">Lead nurse injector</p></div><p class="desc muted">Lips, cheeks and facial balancing, with a light hand by default.</p><p class="yrs">9,000<small>injectable visits</small></p></div>
+      <div class="person"><div class="mono" style="background:#9FB5AA">AL</div><div><h3>Andre Lowell, NP</h3><p class="muted">Nurse practitioner</p></div><p class="desc muted">Microneedling and peels, with a focus on treating darker skin tones safely.</p><p class="yrs">8<small>years in aesthetics</small></p></div>
+    </div>
+    <div class="director">
+      <blockquote>“If a friend can tell exactly what you had done, we did too much. Good work looks like a good night's sleep.”</blockquote>
+      <div>
+        <svg class="sig" id="sig" viewBox="0 0 320 110" aria-label="Signature of Dr. Naomi Hale"><path d="M14 74c18-40 26-58 30-52s-10 54-6 56 20-48 34-50 2 44 10 44 12-24 22-26-4 22 4 22 14-18 22-30c6 14-2 30 8 30s12-22 22-24c-4 12-6 24 4 22s18-30 28-44c-6 26-14 46-6 46s20-14 30-20c-12 2-14 14-4 14s22-8 52-18"/></svg>
+        <p class="muted" style="margin-top:8px">Dr. Naomi Hale, medical director</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="results">
+  <div class="wrap">
+    <div class="meta"><span>Clients</span><span>Verified reviews, grouped by the treatment people had.</span><span>Google, 2026</span></div>
+    <div class="stat">
+      <div><b>4.9</b>average from 640 Google reviews</div>
+      <div><b>92%</b>of clients rebook within six months</div>
+      <div><b>3%</b>no-show rate since online deposits</div>
+    </div>
+    <div class="quotes">
+      <figure class="quote"><blockquote>Jess took a little off what I asked for and she was right. My friends just say I look rested.</blockquote><figcaption><b>Botox</b>, Laura P., Mount Pleasant</figcaption></figure>
+      <figure class="quote"><blockquote>I've had acne scarring since college. After three Morpheus8 sessions I stopped wearing foundation.</blockquote><figcaption><b>Morpheus8</b>, Danielle K., West Ashley</figcaption></figure>
+      <figure class="quote"><blockquote>Booking took a minute, the price matched what the site said, and nobody tried to upsell me.</blockquote><figcaption><b>Hydrafacial</b>, Marcus T., Downtown</figcaption></figure>
+    </div>
+    <p class="disclaimer">Individual results vary. All injectable and laser treatments require a consultation with a licensed provider.</p>
+  </div>
+</section>
+
+<section class="band lilac" id="deposit">
+  <div class="wrap">
+    <div class="meta"><span>Booking</span><span>A small deposit keeps the schedule fair for everyone.</span><span>Never an extra charge</span></div>
+    <h2 class="big">How booking and deposits work</h2>
+    <div class="how">
+      <div><span class="n">1</span><h3>Book in a minute</h3><p>Pick what you want to work on, a clinician and a time, without leaving this page.</p></div>
+      <div><span class="n">2</span><h3>Hold your spot with $50</h3><p>Taken by card when you book, and taken off your bill on the day.</p></div>
+      <div><span class="n">3</span><h3>Plans change? That's fine</h3><p>Reschedule or cancel up to 24 hours before from the link in your reminder text.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="membership">
+  <div class="wrap">
+    <div class="meta"><span>Membership</span><span>For clients who come in every few months.</span><span>Cancel after three months</span></div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Glow</h3>
+        <p class="amount">$99<small> a month</small></p>
+        <p class="muted">A facial every month and better prices on skin treatments.</p>
+        <ul><li>A Hydrafacial or peel every month</li><li>15% off skin and laser treatments</li><li>10% off medical-grade skincare</li></ul>
+        <a class="btn btn-ghost" href="#book">Book a first visit</a>
+      </div>
+      <div class="plan feature">
+        <h3>Refresh</h3>
+        <p class="amount">$179<small> a month</small></p>
+        <p style="color:#9FB5AA">For regular injectable clients.</p>
+        <ul><li>Botox and Dysport at $10 a unit</li><li>A Hydrafacial every other month</li><li>Priority booking on Saturdays</li><li>$75 credit on your birthday</li></ul>
+        <a class="btn btn-light" href="#book">Book a first visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq" style="padding-top:0">
+  <div class="wrap faqgrid">
+    <h2 style="font-size:clamp(36px,4vw,56px);line-height:1.05">Before your first visit</h2>
+    <div>
+      <details><summary>Is the consultation really free?</summary><p>Yes. A 20-minute consultation is free and needs no deposit. If you decide to be treated the same day, we quote the price before we start.</p></details>
+      <details><summary>What happens to my deposit?</summary><p>It comes off your bill on the day. Cancel or reschedule more than 24 hours before and it's refunded to your card in full.</p></details>
+      <details><summary>Do you accept insurance?</summary><p>Aesthetic treatments aren't covered by insurance. We accept all major cards, HSA and FSA cards where eligible, and monthly payments through Cherry.</p></details>
+      <details><summary>Can I be treated if I'm pregnant or breastfeeding?</summary><p>We don't perform injectables or laser treatments during pregnancy or breastfeeding. Some facials are safe, and your clinician will tell you which.</p></details>
+      <details><summary>Should I tip?</summary><p>No. Our clinicians are medical professionals and tipping isn't expected.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><h3>Your first consultation is free.</h3><a class="btn btn-light" href="#book">Book a visit</a></div>
+      <div><p class="lbl">Visit</p><p>214 King Street<br>Charleston, SC</p><p style="margin-top:12px">(843) 555-0142</p></div>
+      <div><p class="lbl">Hours</p><p>Tuesday to Friday, 9am to 7pm</p><p>Saturday, 9am to 3pm</p></div>
+    </div>
+    <div class="wordmark" aria-hidden="true">Oriel</div>
+    <div class="small"><span>Oriel Aesthetics is a fictional clinic. Names, reviews, figures and prices on this page are examples.</span><span>Design and booking system by <a href="/" style="color:#fff">Kelvane Studio</a></span></div>
+  </div>
+</footer>
+
+<nav class="pill" id="pill" aria-label="Quick links">
+  <a class="lnk" href="#treatments">Treatments</a>
+  <a class="lnk" href="#clinicians">Clinicians</a>
+  <a class="lnk" href="#membership">Membership</a>
+  <a class="lnk" href="#faq">Questions</a>
+  <a class="btn btn-light" href="#book">Book a visit</a>
+</nav>
+
+<script>
+/* contour lines: concentric organic rings, like a fingerprint of skin */
+(function(){
+  const svg=document.getElementById('contours');let d='';
+  const cx=1080,cy=330;
+  for(let r=40;r<1100;r+=26){
+    let p='';
+    for(let a=0;a<=360;a+=6){
+      const t=a*Math.PI/180;
+      const w=1+0.10*Math.sin(3*t+r/90)+0.06*Math.cos(5*t-r/140);
+      const x=cx+Math.cos(t)*r*1.25*w, y=cy+Math.sin(t)*r*0.85*w;
+      p+=(a?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);
+    }
+    d+='<path d="'+p+'Z" style="opacity:'+(Math.max(.15,1-r/1100)).toFixed(2)+'"/>';
+  }
+  svg.innerHTML=d;
+})();
+
+/* marquee */
+(function(){
+  const items=["Botox","Lip filler","Hydrafacial","Morpheus8","Microneedling","IPL","Sculptra","Chemical peels"];
+  const leaf='<svg viewBox="0 0 28 28"><path d="M14 3c-4.6 4-4.6 18 0 22 4.6-4 4.6-18 0-22Z" fill="#9FB5AA"/></svg>';
+  const run='<span>'+items.map(i=>i+leaf).join('')+'</span>';
+  document.getElementById('track').innerHTML=run+run;
+})();
+
+/* treatment table with tabs */
+const MENU={
+  "Injectables":[["Botox or Dysport","Forehead lines, frown lines, crow's feet","30 min","$13 / unit"],["Lip filler","Shape and hydration, natural by default","45 min","from $650"],["Cheek and jaw filler","Lift and definition","60 min","from $750"],["Sculptra","Gradual collagen and volume","45 min","from $850"]],
+  "Skin":[["Hydrafacial","Cleanse, exfoliate and hydrate","50 min","$225"],["Chemical peel","Tone, texture and dullness","40 min","from $175"],["Microneedling","Fine lines, pores and acne scars","60 min","$350"],["Microneedling with PRP","Deeper scarring and texture","75 min","$600"]],
+  "Laser and energy":[["Morpheus8","Skin tightening and scars","75 min","$950"],["IPL photofacial","Sun spots and redness","45 min","$400"],["Clear + Brilliant","Early sun damage and glow","45 min","$375"],["Laser hair removal","Face and body","15 to 60 min","from $99"]],
+  "Wellness":[["Medical weight care","Doctor-led plans","30 min","consult"],["B12 injection","Energy support","10 min","$35"],["NAD+ injection","Cellular energy support","15 min","$95"],["IV hydration","Recovery and hydration","45 min","from $175"]]
+};
+(function(){
+  const tabs=document.getElementById('tabs'),rows=document.getElementById('trows');
+  const names=Object.keys(MENU);
+  function show(n){
+    [...tabs.children].forEach(b=>b.setAttribute('aria-selected',b.textContent===n?'true':'false'));
+    rows.innerHTML=MENU[n].map(r=>`<div class="trow"><h3>${r[0]}</h3><p class="what">${r[1]}</p><p class="dur">${r[2]}</p><p class="cost">${r[3]}</p></div>`).join('');
+  }
+  names.forEach(n=>{const b=document.createElement('button');b.className='tab';b.type='button';b.role='tab';b.textContent=n;b.onclick=()=>show(n);tabs.appendChild(b)});
+  show(names[0]);
+})();
+
+/* signature draws when it scrolls into view; pill nav appears after hero */
+(function(){
+  const sig=document.getElementById('sig'),pill=document.getElementById('pill'),hero=document.querySelector('.hero');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(e=>{if(e[0].isIntersecting)sig.classList.add('drawn')},{threshold:.6}).observe(sig);
+    new IntersectionObserver(e=>{pill.classList.toggle('show',!e[0].isIntersecting)},{threshold:.15}).observe(hero);
+  }else{sig.classList.add('drawn');pill.classList.add('show')}
+})();
+
+/* booking */
+const DATA={
+  concerns:[
+    {id:"lines",label:"Lines and wrinkles",hint:"Forehead, frown lines, crow's feet"},
+    {id:"volume",label:"Volume and contour",hint:"Lips, cheeks, jawline"},
+    {id:"texture",label:"Texture and scarring",hint:"Acne scars, pores, uneven skin"},
+    {id:"tone",label:"Spots and redness",hint:"Sun damage, pigmentation"},
+    {id:"glow",label:"Dull or dry skin",hint:"A reset before an event"},
+    {id:"unsure",label:"I'm not sure yet",hint:"Talk it through first"}
+  ],
+  treatments:{
+    lines:[["Botox or Dysport","20 units is typical",260,"30 min"],["Free consultation","Get a plan first",0,"20 min"]],
+    volume:[["Lip filler","1 syringe",650,"45 min"],["Cheek and jaw filler","1 to 2 syringes",750,"60 min"],["Free consultation","Get a plan first",0,"20 min"]],
+    texture:[["Microneedling","Single session",350,"60 min"],["Morpheus8","Face",950,"75 min"],["Free consultation","Get a plan first",0,"20 min"]],
+    tone:[["IPL photofacial","Face",400,"45 min"],["Clear + Brilliant","Face",375,"45 min"],["Free consultation","Get a plan first",0,"20 min"]],
+    glow:[["Hydrafacial","Signature",225,"50 min"],["Chemical peel","Medium depth",175,"40 min"],["Free consultation","Get a plan first",0,"20 min"]],
+    unsure:[["Free consultation","Talk through your goals",0,"20 min"]]
+  },
+  providers:[["Jess Moreland, RN","Lead nurse injector"],["Andre Lowell, NP","Nurse practitioner"],["Dr. Naomi Hale","Medical director, dermatologist"],["First available","Earliest opening with any clinician"]]
+};
+const state={step:1,concern:null,treat:null,prov:null,day:null,time:null};
+const $=s=>document.querySelector(s);
+const titles={1:"Book a visit",2:"Choose a treatment",3:"Choose a clinician",4:"Choose a time",5:"Review",6:"Confirmed"};
+function chip(html,pressed,on){const b=document.createElement("button");b.type="button";b.className="chip";b.innerHTML=html;b.setAttribute("aria-pressed",pressed?"true":"false");b.onclick=on;return b}
+function renderConcerns(){const c=$("#concerns");c.innerHTML="";DATA.concerns.forEach(x=>c.appendChild(chip(`${x.label}<small>${x.hint}</small>`,state.concern===x.id,()=>{state.concern=x.id;state.treat=null;renderConcerns();sync()})))}
+function renderTreats(){const l=$("#treatList");l.innerHTML="";(DATA.treatments[state.concern]||[]).forEach((t,i)=>l.appendChild(chip(`<span class="row"><span>${t[0]}<small>${t[1]}, ${t[3]}</small></span><span class="price">${t[2]?"$"+t[2]:"Free"}</span></span>`,state.treat===i,()=>{state.treat=i;renderTreats();sync()})))}
+function renderProvs(){const l=$("#provList");l.innerHTML="";DATA.providers.forEach((p,i)=>l.appendChild(chip(`${p[0]}<small>${p[1]}</small>`,state.prov===i,()=>{state.prov=i;renderProvs();sync()})))}
+function openDays(n){const out=[];const now=new Date();for(let k=1;out.length<n;k++){const dt=new Date(now);dt.setDate(now.getDate()+k);const wd=dt.getDay();if(wd===0||wd===1)continue;out.push(dt)}return out}
+function renderDays(){const d=$("#days");d.innerHTML="";openDays(7).forEach(dt=>{const key=dt.toDateString();const b=document.createElement("button");b.type="button";b.className="day";b.innerHTML=`${dt.toLocaleDateString("en-US",{weekday:"short"})}<b>${dt.getDate()}</b>`;b.setAttribute("aria-pressed",state.day===key?"true":"false");b.onclick=()=>{state.day=key;state.time=null;renderDays();sync()};d.appendChild(b)});renderTimes()}
+function renderTimes(){const t=$("#times");t.innerHTML="";if(!state.day){t.innerHTML='<p class="muted" style="grid-column:1/-1;font-size:14.5px">Choose a day to see open times.</p>';return}const sat=new Date(state.day).getDay()===6;const slots=sat?["9:00","9:45","10:30","11:15","12:00","1:30"]:["9:00","10:15","11:30","1:00","2:30","4:00","5:15","6:00","6:30"];const seed=new Date(state.day).getDate();slots.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.className="time";const h=parseInt(s);b.textContent=s+((h<9||h===12)?" pm":" am");if((i*7+seed)%4===0)b.disabled=true;b.setAttribute("aria-pressed",state.time===b.textContent?"true":"false");b.onclick=()=>{state.time=b.textContent;renderTimes();sync()};t.appendChild(b)})}
+function deposit(){return DATA.treatments[state.concern][state.treat][2]===0?0:50}
+function fmtDay(){return new Date(state.day).toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}
+function renderSummary(){const t=DATA.treatments[state.concern][state.treat],p=DATA.providers[state.prov],dep=deposit();
+  $("#summary").innerHTML=`<div class="row"><span>Treatment</span><span>${t[0]}</span></div><div class="row"><span>Clinician</span><span>${p[0]}</span></div><div class="row"><span>When</span><span>${fmtDay()}, ${state.time}</span></div><div class="row"><span>Estimated price</span><span>${t[2]?"$"+t[2]:"Free"}</span></div><div class="row"><span style="color:var(--spruce);font-weight:600">Due today</span><span class="price">${dep?"$"+dep+" deposit":"Nothing"}</span></div>`}
+function sync(){const ok={1:!!state.concern,2:state.treat!==null,3:state.prov!==null,4:!!state.time,5:true}[state.step];$("#next").disabled=!ok;$("#next").textContent=state.step===5?(deposit()?"Pay $50 deposit and book":"Book free consultation"):"Continue"}
+function go(n){state.step=n;
+  document.querySelectorAll(".step").forEach(s=>s.classList.toggle("active",+s.dataset.step===n));
+  document.querySelectorAll(".steps i").forEach((b,i)=>b.classList.toggle("on",i<Math.min(n,5)));
+  $("#stepTitle").textContent=titles[n];$("#back").hidden=n===1||n===6;$("#foot").style.display=n===6?"none":"flex";
+  if(n===2)renderTreats();if(n===3)renderProvs();if(n===4)renderDays();if(n===5)renderSummary();
+  if(n===6){const t=DATA.treatments[state.concern][state.treat];$("#doneText").textContent=`${t[0]} with ${DATA.providers[state.prov][0]}, ${fmtDay()} at ${state.time}.`+(deposit()?" Your $50 deposit comes off the bill on the day.":"")}
+  sync()}
+$("#next").onclick=()=>go(state.step+1);
+$("#back").onclick=()=>go(state.step-1);
+$("#restart").onclick=()=>{Object.assign(state,{concern:null,treat:null,prov:null,day:null,time:null});renderConcerns();go(1)};
+renderConcerns();sync();
+
+/* live widget: next opening tomorrow if late */
+(function(){const h=new Date().getHours();if(h>=14){const d=openDays(1)[0];document.getElementById('nextOpen').textContent=d.toLocaleDateString("en-US",{weekday:"long"})+", 10:15 am"}})();
+</script>
+</body>
+</html>
