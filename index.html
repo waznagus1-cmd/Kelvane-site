@@ -220,21 +220,20 @@ footer{padding:40px 0 60px;font-size:14.5px;color:var(--muted)}
 .niche ul{margin:22px 0 30px;padding:0;list-style:none;border-top:1px solid var(--line)}
 .niche li{padding:12px 0;border-bottom:1px solid var(--line)}
 .niche .btn{margin-top:auto;align-self:flex-start}
-.dark-niche{background:#10233A;color:#EDE6D8;box-shadow:none}
-.dark-niche ul,.dark-niche li{border-color:#2C4566}
+.dark-niche{background:#3A1714;color:#ECE3CF;box-shadow:none}
+.dark-niche ul,.dark-niche li{border-color:#5A2C24}
 @media (max-width:860px){.niches{grid-template-columns:1fr}}
 /* cases */
 .cases{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .casecard{text-decoration:none;display:flex;flex-direction:column;gap:22px}
 .casecard:hover .browser{box-shadow:0 40px 80px -36px rgba(42,26,36,.55),0 0 0 1px var(--plum)}
 .casetext h3{font-size:28px;margin:4px 0 8px}
-.mini.tat{background:#10233A;color:#EDE6D8}
+.mini.tat{background:#ECE3CF;color:#1C1A17}
 .mini .logo-t{position:absolute;left:6%;top:8%;font-family:"Pirata One",Georgia,serif;font-size:20px}
-.mini.tat h4{font-family:var(--display);font-weight:800;letter-spacing:-.02em;max-width:8.5ch;font-size:clamp(20px,2.3vw,30px);line-height:1}
-.mini.tat h4 em{font-style:normal;color:#C8322B}
-.mini .card.t{background:#F6F1E7;color:#10233A;border-radius:6px;box-shadow:8px 8px 0 #C8322B}
-.mini .card.t span{border-color:#D6CDBC;background:#fff}
-.mini .card.t em{background:#C8322B;border-radius:4px}
+.mini.tat h4{font-family:"Pirata One",Georgia,serif;font-weight:400;max-width:6.5ch;font-size:clamp(28px,3.4vw,46px);line-height:.88}
+.mini .sheet-t{position:absolute;right:7%;top:16%;width:40%;background:#F6F0E2;border:2px solid #1C1A17;box-shadow:6px 6px 0 #3A1714;transform:rotate(-2deg);display:grid;grid-template-columns:repeat(2,1fr);gap:4px;padding:8px}
+.mini .sheet-t span{display:flex;flex-direction:column;align-items:center;font-family:"Pirata One",Georgia,serif;color:#B7362C;font-size:14px;line-height:1}
+.mini .sheet-t svg{width:80%;height:auto}
 .founding-line{margin-top:20px;font-size:16px;color:var(--muted)}
 .founding-line b{color:var(--ink)}
 @media (max-width:860px){.cases{grid-template-columns:1fr}}
@@ -346,7 +345,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Deposits on treatments, free consults without one</li>
           <li>Works with Boulevard, Vagaro, Mangomint, Mindbody</li>
         </ul>
-        <a class="btn btn-line" href="/oriel/">See the med spa sample</a>
+        <a class="btn btn-line" href="oriel/index.html">See the med spa sample</a>
       </div>
       <div class="niche dark-niche">
         <h3>Tattoo studios</h3>
@@ -356,7 +355,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Idea, placement and reference intake before the session</li>
           <li>Works with Square, Vagaro, Fresha and similar tools</li>
         </ul>
-        <a class="btn btn-light" href="/tattoo/">See the tattoo sample</a>
+        <a class="btn btn-light" href="tattoo/index.html">See the tattoo sample</a>
       </div>
     </div>
   </div>
@@ -386,7 +385,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p class="muted">Concept projects for fictional studios, built to show what a booking-ready website feels like. Go ahead and book something; nothing is charged.</p>
     </div>
     <div class="cases">
-      <a class="casecard" href="/oriel/">
+      <a class="casecard" href="oriel/index.html">
         <div class="browser">
           <div class="top"><i></i><i></i><i></i><span>oriel aesthetics</span></div>
           <div class="mini" aria-hidden="true">
@@ -398,16 +397,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         </div>
         <div class="casetext"><span class="tag">Med spa concept</span><h3>Oriel Aesthetics</h3><p class="muted">Booking by concern, every price published, a $50 deposit to hold the spot.</p></div>
       </a>
-      <a class="casecard" href="/tattoo/">
+      <a class="casecard" href="tattoo/index.html">
         <div class="browser">
           <div class="top"><i></i><i></i><i></i><span>ironwren tattoo</span></div>
           <div class="mini tat" aria-hidden="true">
             <span class="logo-t">Ironwren</span>
-            <h4>Custom work, <em>booked</em> in two minutes.</h4>
-            <div class="card t"><b>Book a session</b><span>Mara Quill</span><span>Ilse Navarro</span><em>Continue</em></div>
+            <h4>Pick one off the wall.</h4>
+            <div class="sheet-t"><span><svg viewBox="0 0 120 120"><path d="M46 58C54 32 76 18 106 14C94 30 86 44 72 60Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M16 62C24 50 40 50 54 56C68 62 82 68 102 88L88 88L98 102C80 94 64 84 50 80C34 78 22 72 16 62Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M22 68C30 76 42 79 54 78C46 70 34 64 22 68Z" fill="#B7362C" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/></svg>$120</span><span><svg viewBox="0 0 120 120"><path d="M44 84C30 88 22 98 16 110C32 108 42 100 46 88Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M76 84C90 88 98 98 104 110C88 108 78 100 74 88Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M60 26C82 22 98 38 94 58C90 78 74 90 60 90C44 90 28 78 26 58C24 38 40 28 60 26Z" fill="#B7362C" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M60 44C71 42 77 51 73 59C69 67 56 66 54 58" fill="none" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/></svg>$140</span><span><svg viewBox="0 0 120 120"><path d="M76 18A44 44 0 1 0 76 102A56 56 0 0 1 76 18Z" fill="#E2AE3D" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/></svg>$110</span><span><svg viewBox="0 0 120 120"><path d="M68 8L32 64L56 64L44 112L90 48L64 48L80 8Z" fill="#E2AE3D" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/></svg>$90</span></div>
           </div>
         </div>
-        <div class="casetext"><span class="tag">Tattoo studio concept</span><h3>Ironwren Tattoo</h3><p class="muted">Pick an artist, choose a session size, share your idea and pay the deposit, without a single DM.</p></div>
+        <div class="casetext"><span class="tag">Tattoo studio concept</span><h3>Ironwren Tattoo</h3><p class="muted">Claim a flash piece off the wall or start a custom one, pick the artist and pay the deposit, without a single DM.</p></div>
       </a>
     </div>
   </div>
