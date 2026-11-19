@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ironwren Tattoo, Austin TX: flash and custom work</title>
+<meta name="robots" content="noindex"><meta name="description" content="Ironwren Tattoo in Austin, Texas. Pick a flash piece off the wall or start a custom tattoo, choose your artist and hold your chair with a deposit.">
+<link rel="preconnect" href="https://upload.wikimedia.org">
+<link rel="preload" href="../fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2622'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23F4EEE2'%3EI%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Familjen Grotesk';src:url('../fonts/familjen.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('../fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('../fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+:root{
+  --wall:#1E2622;--wall-2:#28322D;
+  --paper:#F4EEE2;--paper-2:#FBF8F1;
+  --ink:#191613;--muted:#6B6257;--line:rgba(25,22,19,.14);
+  --red:#A8322A;--red-2:#8E2821;--brass:#C29A4E;
+  --cream:#EDE4D3;--cream-2:#B9B2A4;
+  --display:"Instrument Serif",Georgia,serif;
+  --body:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1200px,100% - 56px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.demo{background:#121714;color:var(--cream-2);font-size:13px;text-align:center;padding:8px 16px}
+.demo a{color:var(--cream)}
+
+/* header */
+header.top{background:var(--wall);color:var(--cream);position:relative;z-index:3}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.logo{font-family:var(--display);font-size:34px;line-height:1;text-decoration:none;letter-spacing:-.01em}
+.logo i{color:var(--brass)}
+nav.main{display:flex;gap:30px;font-size:15px;color:var(--cream-2)}
+nav.main a{text-decoration:none;transition:color .2s}
+nav.main a:hover{color:var(--cream)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;background:var(--red);color:#FBF3EA;font-weight:600;font-size:16px;padding:14px 24px;border-radius:999px;text-decoration:none;transition:background .2s,transform .25s var(--ease),border-color .2s}
+.btn:hover{background:var(--red-2);transform:translateY(-1px)}
+.btn.line{background:transparent;color:var(--ink);border-color:rgba(25,22,19,.35)}
+.btn.line:hover{border-color:var(--ink);background:transparent}
+.on-wall .btn.line{color:var(--cream);border-color:rgba(237,228,211,.4)}
+.on-wall .btn.line:hover{border-color:var(--cream)}
+.btn.dark{background:var(--ink)}
+.btn.dark:hover{background:#000}
+.btn.small{padding:10px 18px;font-size:15px}
+.btn[disabled]{opacity:.35;pointer-events:none}
+
+/* hero: the wall */
+.hero{background:var(--wall);color:var(--cream);overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 40%,rgba(255,226,170,.10),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center;min-height:min(720px,calc(100vh - 110px));padding:56px 0 72px;position:relative}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,8.4vw,124px);line-height:.92;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero p.lede{font-size:19px;color:var(--cream-2);margin:26px 0 34px;max-width:38ch}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:36px;margin-top:46px;padding-top:22px;border-top:1px solid rgba(237,228,211,.16)}
+.facts b{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--cream)}
+.facts span{font-size:14px;color:var(--cream-2)}
+.wall{position:relative;height:600px}
+.wall .sh{position:absolute;box-shadow:0 30px 60px -20px rgba(0,0,0,.65),0 8px 16px -8px rgba(0,0,0,.5);border-radius:3px;transform-origin:50% 0;transition:transform .6s var(--ease)}
+.wall .s1{width:74%;left:16%;top:12%;z-index:2;--r:-1.5deg}
+.wall .s2{width:50%;left:-4%;top:0;z-index:1;--r:-6deg;filter:brightness(.82)}
+.wall .s3{width:48%;right:-6%;top:52%;z-index:3;--r:4deg}
+.wall .sh{transform:rotate(var(--r))}
+.wall .sh:hover{transform:rotate(calc(var(--r) * .4)) translateY(-6px)}
+@media (prefers-reduced-motion:no-preference){
+  .wall .sh{animation:hang 1.1s var(--ease) both}
+  .wall .s2{animation-delay:.08s}.wall .s1{animation-delay:.18s}.wall .s3{animation-delay:.3s}
+  @keyframes hang{from{opacity:0;transform:translateY(-28px) rotate(calc(var(--r) - 4deg))}}
+}
+
+/* sections */
+section{padding:110px 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(46px,5.6vw,80px);line-height:.98;letter-spacing:-.015em}
+h2 em{font-style:italic;color:var(--red)}
+.head p{color:var(--muted);font-size:18px;max-width:46ch}
+
+/* flash grid */
+.grid-flash{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 28px}
+.flash{border:0;background:transparent;text-align:left;display:block;width:100%}
+.flash .frame{background:#F0E2BE;border-radius:4px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04),0 14px 30px -18px rgba(60,40,10,.45);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.flash:nth-child(3n+1) .frame{transform:rotate(-.8deg)}
+.flash:nth-child(3n+2) .frame{transform:rotate(.6deg)}
+.flash:hover .frame{transform:translateY(-6px) rotate(0);box-shadow:0 1px 0 rgba(0,0,0,.04),0 26px 40px -20px rgba(60,40,10,.55)}
+.flash .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
+.flash .nm{font-family:var(--display);font-size:26px;line-height:1.05}
+.flash .pr{font-size:15px;font-weight:600;color:var(--red);white-space:nowrap}
+.flash .by{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.flash:hover .nm{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.note{margin-top:48px;font-size:15px;color:var(--muted)}
+
+/* crop of a real sheet */
+.pic{display:grid;place-items:center;width:100%;height:100%;padding:10%}
+.cut{display:block;background-repeat:no-repeat;mix-blend-mode:multiply}
+.cut.w{width:100%}.cut.t{height:100%}
+.cut.img{background-size:cover}
+
+/* ways */
+.ways{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.way{padding:44px 48px 8px 0}
+.way+.way{padding-left:48px;padding-right:0;border-left:1px solid var(--line)}
+.way h3{font-family:var(--display);font-weight:400;font-size:46px;line-height:1}
+.way p.d{color:var(--muted);margin:12px 0 22px;max-width:40ch}
+.way ul{list-style:none;display:grid;gap:10px;margin-bottom:28px}
+.way li{padding-left:22px;position:relative}
+.way li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:1px;background:var(--red)}
+.way .price{font-family:var(--display);font-size:34px;margin-bottom:22px}
+.way .price small{font-family:var(--body);font-size:14px;color:var(--muted);margin-left:8px}
+
+/* artists */
+.artists-sec{background:var(--paper-2)}
+.artists{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.artist .ph{aspect-ratio:4/5;background:#EFE4CC;border-radius:4px;overflow:hidden}
+.artist .ph img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+.artist:hover .ph img{transform:scale(1.03)}
+.artist h3{font-family:var(--display);font-weight:400;font-size:36px;line-height:1;margin-top:22px}
+.artist .style{display:block;color:var(--red);font-size:15px;margin-top:6px}
+.artist p{color:var(--muted);margin:12px 0 18px;font-size:16px}
+.artist .meta{display:flex;justify-content:space-between;font-size:14.5px;border-top:1px solid var(--line);padding:14px 0 18px}
+.artist .meta b{font-weight:600}
+
+/* deposit */
+.dep .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.rule{padding:24px 0;border-top:1px solid var(--line)}
+.rule h3{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;margin-bottom:8px}
+.rule p{color:var(--muted);font-size:16px}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px}
+.faq .head{display:block;margin:0}
+.faq .head p{margin-top:18px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-weight:600;font-size:18px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:30px;line-height:1;color:var(--red);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 22px;color:var(--muted);max-width:60ch}
+
+/* visit */
+.visit{background:var(--wall);color:var(--cream)}
+.visit .wrap{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
+.visit h2 em{color:var(--brass)}
+.visit .addr{font-size:19px;color:var(--cream-2);margin:24px 0 32px;max-width:32ch}
+.hours h3{font-family:var(--display);font-weight:400;font-size:30px;margin-bottom:8px}
+.hours table{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:12px 0;border-bottom:1px solid rgba(237,228,211,.14)}
+.hours td:last-child{text-align:right}
+.hours tr.closed td{opacity:.55}
+.hours .walk{margin-top:16px;font-size:14.5px;color:var(--cream-2)}
+
+footer{background:#121714;color:var(--cream-2);padding:34px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px 28px;flex-wrap:wrap}
+footer a{color:var(--cream)}
+footer .credit{flex-basis:100%;font-size:13px;opacity:.8}
+
+/* reveal */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+  .rv.in{opacity:1;transform:none}
+}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(18,23,20,.5);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:50}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(540px,100%);background:var(--paper-2);z-index:51;transform:translateX(100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;box-shadow:-30px 0 60px -30px rgba(0,0,0,.35)}
+.drawer.open{transform:none}
+.dr-head{padding:22px 28px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dr-head h2{font-size:34px;line-height:1}
+.dr-close{border:1px solid var(--line);background:transparent;width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;transition:border-color .2s}
+.dr-close:hover{border-color:var(--ink)}
+.steps{display:flex;gap:6px;padding:0 28px}
+.steps i{flex:1;height:3px;border-radius:2px;background:var(--line);position:relative;overflow:hidden}
+.steps i::after{content:"";position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.steps i.on::after{transform:scaleX(1)}
+.dr-body{padding:24px 28px 28px;overflow-y:auto;flex:1}
+.dr-body.anim>*{animation:stepIn .45s var(--ease) both}
+.dr-body.anim>*:nth-child(2){animation-delay:.04s}.dr-body.anim>*:nth-child(3){animation-delay:.08s}.dr-body.anim>*:nth-child(n+4){animation-delay:.12s}
+@keyframes stepIn{from{opacity:0;transform:translateX(16px)}}
+@media (prefers-reduced-motion:reduce){.dr-body.anim>*{animation:none}}
+.dr-body h3{font-size:21px;font-weight:600;margin-bottom:4px}
+.dr-body .hint{font-size:15px;color:var(--muted);margin-bottom:18px}
+.dr-foot{padding:16px 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dr-foot .sum{font-size:14px;color:var(--muted)}
+.dr-foot .sum b{color:var(--ink)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:999px;padding:4px;margin-bottom:22px}
+.tabs button{border:0;background:transparent;padding:10px;border-radius:999px;font-weight:600;transition:background .25s,color .25s}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pick-flash{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pick-flash button{border:1px solid transparent;background:#F0E2BE;border-radius:6px;padding:0 0 8px;text-align:center;transition:border-color .2s,transform .25s var(--ease)}
+.pick-flash button:hover{transform:translateY(-2px)}
+.pick-flash .pic{aspect-ratio:1;height:auto;padding:12%}
+.pick-flash span{display:block;font-size:13px;font-weight:600}
+.pick-flash em{display:block;font-style:normal;font-size:13px;color:var(--red)}
+.pick-flash button[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+.opt{display:grid;gap:10px}
+.opt button{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;transition:border-color .2s,background .25s,color .25s}
+.opt button:hover{border-color:rgba(25,22,19,.4)}
+.opt button small{display:block;color:var(--muted);font-size:14px}
+.opt button b{font-weight:600}
+.opt button .r{font-family:var(--display);font-size:22px;color:var(--red);white-space:nowrap}
+.opt button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opt button[aria-pressed="true"] small{color:var(--cream-2)}
+.opt button[aria-pressed="true"] .r{color:var(--brass)}
+.opt button:disabled{opacity:.4;cursor:not-allowed}
+.opt.sizes{grid-template-columns:1fr 1fr}
+label.f{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
+.f-in{width:100%;border:1px solid rgba(25,22,19,.25);background:#fff;border-radius:10px;padding:12px 14px;font:inherit;font-size:16px;transition:border-color .2s}
+.f-in:focus{border-color:var(--ink);outline:none}
+textarea.f-in{min-height:110px;resize:vertical}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:18px}
+.days button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 0;text-align:center;font-size:13px;transition:background .25s,color .25s}
+.days button b{display:block;font-size:18px;font-weight:600}
+.days button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.days button:disabled{opacity:.3;cursor:not-allowed}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.times button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 0;font-weight:600;transition:background .25s,color .25s}
+.times button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.review{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+.review .rv-top{display:flex;gap:16px;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.review .rv-top .pic{width:88px;height:88px;flex:none;background:#F0E2BE;border-radius:6px;padding:8px}
+.review .rv-top b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;display:block}
+.review dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;padding:16px;font-size:15.5px}
+.review dt{color:var(--muted)}
+.review dd{text-align:right;font-weight:600}
+.review .due{display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px;background:var(--wall);color:var(--cream)}
+.review .due b{font-family:var(--display);font-weight:400;font-size:32px;color:var(--brass)}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+.done{text-align:center;padding:24px 6px}
+.done .pic{width:170px;height:170px;margin:0 auto 14px;background:#F0E2BE;border-radius:8px;padding:14px}
+.done h3{font-family:var(--display);font-weight:400;font-size:46px;line-height:1;margin-bottom:10px}
+.done p{max-width:36ch;margin:0 auto 8px}
+
+@media (max-width:980px){
+  nav.main{display:none}
+  .hero .wrap,.head,.dep .wrap,.faq .wrap,.visit .wrap{grid-template-columns:1fr}
+  .hero .wrap{min-height:0;gap:36px;padding-top:40px}
+  .wall{height:auto;aspect-ratio:1.05}
+  .grid-flash{grid-template-columns:repeat(3,1fr)}
+  .artists{grid-template-columns:1fr;max-width:520px}
+  .head{gap:16px;margin-bottom:40px}
+}
+@media (max-width:640px){
+  .wrap{width:min(1200px,100% - 36px)}
+  .logo{font-size:30px}
+  .top .wrap{height:66px}
+  .top .btn{padding:9px 16px;font-size:14px}
+  section{padding:76px 0}
+  .facts{gap:22px}.facts b{font-size:28px}
+  .grid-flash{grid-template-columns:repeat(2,1fr);gap:30px 16px}
+  .flash .nm{font-size:22px}
+  .ways{grid-template-columns:1fr}
+  .way,.way+.way{padding:32px 0 8px;border-left:0}
+  .way+.way{border-top:1px solid var(--line)}
+  .rules{grid-template-columns:1fr}
+  .opt.sizes{grid-template-columns:1fr}
+  .dr-body,.dr-head,.dr-foot{padding-left:20px;padding-right:20px}.steps{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo">Concept site for a fictional tattoo studio, designed by Kelvane Studio. Bookings here are not real. <a href="../index.html">See Kelvane Studio</a></div>
+
+<header class="top on-wall">
+  <div class="wrap">
+    <a class="logo" href="#">Iron<i>wren</i></a>
+    <nav class="main" aria-label="Main">
+      <a href="#flash">Flash</a><a href="#ways">Flash or custom</a><a href="#artists">Artists</a><a href="#deposits">Deposits</a><a href="#visit">Visit</a>
+    </nav>
+    <button class="btn small" data-book>Book a chair</button>
+  </div>
+</header>
+
+<main>
+<section class="hero on-wall" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">Pick one <em>off the wall.</em></h1>
+      <p class="lede">A three-artist shop on East Cesar Chavez in Austin. Claim a piece of flash or start a custom one, choose your artist and hold your chair with a deposit.</p>
+      <div class="ctas"><a class="btn" href="#flash">See the flash</a><button class="btn line" data-book="custom">Start a custom piece</button></div>
+      <div class="facts"><div><b>From $100</b><span>flash, all in</span></div><div><b>$50</b><span>holds your chair</span></div><div><b>48 hours</b><span>to reschedule, free</span></div></div>
+    </div>
+    <div class="wall" aria-hidden="true">
+      <img class="sh s2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg" width="960" height="767" alt="">
+      <img class="sh s1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" width="1280" height="1009" alt="" fetchpriority="high">
+      <img class="sh s3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg" width="960" height="767" alt="">
+    </div>
+  </div>
+</section>
+
+<section id="flash" aria-labelledby="flash-h">
+  <div class="wrap">
+    <div class="head rv"><h2 id="flash-h">This week’s <em>wall</em></h2><p>Fixed price, color and stencil included. Tap a piece to see which artists tattoo it and when they’re free.</p></div>
+    <div class="grid-flash" id="sheet"></div>
+    <p class="note">Prices are for up to palm size. Small changes, like a name in a banner, are free.</p>
+  </div>
+</section>
+
+<section id="ways" aria-labelledby="ways-h" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head rv"><h2 id="ways-h">Two ways into <em>the chair</em></h2><p>Flash is ready to go at a fixed price. Custom starts with your idea and a sketch from your artist. Both are booked from this page.</p></div>
+    <div class="ways rv">
+      <div class="way"><h3>Flash</h3><p class="d">A design from the wall, tattooed once.</p><ul><li>Fixed price, color and stencil included</li><li>Pick any artist who tattoos that piece</li><li>Most pieces take under two hours</li></ul><div class="price">$100 to $220<small>$50 deposit</small></div><a class="btn dark" href="#flash">Choose a flash piece</a></div>
+      <div class="way"><h3>Custom</h3><p class="d">Drawn for you, from your idea and references.</p><ul><li>Tell us the idea, placement and size</li><li>Your artist sends a sketch before the session</li><li>Hourly rate set by artist, quoted up front</li></ul><div class="price">$160 to $200/h<small>deposit by size</small></div><button class="btn" data-book="custom">Start a custom piece</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="artists-sec" id="artists" aria-labelledby="art-h">
+  <div class="wrap">
+    <div class="head rv"><h2 id="art-h">The <em>artists</em></h2><p>Each artist keeps their own calendar and drawing days. Book one by name, or take the first opening.</p></div>
+    <div class="artists" id="artist-cards"></div>
+  </div>
+</section>
+
+<section class="dep" id="deposits" aria-labelledby="dep-h">
+  <div class="wrap">
+    <h2 id="dep-h" class="rv">Your deposit <em>holds the chair.</em></h2>
+    <div class="rules rv">
+      <div class="rule"><h3>It comes off the total</h3><p>Every dollar of your deposit is taken off the final price on the day.</p></div>
+      <div class="rule"><h3>Move it once, free</h3><p>Reschedule up to 48 hours before and your deposit moves with you.</p></div>
+      <div class="rule"><h3>No-shows lose it</h3><p>Your artist blocked the time and drew the piece. Late cancels keep the deposit.</p></div>
+      <div class="rule"><h3>Sized to the piece</h3><p>$50 for flash and small custom work, up to $200 for a multi-day session.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-h" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head rv"><h2 id="faq-h">Before you <em>come in</em></h2><p>Still not sure? Write to the shop and an artist will answer, usually the same day.</p></div>
+    <div class="rv">
+      <details><summary>Do you take walk-ins?</summary><p>Thursday to Saturday, from flash only, when an artist has a gap. Booking online is the only way to be sure of a chair.</p></details>
+      <details><summary>How old do I need to be?</summary><p>18 or older, with a valid photo ID on the day. No exceptions, including with a parent present.</p></details>
+      <details><summary>Can I change a flash piece?</summary><p>Small changes, like color or a name in a banner, are fine. Bigger changes become a custom piece and are priced by the hour.</p></details>
+      <details><summary>When do I see my custom sketch?</summary><p>Your artist sends it two to five days before your session. You can ask for one round of changes at no extra cost.</p></details>
+      <details><summary>How do I take care of it after?</summary><p>You leave with written aftercare and a second-skin bandage. Touch-ups in the first three months are free.</p></details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit on-wall" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div>
+      <h2 id="visit-h">Come by <em>the shop.</em></h2>
+      <p class="addr">1108 East Cesar Chavez St, Austin, TX 78702. Street parking on Chicon, bike rack out front.</p>
+      <button class="btn" data-book>Book a chair</button>
+    </div>
+    <div class="hours">
+      <h3>Hours</h3>
+      <table><tbody>
+        <tr class="closed"><td>Monday</td><td>Closed</td></tr>
+        <tr><td>Tuesday to Wednesday</td><td>12pm to 8pm</td></tr>
+        <tr><td>Thursday</td><td>12pm to 10pm</td></tr>
+        <tr><td>Friday to Saturday</td><td>12pm to midnight</td></tr>
+        <tr><td>Sunday</td><td>1pm to 7pm</td></tr>
+      </tbody></table>
+      <p class="walk">Walk-ins for flash Thursday to Saturday, when there’s a gap.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Ironwren Tattoo is a fictional studio. Licensed artists, single-use needles, every time.</span>
+    <span>Design and booking system by <a href="../index.html">Kelvane Studio</a></span>
+    <span class="credit">Flash art: anonymous American flash, c. 1900–1945, from the <a href="https://commons.wikimedia.org/wiki/File:Tattoo_Flash_SAAM-1998.84.50C_1.jpg">Smithsonian American Art Museum</a> and <a href="https://commons.wikimedia.org/wiki/File:Tattoo_Design_with_a_Ship_MET_DP327934.jpg">The Metropolitan Museum of Art</a>. Public domain (CC0), via Wikimedia Commons.</span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true" inert>
+  <div class="dr-head">
+    <h2 id="dr-title">Book a chair</h2>
+    <button class="dr-close" id="dr-close" aria-label="Close booking">&times;</button>
+  </div>
+  <div class="steps" id="steps" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="dr-body" id="dr-body"></div>
+  <div class="dr-foot" id="dr-foot">
+    <div class="sum" id="dr-sum"></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn line small" id="dr-back">Back</button>
+      <button class="btn small" id="dr-next">Continue</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+const WM='https://upload.wikimedia.org/wikipedia/commons/thumb/';
+const SHEET={
+ A:WM+'1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg',
+ C:WM+'3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg',
+ F:WM+'2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg',
+ E:WM+'4/4d/Tattoo_Flash_SAAM-1998.84.50E_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50E_1.jpg'
+};
+const SHEET_AR=1280/1012;
+// [sheet, x%, y%, w%, h%] of each design on its sheet
+const CROPS={
+ redmoth:['C',8,10,28,36], friends:['C',8,42,30,45], rose:['C',35,40,30,56], swallow:['C',62,47,28,38],
+ monarch:['C',63,12,30,40], dagger:['A',34,6,18,35], flagwing:['A',50,7,40,31], ship:['A',38,40,24,56],
+ eagle:['A',60,40,33,52], horse:['F',10,52,38,40], wings:['F',60,8,32,38], heart:['E',8,6,22,34]
+};
+const PHOTOS={
+ custom:WM+'6/60/Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg/960px-Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg',
+ mara:WM+'1/1c/Tattoo_Design_with_a_Ship_MET_DP327934.jpg/960px-Tattoo_Design_with_a_Ship_MET_DP327934.jpg',
+ ilse:WM+'1/17/Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg/960px-Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg',
+ dez:WM+'c/ce/Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg/960px-Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg'
+};
+function svg(k){
+  if(PHOTOS[k])return `<span class="pic" aria-hidden="true"><span class="cut img t" style="aspect-ratio:.62;background-image:url('${PHOTOS[k]}')"></span></span>`;
+  const [s,x,y,w,h]=CROPS[k];const ar=(w/h)*SHEET_AR;
+  return `<span class="pic" aria-hidden="true"><span class="cut ${ar>=1?'w':'t'}" style="aspect-ratio:${ar.toFixed(3)};background-image:url('${SHEET[s]}');background-size:${(10000/w).toFixed(1)}% ${(10000/h).toFixed(1)}%;background-position:${(x/(100-w)*100).toFixed(1)}% ${(y/(100-h)*100).toFixed(1)}%"></span></span>`;
+}
+
+const FLASH=[
+ {k:'friends',n:'Friends swallow',p:150,a:['mara']},
+ {k:'rose',n:'Rose',p:140,a:['mara','ilse']},
+ {k:'ship',n:'Clipper ship',p:220,a:['mara','dez']},
+ {k:'redmoth',n:'Red moth',p:120,a:['ilse','mara']},
+ {k:'dagger',n:'Dagger and moon',p:110,a:['mara','dez']},
+ {k:'eagle',n:'Eagle and anchor',p:200,a:['dez','mara']},
+ {k:'swallow',n:'Blue swallow',p:120,a:['ilse','mara']},
+ {k:'heart',n:'Sweetheart',p:120,a:['mara','ilse']},
+ {k:'horse',n:'Horse',p:160,a:['dez']},
+ {k:'monarch',n:'Monarch',p:130,a:['ilse']},
+ {k:'flagwing',n:'Stars and stripes',p:140,a:['mara']},
+ {k:'wings',n:'Wings',p:100,a:['dez','ilse']}
+];
+const ARTISTS={
+ mara:{n:'Mara Quill',s:'American traditional',rate:180,bio:'Heavy outlines and saturated color that still read in twenty years. Ships, swallows, anything with a banner.',next:'Thu',seed:3},
+ ilse:{n:'Ilse Navarro',s:'Fine line and botanical',rate:160,bio:'Light hands, small florals and soft color. The artist most first-timers book.',next:'Wed',seed:7},
+ dez:{n:'Dez Oyelaran',s:'Blackwork and illustrative',rate:200,bio:'Bold black, strong shapes and large pieces. Books full-day sessions for sleeves and backs.',next:'Fri',seed:11}
+};
+const SIZES=[
+ {id:'s',n:'Small',d:'Up to palm size, about 2 hours',dep:50},
+ {id:'m',n:'Medium',d:'Forearm or calf panel, half day',dep:100},
+ {id:'l',n:'Large',d:'Thigh, chest or back piece, full day',dep:150},
+ {id:'x',n:'Multi-session',d:'Sleeve or back, several days',dep:200}
+];
+const by=a=>a.map(id=>ARTISTS[id].n.split(' ')[0]).join(', ');
+document.getElementById('sheet').innerHTML=FLASH.map((f,i)=>`<button class="flash rv" style="--d:${(i%4)*.06}s" data-flash="${f.k}"><span class="frame">${svg(f.k)}</span><span class="row"><span class="nm">${f.n}</span><span class="pr">$${f.p}</span></span><span class="by">${by(f.a)}</span></button>`).join('');
+document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a],i)=>`<article class="artist rv" style="--d:${i*.08}s"><div class="ph"><img src="${PHOTOS[id]}" alt="A piece of vintage flash in ${a.n}'s style" loading="lazy" width="960" height="1150"></div><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small dark" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></article>`).join('');
+
+// reveal on scroll
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
+document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
+
+const st={mode:'flash',flash:null,idea:'',place:'',size:null,artist:null,day:null,time:null,name:'',email:'',step:0,done:false};
+const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),body=document.getElementById('dr-body'),next=document.getElementById('dr-next'),back=document.getElementById('dr-back'),sum=document.getElementById('dr-sum'),foot=document.getElementById('dr-foot');
+let lastFocus=null;
+
+function open(opts={}){
+  Object.assign(st,{mode:'flash',flash:null,idea:'',place:'',size:null,artist:null,day:null,time:null,step:0,done:false},opts);
+  if(st.flash){st.step=1}
+  lastFocus=document.activeElement;
+  drawer.inert=false;drawer.classList.add('open');scrim.classList.add('open');drawer.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  render();setTimeout(()=>document.getElementById('dr-close').focus(),50);
+}
+function close(){body.dataset.k='';drawer.inert=true;drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-book]');
+  if(b){const m=b.dataset.book||'flash';open({mode:m==='custom'?'custom':'flash',artist:b.dataset.artist||null});return}
+  const f=e.target.closest('[data-flash]');
+  if(f&&!drawer.contains(f)){open({mode:'flash',flash:f.dataset.flash})}
+});
+document.getElementById('dr-close').onclick=close;scrim.onclick=close;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))close()});
+
+const fl=()=>FLASH.find(f=>f.k===st.flash);
+const dep=()=>st.mode==='flash'?50:(st.size?SIZES.find(s=>s.id===st.size).dep:0);
+const artistsFor=()=>st.mode==='flash'&&st.flash?fl().a:Object.keys(ARTISTS);
+
+function days(){
+  const out=[];const d=new Date();d.setHours(0,0,0,0);
+  for(let i=1;out.length<14;i++){const x=new Date(d);x.setDate(d.getDate()+i);out.push(x)}
+  return out;
+}
+function slots(day){
+  if(!day)return[];const dt=new Date(day);const dow=dt.getDay();if(dow===1)return[];
+  const base=dow===5||dow===6?['12 pm','2:30 pm','5 pm','7:30 pm','9:30 pm']:dow===0?['1 pm','3:30 pm']:['12 pm','2:30 pm','5 pm'];
+  const seed=st.artist&&st.artist!=='any'?ARTISTS[st.artist].seed:1;
+  return base.filter((t,i)=>((dt.getDate()*seed+i*5)%7)!==0);
+}
+const fmtDay=d=>new Date(d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+function valid(){
+  switch(st.step){
+    case 0:return st.mode==='flash'?!!st.flash:(st.idea.trim().length>3&&!!st.size);
+    case 1:return !!st.artist;
+    case 2:return !!st.day&&!!st.time;
+    case 3:return st.name.trim().length>1&&/.+@.+\..+/.test(st.email);
+    default:return true;
+  }
+}
+function updateFoot(){
+  next.disabled=!valid();
+  back.style.visibility=st.step===0?'hidden':'visible';
+  next.textContent=st.step===4?`Pay $${dep()} deposit`:'Continue';
+  const parts=[];
+  if(st.mode==='flash'&&st.flash)parts.push(`<b>${fl().n}</b> flash`);
+  if(st.mode==='custom'&&st.size)parts.push(`<b>Custom</b>, ${SIZES.find(s=>s.id===st.size).n.toLowerCase()}`);
+  if(dep())parts.push(`$${dep()} deposit`);
+  sum.innerHTML=parts.join(' · ')||'Nothing picked yet';
+}
+next.onclick=()=>{if(!valid())return;if(st.step===4){st.done=true}else st.step++;render()};
+back.onclick=()=>{if(st.step>0){st.step--;render()}};
+
+function render(){
+  const k=st.step+'-'+st.done;const anim=body.dataset.k!==k;body.dataset.k=k;
+  const kick=()=>{if(anim){body.classList.remove('anim');void body.offsetWidth;body.classList.add('anim')}};
+  document.querySelectorAll('#steps i').forEach((el,i)=>el.classList.toggle('on',i<=st.step));
+  foot.style.display=st.done?'none':'flex';
+  if(st.done){
+    const a=st.artist==='any'?'the first available artist':ARTISTS[st.artist].n;
+    body.innerHTML=`<div class="done">${svg(st.mode==='flash'?st.flash:'custom')}<h3>Your chair is held.</h3><p>${fmtDay(st.day)} at ${st.time} with ${a}. A receipt for your $${dep()} deposit is on its way to ${st.email.replace(/</g,'')}.</p><p class="fine">This is a demo. No payment was taken and no booking was made.</p><button class="btn small" style="margin-top:18px" id="again">Close</button></div>`;
+    document.getElementById('again').onclick=close;kick();return;
+  }
+  let h='';
+  if(st.step===0){
+    h+=`<div class="tabs" role="tablist"><button role="tab" aria-selected="${st.mode==='flash'}" data-mode="flash">Flash</button><button role="tab" aria-selected="${st.mode==='custom'}" data-mode="custom">Custom</button></div>`;
+    if(st.mode==='flash'){
+      h+=`<h3>Pick a piece</h3><p class="hint">Fixed price, $50 deposit. The rest is paid on the day.</p><div class="pick-flash">${FLASH.map(f=>`<button data-pick="${f.k}" aria-pressed="${st.flash===f.k}">${svg(f.k)}<span>${f.n}</span><em>$${f.p}</em></button>`).join('')}</div>`;
+    }else{
+      h+=`<h3>Tell us the idea</h3><p class="hint">A few lines is enough. Your artist will ask for references after you book.</p>
+      <label class="f" for="idea">What do you want tattooed?</label><textarea class="f-in" id="idea" placeholder="A heron standing in reeds, black and grey, a bit loose">${st.idea}</textarea>
+      <label class="f" for="place">Placement</label><select class="f-in" id="place"><option value="">Choose a spot</option>${['Forearm','Upper arm','Calf','Thigh','Chest','Back','Ribs','Hand or fingers','Somewhere else'].map(p=>`<option ${st.place===p?'selected':''}>${p}</option>`).join('')}</select>
+      <label class="f">Size</label><div class="opt sizes">${SIZES.map(s=>`<button data-size="${s.id}" aria-pressed="${st.size===s.id}"><span><b>${s.n}</b><small>${s.d}</small></span><span class="r">$${s.dep}</span></button>`).join('')}</div>`;
+    }
+  }
+  if(st.step===1){
+    const ok=artistsFor();
+    h+=`<h3>Choose your artist</h3><p class="hint">${st.mode==='flash'?`Artists who tattoo the ${fl().n.toLowerCase()} from this sheet.`:'Rates are per hour. Your artist quotes the full price after seeing your idea.'}</p><div class="opt">`;
+    h+=Object.entries(ARTISTS).map(([id,a])=>`<button data-artist-pick="${id}" aria-pressed="${st.artist===id}" ${ok.includes(id)?'':'disabled'}><span><b>${a.n}</b><small>${a.s}${ok.includes(id)?'':', not on this piece'}</small></span><span class="r">${st.mode==='flash'?'Next '+a.next:'$'+a.rate+'/h'}</span></button>`).join('');
+    h+=`<button data-artist-pick="any" aria-pressed="${st.artist==='any'}"><span><b>First available</b><small>Earliest opening with any of the above</small></span><span class="r">Soonest</span></button></div>`;
+  }
+  if(st.step===2){
+    const ds=days();
+    h+=`<h3>Pick a day and time</h3><p class="hint">Closed Mondays. Late sessions on Friday and Saturday.</p><div class="days">${ds.map(d=>{const iso=d.toISOString();const closed=d.getDay()===1;return `<button data-day="${iso}" aria-pressed="${st.day===iso}" ${closed?'disabled':''} aria-label="${fmtDay(d)}${closed?', closed':''}">${d.toLocaleDateString('en-US',{weekday:'short'})}<b>${d.getDate()}</b></button>`}).join('')}</div>`;
+    if(st.day){const sl=slots(st.day);h+=sl.length?`<div class="times">${sl.map(t=>`<button data-time="${t}" aria-pressed="${st.time===t}">${t}</button>`).join('')}</div>`:'<p class="hint">No openings that day.</p>'}
+    else h+='<p class="hint">Choose a day to see open times.</p>';
+  }
+  if(st.step===3){
+    h+=`<h3>Who's getting tattooed?</h3><p class="hint">You must be 18 or older and bring photo ID.</p>
+    <label class="f" for="nm">Full name</label><input class="f-in" id="nm" autocomplete="name" value="${st.name.replace(/"/g,'&quot;')}">
+    <label class="f" for="em">Email</label><input class="f-in" id="em" type="email" autocomplete="email" value="${st.email.replace(/"/g,'&quot;')}">`;
+  }
+  if(st.step===4){
+    const isF=st.mode==='flash';const a=st.artist==='any'?'First available':ARTISTS[st.artist].n;
+    const top=isF?`${svg(st.flash)}<div><b>${fl().n}</b><span>Flash, $${fl().p} total</span></div>`:`${svg('custom')}<div><b>Custom piece</b><span>${SIZES.find(s=>s.id===st.size).n}${st.place?', '+st.place.toLowerCase():''}</span></div>`;
+    h+=`<h3>Check and hold your chair</h3><p class="hint">Your deposit comes off the total on the day.</p><div class="review"><div class="rv-top">${top}</div><dl><dt>Artist</dt><dd>${a}</dd><dt>When</dt><dd>${fmtDay(st.day)}, ${st.time}</dd><dt>Name</dt><dd>${st.name.replace(/</g,'')}</dd>${isF?`<dt>Due on the day</dt><dd>$${fl().p-50}</dd>`:`<dt>Rate</dt><dd>${st.artist==='any'?'$160 to $200/h':'$'+ARTISTS[st.artist].rate+'/h'}</dd>`}</dl><div class="due"><span>Deposit today</span><b>$${dep()}</b></div></div><p class="fine">Free to reschedule up to 48 hours before. Late cancels and no-shows keep the deposit.</p>`;
+  }
+  body.innerHTML=h;body.scrollTop=0;kick();
+  // wire
+  body.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{st.mode=b.dataset.mode;if(st.artist&&!artistsFor().includes(st.artist)&&st.artist!=='any')st.artist=null;render()});
+  body.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{st.flash=b.dataset.pick;if(st.artist&&st.artist!=='any'&&!fl().a.includes(st.artist))st.artist=null;render()});
+  body.querySelectorAll('[data-size]').forEach(b=>b.onclick=()=>{st.size=b.dataset.size;render()});
+  body.querySelectorAll('[data-artist-pick]').forEach(b=>b.onclick=()=>{st.artist=b.dataset.artistPick;st.time=null;render()});
+  body.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{st.day=b.dataset.day;st.time=null;render()});
+  body.querySelectorAll('[data-time]').forEach(b=>b.onclick=()=>{st.time=b.dataset.time;render()});
+  const idea=document.getElementById('idea');if(idea)idea.oninput=()=>{st.idea=idea.value;updateFoot()};
+  const place=document.getElementById('place');if(place)place.onchange=()=>{st.place=place.value};
+  const nm=document.getElementById('nm');if(nm)nm.oninput=()=>{st.name=nm.value;updateFoot()};
+  const em=document.getElementById('em');if(em)em.oninput=()=>{st.email=em.value;updateFoot()};
+  updateFoot();
+}
+</script>
+</body>
+</html>
