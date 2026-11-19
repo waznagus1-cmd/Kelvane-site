@@ -1,0 +1,31 @@
+name: Site QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 11 * * 1"   # every Monday, catches broken outside links
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lighthouse (mobile) on home and demos
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          staticDistDir: ./
+          urls: |
+            http://localhost/
+            http://localhost/oriel/
+            http://localhost/tattoo/
+          configPath: ./.github/lighthouserc.json
+          uploadArtifacts: true
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --exclude-mailto './**/*.html'
+          fail: true
