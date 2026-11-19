@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ironwren Tattoo, Austin TX: flash and custom work</title>
 <meta name="description" content="Ironwren Tattoo in Austin, Texas. Pick a flash piece off the wall or start a custom tattoo, choose your artist and hold your chair with a deposit.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<link rel="preload" href="../fonts/pirata-one.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233A1714'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='42' font-weight='700' fill='%23ECE3CF'%3EI%3C/text%3E%3C/svg%3E">
 <style>
+@font-face{font-family:'Familjen Grotesk';src:url('../fonts/familjen.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}@font-face{font-family:'Pirata One';src:url('../fonts/pirata-one.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+
 :root{
   --paper:#ECE3CF;
   --paper-2:#F6F0E2;
@@ -399,7 +400,7 @@ textarea.f-in{min-height:110px;resize:vertical}
 
 <!-- Booking drawer -->
 <div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true">
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true" inert>
   <div class="dr-head">
     <h2 id="dr-title">Book a chair</h2>
     <button class="dr-close" id="dr-close" aria-label="Close booking">&times;</button>
@@ -467,7 +468,7 @@ const SIZES=[
 
 // render sheet
 const sheet=document.getElementById('sheet');
-sheet.innerHTML=FLASH.map((f,i)=>`<button class="flash" data-flash="${f.k}" aria-label="Claim ${f.n}, $${f.p}"><span class="no">${i+1}</span><span class="claim">Claim</span>${svg(f.k)}<span class="nm">${f.n}</span><span class="pr">$${f.p}</span></button>`).join('');
+sheet.innerHTML=FLASH.map((f,i)=>`<button class="flash" data-flash="${f.k}"><span class="no" aria-hidden="true">${i+1}</span><span class="claim">Claim</span>${svg(f.k)}<span class="nm">${f.n}</span><span class="pr">$${f.p}</span></button>`).join('');
 
 // artists
 document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a])=>`<article class="artist"><div class="art">${a.art.map(k=>`<div>${svg(k)}</div>`).join('')}</div><div class="bd"><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></div></article>`).join('');
@@ -481,11 +482,11 @@ function open(opts={}){
   Object.assign(st,{mode:'flash',flash:null,idea:'',place:'',size:null,artist:null,day:null,time:null,step:0,done:false},opts);
   if(st.flash){st.step=1}
   lastFocus=document.activeElement;
-  drawer.classList.add('open');scrim.classList.add('open');drawer.setAttribute('aria-hidden','false');
+  drawer.inert=false;drawer.classList.add('open');scrim.classList.add('open');drawer.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
   render();setTimeout(()=>document.getElementById('dr-close').focus(),50);
 }
-function close(){drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+function close(){drawer.inert=true;drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-book]');
   if(b){const m=b.dataset.book||'flash';open({mode:m==='custom'?'custom':'flash',artist:b.dataset.artist||null});return}

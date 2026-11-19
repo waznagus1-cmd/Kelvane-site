@@ -8,11 +8,12 @@
 <meta name="description" content="Kelvane Studio designs and builds websites for med spas and tattoo studios with online booking and deposits built in, so clients book and pay a deposit without leaving your site.">
 <meta property="og:title" content="Kelvane Studio — Websites that book the appointment">
 <meta property="og:description" content="Booking-ready websites for med spas and tattoo studios. Launch in 21 days.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..600,100;1,9..144,500,100&family=Manrope:wght@400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
 <style>
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:500 600;font-style:normal;font-display:swap}@font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:500 600;font-style:italic;font-display:swap}@font-face{font-family:'Manrope';src:url('fonts/manrope.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}@font-face{font-family:'Outfit';src:url('fonts/outfit.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}@font-face{font-family:'Pirata One';src:url('fonts/pirata-one.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+
 :root{
   --paper:#F1EEFA;
   --white:#FFFFFF;
@@ -121,7 +122,7 @@ header.site.scrolled{border-bottom-color:var(--line)}
 .dark::before{content:"";position:absolute;width:720px;aspect-ratio:1;border-radius:50%;right:-240px;top:-300px;background:radial-gradient(circle,rgba(126,217,198,.22) 0,rgba(126,217,198,0) 65%);animation:drift 14s ease-in-out infinite alternate}
 .dark .wrap{position:relative}
 .dark .muted{color:#B9B2CF}
-section.band{padding:clamp(80px,10vw,136px) 0}
+section.band{padding:clamp(80px,10vw,136px) 0;contain:paint}
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(44px,6vw,72px)}
 .intro p{max-width:46ch;font-size:18px}
 @media (max-width:860px){.intro{grid-template-columns:1fr}}
@@ -302,6 +303,7 @@ header.site.scrolled .nav{height:64px}
 </head>
 <body>
 
+<div id="topSentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none"></div>
 <header class="site" id="hdr">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Kelvane Studio home">
@@ -600,7 +602,7 @@ header.site.scrolled .nav{height:64px}
 
 <script>
 /* header border on scroll */
-(function(){const h=document.getElementById('hdr');const f=()=>h.classList.toggle('scrolled',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();
+(function(){const h=document.getElementById('hdr'),t=document.getElementById('topSentinel');if(!t||!('IntersectionObserver' in window))return;new IntersectionObserver(([e])=>h.classList.toggle('scrolled',!e.isIntersecting)).observe(t)})();
 
 /* copy email */
 document.getElementById('copyBtn').addEventListener('click',async e=>{try{await navigator.clipboard.writeText('agustin@kelvanestudio.com');e.target.textContent='Copied'}catch(_){e.target.textContent='agustin@kelvanestudio.com'}});
