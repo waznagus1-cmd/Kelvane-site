@@ -91,10 +91,12 @@ h2 em{font-style:italic;color:var(--red)}
 /* flash grid */
 .grid-flash{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 28px}
 .flash{border:0;background:transparent;text-align:left;display:block;width:100%}
-.flash .frame{background:#F0E2BE;border-radius:4px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04),0 14px 30px -18px rgba(60,40,10,.45);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.flash .frame{aspect-ratio:1;display:grid;place-items:center;transition:transform .45s var(--ease)}
+.flash .cut{border-radius:3px;box-shadow:0 1px 1px rgba(60,40,10,.12),0 18px 30px -18px rgba(60,40,10,.55);transition:box-shadow .45s var(--ease)}
+.flash:hover .cut{box-shadow:0 1px 1px rgba(60,40,10,.12),0 30px 40px -22px rgba(60,40,10,.6)}
 .flash:nth-child(3n+1) .frame{transform:rotate(-.8deg)}
 .flash:nth-child(3n+2) .frame{transform:rotate(.6deg)}
-.flash:hover .frame{transform:translateY(-6px) rotate(0);box-shadow:0 1px 0 rgba(0,0,0,.04),0 26px 40px -20px rgba(60,40,10,.55)}
+.flash:hover .frame{transform:translateY(-6px) rotate(0)}
 .flash .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
 .flash .nm{font-family:var(--display);font-size:26px;line-height:1.05}
 .flash .pr{font-size:15px;font-weight:600;color:var(--red);white-space:nowrap}
@@ -103,8 +105,8 @@ h2 em{font-style:italic;color:var(--red)}
 .note{margin-top:48px;font-size:15px;color:var(--muted)}
 
 /* crop of a real sheet */
-.pic{display:grid;place-items:center;width:100%;height:100%;padding:10%}
-.cut{display:block;background-repeat:no-repeat;mix-blend-mode:multiply}
+.pic{display:grid;place-items:center;width:100%;height:100%;padding:5%}
+.cut{display:block;background-repeat:no-repeat;border-radius:3px}
 .cut.w{width:100%}.cut.t{height:100%}
 .cut.img{background-size:cover}
 
@@ -201,9 +203,10 @@ footer .credit{flex-basis:100%;font-size:13px;opacity:.8}
 .tabs button{border:0;background:transparent;padding:10px;border-radius:999px;font-weight:600;transition:background .25s,color .25s}
 .tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
 .pick-flash{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.pick-flash button{border:1px solid transparent;background:#F0E2BE;border-radius:6px;padding:0 0 8px;text-align:center;transition:border-color .2s,transform .25s var(--ease)}
+.pick-flash button{border:1px solid transparent;background:transparent;border-radius:8px;padding:0 0 8px;text-align:center;transition:border-color .2s,transform .25s var(--ease)}
 .pick-flash button:hover{transform:translateY(-2px)}
-.pick-flash .pic{aspect-ratio:1;height:auto;padding:12%}
+.pick-flash .pic{aspect-ratio:1;height:auto;padding:8%}
+.pick-flash .cut{box-shadow:0 8px 16px -10px rgba(60,40,10,.6)}
 .pick-flash span{display:block;font-size:13px;font-weight:600}
 .pick-flash em{display:block;font-style:normal;font-size:13px;color:var(--red)}
 .pick-flash button[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
@@ -232,7 +235,7 @@ textarea.f-in{min-height:110px;resize:vertical}
 .times button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
 .review{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
 .review .rv-top{display:flex;gap:16px;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
-.review .rv-top .pic{width:88px;height:88px;flex:none;background:#F0E2BE;border-radius:6px;padding:8px}
+.review .rv-top .pic{width:88px;height:88px;flex:none;padding:0}
 .review .rv-top b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;display:block}
 .review dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;padding:16px;font-size:15.5px}
 .review dt{color:var(--muted)}
@@ -241,7 +244,8 @@ textarea.f-in{min-height:110px;resize:vertical}
 .review .due b{font-family:var(--display);font-weight:400;font-size:32px;color:var(--brass)}
 .fine{font-size:13.5px;color:var(--muted);margin-top:14px}
 .done{text-align:center;padding:24px 6px}
-.done .pic{width:170px;height:170px;margin:0 auto 14px;background:#F0E2BE;border-radius:8px;padding:14px}
+.done .pic{width:170px;height:170px;margin:0 auto 14px;padding:0}
+.done .cut{box-shadow:0 20px 30px -18px rgba(60,40,10,.6)}
 .done h3{font-family:var(--display);font-weight:400;font-size:46px;line-height:1;margin-bottom:10px}
 .done p{max-width:36ch;margin:0 auto 8px}
 
