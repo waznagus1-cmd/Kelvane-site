@@ -5,250 +5,277 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ironwren Tattoo, Austin TX: flash and custom work</title>
 <meta name="description" content="Ironwren Tattoo in Austin, Texas. Pick a flash piece off the wall or start a custom tattoo, choose your artist and hold your chair with a deposit.">
-<link rel="preload" href="../fonts/pirata-one.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://upload.wikimedia.org">
+<link rel="preload" href="../fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233A1714'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='42' font-weight='700' fill='%23ECE3CF'%3EI%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2622'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23F4EEE2'%3EI%3C/text%3E%3C/svg%3E">
 <style>
-@font-face{font-family:'Familjen Grotesk';src:url('../fonts/familjen.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}@font-face{font-family:'Pirata One';src:url('../fonts/pirata-one.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-
+@font-face{font-family:'Familjen Grotesk';src:url('../fonts/familjen.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('../fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('../fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 :root{
-  --paper:#ECE3CF;
-  --paper-2:#F6F0E2;
-  --ink:#1C1A17;
-  --red:#B7362C;
-  --green:#2E6A57;
-  --gold:#E2AE3D;
-  --ox:#3A1714;
-  --ox-2:#4A2019;
-  --muted:#5E554A;
-  --line:rgba(28,26,23,.18);
-  --display:"Pirata One", "UnifrakturCook", Georgia, serif;
-  --body:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --wall:#1E2622;--wall-2:#28322D;
+  --paper:#F4EEE2;--paper-2:#FBF8F1;
+  --ink:#191613;--muted:#6B6257;--line:rgba(25,22,19,.14);
+  --red:#A8322A;--red-2:#8E2821;--brass:#C29A4E;
+  --cream:#EDE4D3;--cream-2:#B9B2A4;
+  --display:"Instrument Serif",Georgia,serif;
+  --body:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-img,svg{display:block}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1200px,100% - 56px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-/* demo banner */
-.demo{background:var(--ink);color:var(--paper);font-size:13.5px;text-align:center;padding:8px 16px}
-.demo a{color:var(--gold)}
+.demo{background:#121714;color:var(--cream-2);font-size:13px;text-align:center;padding:8px 16px}
+.demo a{color:var(--cream)}
 
 /* header */
-header.top{border-bottom:2px solid var(--ink)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
-.logo{font-family:var(--display);font-size:38px;line-height:1;text-decoration:none;letter-spacing:.5px}
-.logo span{color:var(--red)}
-nav.main{display:flex;gap:28px;font-weight:500;font-size:15.5px}
-nav.main a{text-decoration:none}
-nav.main a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:600;font-size:16px;padding:13px 22px;border-radius:999px;text-decoration:none;transition:transform .15s, box-shadow .15s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--red)}
-.btn.red{background:var(--red);border-color:var(--ink)}
-.btn.red:hover{box-shadow:4px 4px 0 var(--ink)}
-.btn.ghost{background:transparent;color:var(--ink)}
+header.top{background:var(--wall);color:var(--cream);position:relative;z-index:3}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.logo{font-family:var(--display);font-size:34px;line-height:1;text-decoration:none;letter-spacing:-.01em}
+.logo i{color:var(--brass)}
+nav.main{display:flex;gap:30px;font-size:15px;color:var(--cream-2)}
+nav.main a{text-decoration:none;transition:color .2s}
+nav.main a:hover{color:var(--cream)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;background:var(--red);color:#FBF3EA;font-weight:600;font-size:16px;padding:14px 24px;border-radius:999px;text-decoration:none;transition:background .2s,transform .25s var(--ease),border-color .2s}
+.btn:hover{background:var(--red-2);transform:translateY(-1px)}
+.btn.line{background:transparent;color:var(--ink);border-color:rgba(25,22,19,.35)}
+.btn.line:hover{border-color:var(--ink);background:transparent}
+.on-wall .btn.line{color:var(--cream);border-color:rgba(237,228,211,.4)}
+.on-wall .btn.line:hover{border-color:var(--cream)}
+.btn.dark{background:var(--ink)}
+.btn.dark:hover{background:#000}
 .btn.small{padding:10px 18px;font-size:15px}
-.on-dark .btn.ghost{color:var(--paper);border-color:var(--paper)}
-.on-dark .btn.ghost:hover{box-shadow:4px 4px 0 var(--gold)}
+.btn[disabled]{opacity:.35;pointer-events:none}
 
-/* hero */
-.hero{padding:56px 0 88px;position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,9.2vw,132px);line-height:.86;letter-spacing:-.5px;margin-top:8px}
-.hero .lede{font-size:19px;max-width:30ch;margin:28px 0 30px;color:#2c2925}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.facts{margin-top:44px;border-top:2px solid var(--ink);display:grid;grid-template-columns:repeat(3,1fr)}
-.facts div{padding:16px 14px 0 0}
-.facts b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.1}
-.facts span{font-size:14px;color:var(--muted)}
-
-/* flash sheet */
-.sheet{position:relative;background:var(--paper-2);border:2px solid var(--ink);padding:26px 26px 20px;transform:rotate(-1.2deg);box-shadow:10px 12px 0 var(--ox)}
-.sheet::before,.sheet::after{content:"";position:absolute;width:96px;height:30px;background:rgba(226,174,61,.55);top:-14px}
-.sheet::before{left:30px;transform:rotate(-6deg)}
-.sheet::after{right:30px;transform:rotate(5deg)}
-.sheet-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
-.sheet-head h2{font-family:var(--display);font-weight:400;font-size:34px;line-height:1}
-.sheet-head p{font-size:14px;color:var(--muted)}
-.grid-flash{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.flash{position:relative;background:transparent;border:0;padding:8px 6px 10px;text-align:center;border-radius:6px;transition:background .15s}
-.flash svg{width:100%;height:auto;aspect-ratio:1;max-width:120px;margin:0 auto;transition:transform .2s}
-.flash .no{position:absolute;top:6px;left:8px;font-family:var(--display);font-size:17px;color:var(--muted)}
-.flash .nm{display:block;font-weight:600;font-size:14.5px;margin-top:2px}
-.flash .pr{display:block;font-family:var(--display);font-size:22px;line-height:1;color:var(--red)}
-.flash:hover{background:rgba(183,54,44,.08)}
-.flash:hover svg{transform:rotate(-4deg) scale(1.05)}
-.flash .claim{position:absolute;right:6px;top:6px;font-size:12px;font-weight:700;background:var(--ink);color:var(--paper);padding:3px 8px;border-radius:999px;opacity:0;transition:opacity .15s}
-.flash:hover .claim,.flash:focus-visible .claim{opacity:1}
-.sheet-foot{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;font-size:13.5px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+/* hero: the wall */
+.hero{background:var(--wall);color:var(--cream);overflow:hidden;position:relative;padding:0}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 40%,rgba(255,226,170,.10),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center;min-height:min(720px,calc(100vh - 110px));padding:56px 0 72px;position:relative}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,8.4vw,124px);line-height:.92;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero p.lede{font-size:19px;color:var(--cream-2);margin:26px 0 34px;max-width:38ch}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:36px;margin-top:46px;padding-top:22px;border-top:1px solid rgba(237,228,211,.16)}
+.facts b{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--cream)}
+.facts span{font-size:14px;color:var(--cream-2)}
+.wall{position:relative;height:600px}
+.wall .sh{position:absolute;box-shadow:0 30px 60px -20px rgba(0,0,0,.65),0 8px 16px -8px rgba(0,0,0,.5);border-radius:3px;transform-origin:50% 0;transition:transform .6s var(--ease)}
+.wall .s1{width:74%;left:16%;top:12%;z-index:2;--r:-1.5deg}
+.wall .s2{width:50%;left:-4%;top:0;z-index:1;--r:-6deg;filter:brightness(.82)}
+.wall .s3{width:48%;right:-6%;top:52%;z-index:3;--r:4deg}
+.wall .sh{transform:rotate(var(--r))}
+.wall .sh:hover{transform:rotate(calc(var(--r) * .4)) translateY(-6px)}
+@media (prefers-reduced-motion:no-preference){
+  .wall .sh{animation:hang 1.1s var(--ease) both}
+  .wall .s2{animation-delay:.08s}.wall .s1{animation-delay:.18s}.wall .s3{animation-delay:.3s}
+  @keyframes hang{from{opacity:0;transform:translateY(-28px) rotate(calc(var(--r) - 4deg))}}
+}
 
 /* sections */
-section{padding:104px 0}
-.on-dark{background:var(--ox);color:var(--paper)}
-.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
-.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(52px,6.4vw,92px);line-height:.9}
-.sec-head p{max-width:46ch;font-size:18px}
-.on-dark .sec-head p{color:#E2D6C4}
+section{padding:110px 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(46px,5.6vw,80px);line-height:.98;letter-spacing:-.015em}
+h2 em{font-style:italic;color:var(--red)}
+.head p{color:var(--muted);font-size:18px;max-width:46ch}
 
-/* two ways */
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.way{border:2px solid var(--paper);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:22px;position:relative}
-.way.alt{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.way h3{font-family:var(--display);font-weight:400;font-size:52px;line-height:1}
-.way .tag{font-size:15px;opacity:.85}
-.way ul{list-style:none;display:grid;gap:12px}
-.way li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16.5px}
-.way li::before{content:"";width:12px;height:12px;margin-top:7px;background:var(--gold);transform:rotate(45deg)}
-.way.alt li::before{background:var(--red)}
-.way .price{font-family:var(--display);font-size:40px;line-height:1}
-.way .price small{font-family:var(--body);font-size:15px;opacity:.8;margin-left:6px}
-.way .btn{align-self:flex-start;margin-top:auto}
-.way:not(.alt) .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.way:not(.alt) .btn:hover{box-shadow:4px 4px 0 var(--gold)}
+/* flash grid */
+.grid-flash{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 28px}
+.flash{border:0;background:transparent;text-align:left;display:block;width:100%}
+.flash .frame{aspect-ratio:1;display:grid;place-items:center;transition:transform .45s var(--ease)}
+.flash .cut{border-radius:3px;box-shadow:0 1px 1px rgba(60,40,10,.12),0 18px 30px -18px rgba(60,40,10,.55);transition:box-shadow .45s var(--ease)}
+.flash:hover .cut{box-shadow:0 1px 1px rgba(60,40,10,.12),0 30px 40px -22px rgba(60,40,10,.6)}
+.flash:nth-child(3n+1) .frame{transform:rotate(-.8deg)}
+.flash:nth-child(3n+2) .frame{transform:rotate(.6deg)}
+.flash:hover .frame{transform:translateY(-6px) rotate(0)}
+.flash .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
+.flash .nm{font-family:var(--display);font-size:26px;line-height:1.05}
+.flash .pr{font-size:15px;font-weight:600;color:var(--red);white-space:nowrap}
+.flash .by{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.flash:hover .nm{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.note{margin-top:48px;font-size:15px;color:var(--muted)}
+
+/* crop of a real sheet */
+.pic{display:grid;place-items:center;width:100%;height:100%;padding:5%}
+.cut{display:block;background-repeat:no-repeat;border-radius:3px}
+.cut.w{width:100%}.cut.t{height:100%}
+.cut.img{background-size:cover}
+
+/* ways */
+.ways{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.way{padding:44px 48px 8px 0}
+.way+.way{padding-left:48px;padding-right:0;border-left:1px solid var(--line)}
+.way h3{font-family:var(--display);font-weight:400;font-size:46px;line-height:1}
+.way p.d{color:var(--muted);margin:12px 0 22px;max-width:40ch}
+.way ul{list-style:none;display:grid;gap:10px;margin-bottom:28px}
+.way li{padding-left:22px;position:relative}
+.way li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:1px;background:var(--red)}
+.way .price{font-family:var(--display);font-size:34px;margin-bottom:22px}
+.way .price small{font-family:var(--body);font-size:14px;color:var(--muted);margin-left:8px}
 
 /* artists */
-.artists{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.artist{border:2px solid var(--ink);border-radius:22px;overflow:hidden;background:var(--paper-2);display:flex;flex-direction:column}
-.artist .art{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--ink);background:var(--paper)}
-.artist .art div{padding:14px;border-right:1px solid var(--line)}
-.artist .art div:last-child{border-right:0}
-.artist .bd{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
-.artist h3{font-family:var(--display);font-weight:400;font-size:42px;line-height:1}
-.artist .style{font-weight:600;color:var(--red);font-size:15px}
-.artist p{font-size:16px;color:#3a352f}
-.artist .meta{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;margin-top:auto;font-size:14.5px}
+.artists-sec{background:var(--paper-2)}
+.artists{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.artist .ph{aspect-ratio:4/5;background:#EFE4CC;border-radius:4px;overflow:hidden}
+.artist .ph img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+.artist:hover .ph img{transform:scale(1.03)}
+.artist h3{font-family:var(--display);font-weight:400;font-size:36px;line-height:1;margin-top:22px}
+.artist .style{display:block;color:var(--red);font-size:15px;margin-top:6px}
+.artist p{color:var(--muted);margin:12px 0 18px;font-size:16px}
+.artist .meta{display:flex;justify-content:space-between;font-size:14.5px;border-top:1px solid var(--line);padding:14px 0 18px}
 .artist .meta b{font-weight:600}
-.artist .btn{margin-top:14px;align-self:flex-start}
 
-/* deposit band */
-.band{background:var(--gold);border-block:2px solid var(--ink);padding:88px 0}
-.band .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px}
-.band h2{font-family:var(--display);font-weight:400;font-size:clamp(52px,6vw,84px);line-height:.9}
-.band .rules{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink)}
-.band .rule{padding:22px 22px 22px 0;border-bottom:2px solid var(--ink)}
-.band .rule:nth-child(odd){border-right:2px solid var(--ink)}
-.band .rule:nth-child(even){padding-left:22px}
-.band .rule b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.1;margin-bottom:6px}
-.band .rule span{font-size:16px}
+/* deposit */
+.dep .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.rule{padding:24px 0;border-top:1px solid var(--line)}
+.rule h3{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;margin-bottom:8px}
+.rule p{color:var(--muted);font-size:16px}
 
 /* faq */
-.faq{max-width:860px}
-.faq details{border-top:2px solid var(--ink)}
-.faq details:last-child{border-bottom:2px solid var(--ink)}
-.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:600;font-size:19px;cursor:pointer}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--display);font-size:34px;line-height:1;transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding:0 0 24px;max-width:66ch;color:#3a352f}
+.faq .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px}
+.faq .head{display:block;margin:0}
+.faq .head p{margin-top:18px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-weight:600;font-size:18px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:30px;line-height:1;color:var(--red);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 22px;color:var(--muted);max-width:60ch}
 
 /* visit */
+.visit{background:var(--wall);color:var(--cream)}
 .visit .wrap{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
-.visit h2{font-family:var(--display);font-weight:400;font-size:clamp(60px,8vw,118px);line-height:.86}
-.visit .addr{font-size:20px;margin:26px 0 30px;color:#E2D6C4;max-width:30ch}
-.hours{border:2px solid var(--paper);border-radius:22px;padding:28px}
-.hours h3{font-family:var(--display);font-weight:400;font-size:34px;margin-bottom:12px}
-.hours table{width:100%;border-collapse:collapse;font-size:16.5px}
-.hours td{padding:10px 0;border-bottom:1px solid rgba(236,227,207,.22)}
+.visit h2 em{color:var(--brass)}
+.visit .addr{font-size:19px;color:var(--cream-2);margin:24px 0 32px;max-width:32ch}
+.hours h3{font-family:var(--display);font-weight:400;font-size:30px;margin-bottom:8px}
+.hours table{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:12px 0;border-bottom:1px solid rgba(237,228,211,.14)}
 .hours td:last-child{text-align:right}
-.hours tr.closed td{opacity:.6}
-.hours .walk{margin-top:16px;font-size:14.5px;color:#E2D6C4}
+.hours tr.closed td{opacity:.55}
+.hours .walk{margin-top:16px;font-size:14.5px;color:var(--cream-2)}
 
-footer{background:var(--ink);color:#CFC4B2;padding:34px 0;font-size:14.5px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a{color:var(--paper)}
+footer{background:#121714;color:var(--cream-2);padding:34px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px 28px;flex-wrap:wrap}
+footer a{color:var(--cream)}
+footer .credit{flex-basis:100%;font-size:13px;opacity:.8}
 
-/* booking drawer */
-.scrim{position:fixed;inset:0;background:rgba(28,26,23,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:50}
+/* reveal */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+  .rv.in{opacity:1;transform:none}
+}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(18,23,20,.5);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:50}
 .scrim.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:var(--paper);border-left:2px solid var(--ink);z-index:51;transform:translateX(102%);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(540px,100%);background:var(--paper-2);z-index:51;transform:translateX(100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;box-shadow:-30px 0 60px -30px rgba(0,0,0,.35)}
 .drawer.open{transform:none}
-.dr-head{padding:20px 26px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px}
-.dr-head h2{font-family:var(--display);font-weight:400;font-size:34px;line-height:1}
-.dr-close{border:2px solid var(--ink);background:transparent;width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1}
-.steps{display:flex;gap:6px;padding:16px 26px 0}
-.steps i{flex:1;height:5px;border-radius:3px;background:var(--line)}
-.steps i.on{background:var(--red)}
-.dr-body{padding:20px 26px 26px;overflow-y:auto;flex:1}
+.dr-head{padding:22px 28px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dr-head h2{font-size:34px;line-height:1}
+.dr-close{border:1px solid var(--line);background:transparent;width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;transition:border-color .2s}
+.dr-close:hover{border-color:var(--ink)}
+.steps{display:flex;gap:6px;padding:0 28px}
+.steps i{flex:1;height:3px;border-radius:2px;background:var(--line);position:relative;overflow:hidden}
+.steps i::after{content:"";position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.steps i.on::after{transform:scaleX(1)}
+.dr-body{padding:24px 28px 28px;overflow-y:auto;flex:1}
+.dr-body.anim>*{animation:stepIn .45s var(--ease) both}
+.dr-body.anim>*:nth-child(2){animation-delay:.04s}.dr-body.anim>*:nth-child(3){animation-delay:.08s}.dr-body.anim>*:nth-child(n+4){animation-delay:.12s}
+@keyframes stepIn{from{opacity:0;transform:translateX(16px)}}
+@media (prefers-reduced-motion:reduce){.dr-body.anim>*{animation:none}}
 .dr-body h3{font-size:21px;font-weight:600;margin-bottom:4px}
 .dr-body .hint{font-size:15px;color:var(--muted);margin-bottom:18px}
-.dr-foot{padding:16px 26px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--paper-2)}
-.dr-foot .sum{font-size:14.5px;color:var(--muted)}
-.dr-foot .sum b{color:var(--ink);font-size:16px}
-.btn[disabled]{opacity:.4;pointer-events:none}
-.tabs{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:999px;padding:4px;margin-bottom:18px}
-.tabs button{border:0;background:transparent;padding:10px;border-radius:999px;font-weight:600}
+.dr-foot{padding:16px 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dr-foot .sum{font-size:14px;color:var(--muted)}
+.dr-foot .sum b{color:var(--ink)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:999px;padding:4px;margin-bottom:22px}
+.tabs button{border:0;background:transparent;padding:10px;border-radius:999px;font-weight:600;transition:background .25s,color .25s}
 .tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
-.pick-flash{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.pick-flash button{border:2px solid transparent;background:var(--paper-2);border-radius:12px;padding:6px 4px 8px;text-align:center}
-.pick-flash button svg{width:100%;height:auto;aspect-ratio:1}
-.pick-flash button span{display:block;font-size:13px;font-weight:600}
-.pick-flash button em{display:block;font-style:normal;font-family:var(--display);color:var(--red);font-size:18px;line-height:1}
-.pick-flash button[aria-pressed="true"]{border-color:var(--red);background:#fff}
+.pick-flash{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pick-flash button{border:1px solid transparent;background:transparent;border-radius:8px;padding:0 0 8px;text-align:center;transition:border-color .2s,transform .25s var(--ease)}
+.pick-flash button:hover{transform:translateY(-2px)}
+.pick-flash .pic{aspect-ratio:1;height:auto;padding:8%}
+.pick-flash .cut{box-shadow:0 8px 16px -10px rgba(60,40,10,.6)}
+.pick-flash span{display:block;font-size:13px;font-weight:600}
+.pick-flash em{display:block;font-style:normal;font-size:13px;color:var(--red)}
+.pick-flash button[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
 .opt{display:grid;gap:10px}
-.opt button{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;border:2px solid var(--ink);background:var(--paper-2);border-radius:14px;padding:14px 16px}
+.opt button{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;transition:border-color .2s,background .25s,color .25s}
+.opt button:hover{border-color:rgba(25,22,19,.4)}
 .opt button small{display:block;color:var(--muted);font-size:14px}
 .opt button b{font-weight:600}
 .opt button .r{font-family:var(--display);font-size:22px;color:var(--red);white-space:nowrap}
-.opt button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.opt button[aria-pressed="true"] small{color:#CFC4B2}
-.opt button[aria-pressed="true"] .r{color:var(--gold)}
+.opt button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opt button[aria-pressed="true"] small{color:var(--cream-2)}
+.opt button[aria-pressed="true"] .r{color:var(--brass)}
 .opt button:disabled{opacity:.4;cursor:not-allowed}
 .opt.sizes{grid-template-columns:1fr 1fr}
 label.f{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
-.f-in{width:100%;border:2px solid var(--ink);background:var(--paper-2);border-radius:12px;padding:12px 14px;font:inherit;font-size:16px}
+.f-in{width:100%;border:1px solid rgba(25,22,19,.25);background:#fff;border-radius:10px;padding:12px 14px;font:inherit;font-size:16px;transition:border-color .2s}
+.f-in:focus{border-color:var(--ink);outline:none}
 textarea.f-in{min-height:110px;resize:vertical}
 .days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:18px}
-.days button{border:2px solid var(--ink);background:var(--paper-2);border-radius:12px;padding:8px 0;text-align:center;font-size:13px}
+.days button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 0;text-align:center;font-size:13px;transition:background .25s,color .25s}
 .days button b{display:block;font-size:18px;font-weight:600}
-.days button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.days button:disabled{opacity:.3;border-style:dashed;cursor:not-allowed}
+.days button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.days button:disabled{opacity:.3;cursor:not-allowed}
 .times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.times button{border:2px solid var(--ink);background:var(--paper-2);border-radius:999px;padding:10px 0;font-weight:600}
-.times button[aria-pressed="true"]{background:var(--red);color:var(--paper);border-color:var(--red)}
-.review{border:2px solid var(--ink);border-radius:16px;background:var(--paper-2);overflow:hidden}
+.times button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 0;font-weight:600;transition:background .25s,color .25s}
+.times button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.review{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
 .review .rv-top{display:flex;gap:16px;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
-.review .rv-top svg{width:84px;height:84px;flex:none}
+.review .rv-top .pic{width:88px;height:88px;flex:none;padding:0}
 .review .rv-top b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;display:block}
 .review dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;padding:16px;font-size:15.5px}
 .review dt{color:var(--muted)}
 .review dd{text-align:right;font-weight:600}
-.review .due{display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px;background:var(--ink);color:var(--paper)}
-.review .due b{font-family:var(--display);font-weight:400;font-size:32px;color:var(--gold)}
+.review .due{display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px;background:var(--wall);color:var(--cream)}
+.review .due b{font-family:var(--display);font-weight:400;font-size:32px;color:var(--brass)}
 .fine{font-size:13.5px;color:var(--muted);margin-top:14px}
-.done{text-align:center;padding:30px 6px}
-.done svg{width:150px;height:150px;margin:0 auto 10px}
+.done{text-align:center;padding:24px 6px}
+.done .pic{width:170px;height:170px;margin:0 auto 14px;padding:0}
+.done .cut{box-shadow:0 20px 30px -18px rgba(60,40,10,.6)}
 .done h3{font-family:var(--display);font-weight:400;font-size:46px;line-height:1;margin-bottom:10px}
 .done p{max-width:36ch;margin:0 auto 8px}
 
 @media (max-width:980px){
   nav.main{display:none}
-  .hero .wrap,.sec-head,.band .wrap,.visit .wrap{grid-template-columns:1fr}
-  .hero .wrap{gap:48px}
-  .ways,.artists{grid-template-columns:1fr}
-  .artists{max-width:560px}
-}
-@media (max-width:600px){
-  .wrap{width:min(1200px,100% - 32px)}
-  .logo{font-size:32px}
-  .top .btn{padding:9px 14px;font-size:14px}
+  .hero .wrap,.head,.dep .wrap,.faq .wrap,.visit .wrap{grid-template-columns:1fr}
+  .hero .wrap{min-height:0;gap:36px;padding-top:40px}
+  .wall{height:auto;aspect-ratio:1.05}
   .grid-flash{grid-template-columns:repeat(3,1fr)}
-  .sheet{padding:20px 12px 14px}
-  .sheet-head h2{font-size:28px}
-  .facts b{font-size:24px}
+  .artists{grid-template-columns:1fr;max-width:520px}
+  .head{gap:16px;margin-bottom:40px}
+}
+@media (max-width:640px){
+  .wrap{width:min(1200px,100% - 36px)}
+  .logo{font-size:30px}
+  .top .wrap{height:66px}
+  .top .btn{padding:9px 16px;font-size:14px}
   section{padding:76px 0}
-  .way{padding:26px}
-  .way h3{font-size:42px}
-  .band .rules{grid-template-columns:1fr}
-  .band .rule:nth-child(odd){border-right:0}
-  .band .rule:nth-child(even){padding-left:0}
-  .pick-flash{grid-template-columns:repeat(3,1fr)}
+  .facts{gap:22px}.facts b{font-size:28px}
+  .grid-flash{grid-template-columns:repeat(2,1fr);gap:30px 16px}
+  .flash .nm{font-size:22px}
+  .ways{grid-template-columns:1fr}
+  .way,.way+.way{padding:32px 0 8px;border-left:0}
+  .way+.way{border-top:1px solid var(--line)}
+  .rules{grid-template-columns:1fr}
   .opt.sizes{grid-template-columns:1fr}
-  .dr-body,.dr-head,.dr-foot,.steps{padding-left:18px;padding-right:18px}
+  .dr-body,.dr-head,.dr-foot{padding-left:20px;padding-right:20px}.steps{padding:0 20px}
+  .hero .wrap{padding:36px 0 56px}
+  .hero p.lede{font-size:17px;margin:20px 0 28px}
+  .facts{margin-top:34px}
 }
 </style>
 </head>
@@ -256,136 +283,101 @@ textarea.f-in{min-height:110px;resize:vertical}
 
 <div class="demo">Concept site for a fictional tattoo studio, designed by Kelvane Studio. Bookings here are not real. <a href="../index.html">See Kelvane Studio</a></div>
 
-<header class="top">
+<header class="top on-wall">
   <div class="wrap">
-    <a class="logo" href="#">Ironwren<span>.</span></a>
+    <a class="logo" href="#">Iron<i>wren</i></a>
     <nav class="main" aria-label="Main">
-      <a href="#ways">Flash &amp; custom</a>
-      <a href="#artists">Artists</a>
-      <a href="#deposits">Deposits</a>
-      <a href="#faq">FAQ</a>
-      <a href="#visit">Visit</a>
+      <a href="#flash">Flash</a><a href="#ways">Flash or custom</a><a href="#artists">Artists</a><a href="#deposits">Deposits</a><a href="#visit">Visit</a>
     </nav>
-    <button class="btn red small" data-book>Book a chair</button>
+    <button class="btn small" data-book>Book a chair</button>
   </div>
 </header>
 
 <main>
-<section class="hero" aria-labelledby="h1">
+<section class="hero on-wall" aria-labelledby="h1">
   <div class="wrap">
     <div>
-      <h1 id="h1">Pick one off the wall.</h1>
-      <p class="lede">Ironwren is a three-artist shop on East Cesar Chavez in Austin. Claim a flash piece or start a custom one, pick your artist and hold your chair with a deposit. No DM back-and-forth.</p>
-      <div class="ctas">
-        <button class="btn red" data-book="flash">Book a flash piece</button>
-        <button class="btn ghost" data-book="custom">Start a custom piece</button>
-      </div>
-      <div class="facts">
-        <div><b>From $90</b><span>flash, all in</span></div>
-        <div><b>$50</b><span>deposit holds your chair</span></div>
-        <div><b>48 hours</b><span>to reschedule, free</span></div>
-      </div>
+      <h1 id="h1">Pick one <em>off the wall.</em></h1>
+      <p class="lede">A three-artist shop on East Cesar Chavez in Austin. Claim a piece of flash or start a custom one, choose your artist and hold your chair with a deposit.</p>
+      <div class="ctas"><a class="btn" href="#flash">See the flash</a><button class="btn line" data-book="custom">Start a custom piece</button></div>
+      <div class="facts"><div><b>From $100</b><span>flash, all in</span></div><div><b>$50</b><span>holds your chair</span></div><div><b>48 hours</b><span>to reschedule, free</span></div></div>
     </div>
-
-    <div class="sheet">
-      <div class="sheet-head">
-        <h2>This week's flash</h2>
-        <p>One of each. Gone when it's claimed.</p>
-      </div>
-      <div class="grid-flash" id="sheet"></div>
-      <div class="sheet-foot"><span>Prices include color and placement up to palm size.</span><span>Tap a piece to claim it.</span></div>
+    <div class="wall" aria-hidden="true">
+      <img class="sh s2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg" width="960" height="767" alt="">
+      <img class="sh s1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" width="1280" height="1009" alt="" fetchpriority="high">
+      <img class="sh s3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg" width="960" height="767" alt="">
     </div>
   </div>
 </section>
 
-<section class="on-dark" id="ways" aria-labelledby="ways-h">
+<section id="flash" aria-labelledby="flash-h">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="ways-h">Two ways into the chair</h2>
-      <p>Flash is ready to go at a fixed price. Custom starts with your idea and a conversation with the artist. Both are booked from this page.</p>
-    </div>
-    <div class="ways">
-      <div class="way">
-        <h3>Flash</h3>
-        <p class="tag">A drawn design from the wall, tattooed once.</p>
-        <ul>
-          <li>Fixed price, color and stencil included</li>
-          <li>Pick a time with any artist who does that style</li>
-          <li>Most pieces take under two hours</li>
-        </ul>
-        <p class="price">$90 to $180<small>$50 deposit</small></p>
-        <button class="btn" data-book="flash">Choose a flash piece</button>
-      </div>
-      <div class="way alt">
-        <h3>Custom</h3>
-        <p class="tag">Drawn for you, from your idea and references.</p>
-        <ul>
-          <li>Tell us the idea, placement and size</li>
-          <li>Your artist sends a sketch before the session</li>
-          <li>Hourly rate set by artist, quoted upfront</li>
-        </ul>
-        <p class="price">$160 to $200/h<small>deposit by size</small></p>
-        <button class="btn red" data-book="custom">Start a custom piece</button>
-      </div>
+    <div class="head rv"><h2 id="flash-h">This week’s <em>wall</em></h2><p>Fixed price, color and stencil included. Tap a piece to see which artists tattoo it and when they’re free.</p></div>
+    <div class="grid-flash" id="sheet"></div>
+    <p class="note">Prices are for up to palm size. Small changes, like a name in a banner, are free.</p>
+  </div>
+</section>
+
+<section id="ways" aria-labelledby="ways-h" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head rv"><h2 id="ways-h">Two ways into <em>the chair</em></h2><p>Flash is ready to go at a fixed price. Custom starts with your idea and a sketch from your artist. Both are booked from this page.</p></div>
+    <div class="ways rv">
+      <div class="way"><h3>Flash</h3><p class="d">A design from the wall, tattooed once.</p><ul><li>Fixed price, color and stencil included</li><li>Pick any artist who tattoos that piece</li><li>Most pieces take under two hours</li></ul><div class="price">$100 to $220<small>$50 deposit</small></div><a class="btn dark" href="#flash">Choose a flash piece</a></div>
+      <div class="way"><h3>Custom</h3><p class="d">Drawn for you, from your idea and references.</p><ul><li>Tell us the idea, placement and size</li><li>Your artist sends a sketch before the session</li><li>Hourly rate set by artist, quoted up front</li></ul><div class="price">$160 to $200/h<small>deposit by size</small></div><button class="btn" data-book="custom">Start a custom piece</button></div>
     </div>
   </div>
 </section>
 
-<section id="artists" aria-labelledby="art-h">
+<section class="artists-sec" id="artists" aria-labelledby="art-h">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="art-h">The artists</h2>
-      <p>Each artist keeps their own calendar and drawing time. Book one by name, or take the first opening.</p>
-    </div>
+    <div class="head rv"><h2 id="art-h">The <em>artists</em></h2><p>Each artist keeps their own calendar and drawing days. Book one by name, or take the first opening.</p></div>
     <div class="artists" id="artist-cards"></div>
   </div>
 </section>
 
-<div class="band" id="deposits">
+<section class="dep" id="deposits" aria-labelledby="dep-h">
   <div class="wrap">
-    <h2>Your deposit holds the chair.</h2>
-    <div class="rules">
-      <div class="rule"><b>It comes off the total</b><span>Every dollar of your deposit is taken off the final price on the day.</span></div>
-      <div class="rule"><b>Move it once, free</b><span>Reschedule up to 48 hours before and your deposit moves with you.</span></div>
-      <div class="rule"><b>No-shows lose it</b><span>Your artist blocked the time and drew the piece. Late cancels keep the deposit.</span></div>
-      <div class="rule"><b>Sized to the piece</b><span>$50 for flash and small custom, up to $200 for a full-day session.</span></div>
+    <h2 id="dep-h" class="rv">Your deposit <em>holds the chair.</em></h2>
+    <div class="rules rv">
+      <div class="rule"><h3>It comes off the total</h3><p>Every dollar of your deposit is taken off the final price on the day.</p></div>
+      <div class="rule"><h3>Move it once, free</h3><p>Reschedule up to 48 hours before and your deposit moves with you.</p></div>
+      <div class="rule"><h3>No-shows lose it</h3><p>Your artist blocked the time and drew the piece. Late cancels keep the deposit.</p></div>
+      <div class="rule"><h3>Sized to the piece</h3><p>$50 for flash and small custom work, up to $200 for a multi-day session.</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<section id="faq" aria-labelledby="faq-h">
+<section class="faq" id="faq" aria-labelledby="faq-h" style="padding-top:20px">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="faq-h">Before you come in</h2>
-      <p>Still not sure? Write to us at the shop and an artist will answer, usually the same day.</p>
-    </div>
-    <div class="faq">
+    <div class="head rv"><h2 id="faq-h">Before you <em>come in</em></h2><p>Still not sure? Write to the shop and an artist will answer, usually the same day.</p></div>
+    <div class="rv">
       <details><summary>Do you take walk-ins?</summary><p>Thursday to Saturday, from flash only, when an artist has a gap. Booking online is the only way to be sure of a chair.</p></details>
       <details><summary>How old do I need to be?</summary><p>18 or older, with a valid photo ID on the day. No exceptions, including with a parent present.</p></details>
       <details><summary>Can I change a flash piece?</summary><p>Small changes, like color or a name in a banner, are fine. Bigger changes become a custom piece and are priced by the hour.</p></details>
       <details><summary>When do I see my custom sketch?</summary><p>Your artist sends it two to five days before your session. You can ask for one round of changes at no extra cost.</p></details>
       <details><summary>How do I take care of it after?</summary><p>You leave with written aftercare and a second-skin bandage. Touch-ups in the first three months are free.</p></details>
     </div>
+    </div>
   </div>
 </section>
 
-<section class="on-dark visit" id="visit" aria-labelledby="visit-h">
+<section class="visit on-wall" id="visit" aria-labelledby="visit-h">
   <div class="wrap">
     <div>
-      <h2 id="visit-h">Come by the shop.</h2>
+      <h2 id="visit-h">Come by <em>the shop.</em></h2>
       <p class="addr">1108 East Cesar Chavez St, Austin, TX 78702. Street parking on Chicon, bike rack out front.</p>
-      <button class="btn red" data-book>Book a chair</button>
+      <button class="btn" data-book>Book a chair</button>
     </div>
     <div class="hours">
       <h3>Hours</h3>
-      <table>
+      <table><tbody>
         <tr class="closed"><td>Monday</td><td>Closed</td></tr>
         <tr><td>Tuesday to Wednesday</td><td>12pm to 8pm</td></tr>
         <tr><td>Thursday</td><td>12pm to 10pm</td></tr>
         <tr><td>Friday to Saturday</td><td>12pm to midnight</td></tr>
         <tr><td>Sunday</td><td>1pm to 7pm</td></tr>
-      </table>
-      <p class="walk">Walk-ins for flash Thursday to Saturday, when there's a gap.</p>
+      </tbody></table>
+      <p class="walk">Walk-ins for flash Thursday to Saturday, when there’s a gap.</p>
     </div>
   </div>
 </section>
@@ -395,10 +387,10 @@ textarea.f-in{min-height:110px;resize:vertical}
   <div class="wrap">
     <span>Ironwren Tattoo is a fictional studio. Licensed artists, single-use needles, every time.</span>
     <span>Design and booking system by <a href="../index.html">Kelvane Studio</a></span>
+    <span class="credit">Flash art: anonymous American flash, c. 1900–1945, from the <a href="https://commons.wikimedia.org/wiki/File:Tattoo_Flash_SAAM-1998.84.50C_1.jpg">Smithsonian American Art Museum</a> and <a href="https://commons.wikimedia.org/wiki/File:Tattoo_Design_with_a_Ship_MET_DP327934.jpg">The Metropolitan Museum of Art</a>. Public domain (CC0), via Wikimedia Commons.</span>
   </div>
 </footer>
 
-<!-- Booking drawer -->
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true" inert>
   <div class="dr-head">
@@ -410,123 +402,57 @@ textarea.f-in{min-height:110px;resize:vertical}
   <div class="dr-foot" id="dr-foot">
     <div class="sum" id="dr-sum"></div>
     <div style="display:flex;gap:8px">
-      <button class="btn ghost small" id="dr-back">Back</button>
-      <button class="btn red small" id="dr-next">Continue</button>
+      <button class="btn line small" id="dr-back">Back</button>
+      <button class="btn small" id="dr-next">Continue</button>
     </div>
   </div>
 </aside>
 
 <script>
-const C={ink:'#1C1A17',red:'#B7362C',green:'#2E6A57',gold:'#E2AE3D',lt:'#F6F0E2'};
-const OW=5, IW=2.6;
-const O=`stroke="${C.ink}" stroke-width="${OW}" stroke-linejoin="round" stroke-linecap="round"`;
-const I=`stroke="${C.ink}" stroke-width="${IW}" stroke-linejoin="round" stroke-linecap="round" fill="none"`;
-let _id=0;
-// Filled shape with traditional black shading on the lower-left, plus outline.
-function sh(d,fill,dx=5,dy=-5){const id='k'+(++_id);return `<clipPath id="${id}"><path d="${d}"/></clipPath><path d="${d}" fill="${C.ink}"/><g clip-path="url(#${id})"><path d="${d}" fill="${fill}" transform="translate(${dx} ${dy})"/></g><path d="${d}" fill="none" ${O}/>`}
-// Highlight stroke
-function hl(d,w=3.2){return `<path d="${d}" fill="none" stroke="${C.lt}" stroke-width="${w}" stroke-linecap="round"/>`}
-// Whip-shading dots along a line
-function whip(x1,y1,x2,y2,n=5,r=1.3){let o='';for(let i=0;i<n;i++){const t=i/(n-1);o+=`<circle cx="${(x1+(x2-x1)*t).toFixed(1)}" cy="${(y1+(y2-y1)*t).toFixed(1)}" r="${(r*(1-t*.5)).toFixed(2)}" fill="${C.ink}"/>`}return o}
-function star(x,y,r,fill){const s=r*.3;const d=`M${x} ${y-r}L${x+s} ${y-s}L${x+r} ${y}L${x+s} ${y+s}L${x} ${y+r}L${x-s} ${y+s}L${x-r} ${y}L${x-s} ${y-s}Z`;return `<path d="${d}" fill="${fill}" stroke="${C.ink}" stroke-width="3.2" stroke-linejoin="round"/>`}
-
-const ART={
- swallow:`<path d="M72 56L113 60L95 65.5L115 78L71 68Z" fill="#1C1A17" stroke="#1C1A17" stroke-width="6" stroke-linejoin="round"/><path d="M48 63C62 70 78 82 105 103C88 101 71 94 60 84C54 78 50 71 48 63Z" fill="#2B4C7E" stroke="#1C1A17" stroke-width="6" stroke-linejoin="round"/><path d="M60 84C71 94 88 101 105 103C94 96 84 90 76 86Z" fill="#1C1A17"/><path d="M17 57C17 44 32 39 45 45C57 50 68 54 79 58C70 68 58 77 45 79C29 81 16 71 17 57Z" fill="#2B4C7E" stroke="#1C1A17" stroke-width="6" stroke-linejoin="round"/><path d="M18.5 61C22 72 32 77 44 76C40 68 32 62 22 58Z" fill="#B7362C" stroke="#1C1A17" stroke-width="3" stroke-linejoin="round"/><path d="M43 76C56 75 67 69 78 60C70 70 59 78 46 79Z" fill="#F6F0E2" stroke="#1C1A17" stroke-width="3" stroke-linejoin="round"/><path d="M43 49C53 29 76 17 111 15C100 23 92 31 84 40C76 48 64 52 52 54Z" fill="#2B4C7E" stroke="#1C1A17" stroke-width="6" stroke-linejoin="round"/><path d="M84 40C92 31 100 23 111 15C96 21 86 28 77 36Z" fill="#1C1A17"/><path d="M58 49C66 40 76 33 88 28M66 51C73 45 80 40 88 36" fill="none" stroke="#1C1A17" stroke-width="2.4" stroke-linecap="round"/><path d="M52 54C60 52 68 50 76 46" fill="none" stroke="#F6F0E2" stroke-width="2.4" stroke-linecap="round"/><path d="M17 55L7 57.5L17 60Z" fill="#1C1A17" stroke="#1C1A17" stroke-width="2.4" stroke-linejoin="round"/><circle cx="25" cy="53" r="4" fill="#F6F0E2" stroke="#1C1A17" stroke-width="2.4"/><circle cx="25.6" cy="53" r="1.8" fill="#1C1A17"/><path d="M30 44C35 42 40 42 44 44" fill="none" stroke="#F6F0E2" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>`,
- dagger:
-  `<path d="M60 114C57 118 57 121 60 121C63 121 63 118 60 114Z" fill="${C.red}" stroke="${C.ink}" stroke-width="2.4"/>`+
-  sh('M52 44L68 44L67 96L60 113L53 96Z',C.lt,4,-3)+
-  `<path d="M60 48L60 104" ${I}/>`+
-  sh('M33 39C46 32 74 32 87 39L86 48C74 43 46 43 34 48Z',C.gold,3,-3)+
-  sh('M54 15H66V36H54Z',C.red,3,-2)+`<path d="M54 22L66 20M54 29L66 27" ${I}/>`+
-  `<circle cx="60" cy="10" r="6.5" fill="${C.gold}" ${O}/>`+
-  `<path d="M24 64L11 66L17 73L11 81L24 80Z" fill="${C.red}" ${O}/><path d="M96 64L109 66L103 73L109 81L96 80Z" fill="${C.red}" ${O}/>`+
-  `<path d="M24 64Q60 54 96 64L96 80Q60 70 24 80Z" fill="${C.lt}" ${O}/>`+
-  `<text x="60" y="75.5" text-anchor="middle" font-family="Pirata One, serif" font-size="15" fill="${C.ink}">TRUE</text>`+
-  `<path d="M66 82C70 88 72 94 70 100" fill="none" stroke="${C.red}" stroke-width="3" stroke-linecap="round"/>`,
- rose:`<path d="M42 84C28 82 15 89 8 103C23 107 37 101 46 91Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M42 86C33 91 21 97 12 102C25 103 37 98 44 90Z" fill="#1C1A17"/><path d="M14 101C24 96 33 92 41 88" fill="none" stroke="#1C1A17" stroke-width="2.4" stroke-linecap="round"/><path d="M78 84C92 82 105 89 112 103C97 107 83 101 74 91Z" fill="#2E6A57" stroke="#1C1A17" stroke-width="5" stroke-linejoin="round"/><path d="M78 86C87 91 99 97 108 102C95 103 83 98 76 90Z" fill="#1C1A17"/><path d="M60.0 25.0Q78.7 19.3 85.8 37.4Q101.9 48.4 92.2 65.3Q93.6 84.8 74.3 87.7Q60.0 101.0 45.7 87.7Q26.4 84.8 27.8 65.3Q18.1 48.4 34.2 37.4Q41.3 19.3 60.0 25.0Z" fill="#1C1A17"/><path d="M41 33C48 21 72 21 79 33C71 31 49 31 41 33Z" fill="#B7362C" stroke="#1C1A17" stroke-width="2.8" stroke-linejoin="round"/><path d="M26 60C22 40 36 28 52 33C43 40 39 51 43 63C37 66 30 65 26 60Z" fill="#B7362C" stroke="#1C1A17" stroke-width="2.8" stroke-linejoin="round"/><path d="M94 60C98 40 84 28 68 33C77 40 81 51 77 63C83 66 90 65 94 60Z" fill="#B7362C" stroke="#1C1A17" stroke-width="2.8" stroke-linejoin="round"/><path d="M45 62C43 47 52 37 60 37C68 37 77 47 75 62C67 66 53 66 45 62Z" fill="#B7362C" stroke="#1C1A17" stroke-width="2.8" stroke-linejoin="round"/><path d="M60 56C67 55 70 49 66 45C62 41 54 43 54 49C54 53 58 55 61 52" fill="none" stroke="#1C1A17" stroke-width="2.6" stroke-linecap="round"/><path d="M49 52C50 46 53 42 57 40" fill="none" stroke="#1C1A17" stroke-width="2.4" stroke-linecap="round"/><path d="M28 64C40 73 80 73 92 64C92 81 77 93 60 93C43 93 28 81 28 64Z" fill="#B7362C" stroke="#1C1A17" stroke-width="2.8" stroke-linejoin="round"/><path d="M36 80C44 88 52 90 60 90" fill="none" stroke="#1C1A17" stroke-width="2.4" stroke-linecap="round"/><path d="M60 93C44 93 30 82 28 68C34 80 46 86 60 86Z" fill="#1C1A17" opacity=".9"/><path d="M34 68C46 74 74 74 86 68" fill="none" stroke="#F6F0E2" stroke-width="2.6" stroke-linecap="round"/><path d="M30 48C31 42 34 38 39 36" fill="none" stroke="#F6F0E2" stroke-width="2.4" stroke-linecap="round"/><path d="M62 41C65 41 68 43 69 46" fill="none" stroke="#F6F0E2" stroke-width="2" stroke-linecap="round"/><path d="M60.0 25.0Q78.7 19.3 85.8 37.4Q101.9 48.4 92.2 65.3Q93.6 84.8 74.3 87.7Q60.0 101.0 45.7 87.7Q26.4 84.8 27.8 65.3Q18.1 48.4 34.2 37.4Q41.3 19.3 60.0 25.0Z" fill="none" stroke="#1C1A17" stroke-width="5.5" stroke-linejoin="round"/>`,
- snake:
-  `<path d="M70 44C96 52 106 76 86 85C66 94 42 79 27 90C16 98 20 111 34 108" fill="none" stroke="${C.ink}" stroke-width="22" stroke-linecap="round"/>`+
-  `<path d="M70 44C96 52 106 76 86 85C66 94 42 79 27 90C16 98 20 111 34 108" fill="none" stroke="${C.green}" stroke-width="12" stroke-linecap="round"/>`+
-  `<path d="M70 44C96 52 106 76 86 85C66 94 42 79 27 90C16 98 20 111 34 108" fill="none" stroke="${C.gold}" stroke-width="4.5" stroke-dasharray="1 8" stroke-linecap="round"/>`+
-  `<path d="M58 30L58 16L52 9M58 16L64 9" fill="none" stroke="${C.red}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>`+
-  sh('M44 36C44 24 60 19 72 25C80 29 82 38 76 44C68 50 50 48 44 36Z',C.green,4,-4)+
-  `<path d="M48 39C54 42 62 42 68 40" ${I}/>`+
-  `<ellipse cx="66" cy="31" rx="4" ry="3.2" fill="${C.gold}" stroke="${C.ink}" stroke-width="2.2"/><path d="M66 28.4V33.6" stroke="${C.ink}" stroke-width="1.8"/>`+
-  hl('M52 27C56 24 61 23 65 24',2.6),
- skull:
-  sh('M60 12C86 12 100 30 98 52C97 62 92 68 88 70C86 76 82 80 76 82L44 82C38 80 34 76 32 70C28 68 23 62 22 52C20 30 34 12 60 12Z',C.lt,5,-4)+
-  `<path d="M36 50C38 42 50 40 54 48C56 56 50 64 42 62C36 60 34 56 36 50Z" fill="${C.ink}"/><path d="M84 50C82 42 70 40 66 48C64 56 70 64 78 62C84 60 86 56 84 50Z" fill="${C.ink}"/>`+
-  `<circle cx="45" cy="52" r="3.2" fill="${C.red}"/><circle cx="75" cy="52" r="3.2" fill="${C.red}"/>`+
-  `<path d="M60 62L54 72C56 74 60 72 60 72C60 72 64 74 66 72Z" fill="${C.ink}"/>`+
-  `<path d="M46 74V82M53 75V82M60 75V82M67 75V82M74 74V82" ${I}/>`+
-  sh('M40 84L80 84C82 92 76 104 60 104C44 104 38 92 40 84Z',C.lt,4,-3)+
-  `<path d="M46 84V96M53 84V99M60 84V100M67 84V99M74 84V96" ${I}/>`+
-  `<path d="M71 15L66 25L72 29L68 37" ${I}/>`+hl('M38 26C42 21 48 18 54 17'),
- heart:
-  sh('M60 108C30 86 15 68 17 48C19 31 33 22 46 26C54 28 58 34 60 40C62 34 66 28 74 26C87 22 101 31 103 48C105 68 90 86 60 108Z',C.red,5,-5)+
-  hl('M30 38C32 33 36 30 41 30')+
-  `<path d="M5 60L25 53L25 71L5 78L12 68Z" fill="${C.gold}" ${O}/><path d="M115 60L95 53L95 71L115 78L108 68Z" fill="${C.gold}" ${O}/>`+
-  `<path d="M25 53L31 57L25 60ZM95 53L89 57L95 60Z" fill="${C.ink}"/>`+
-  `<path d="M24 51Q60 41 96 51L96 71Q60 61 24 71Z" fill="${C.lt}" ${O}/>`+
-  `<text x="60" y="66" text-anchor="middle" font-family="Pirata One, serif" font-size="19" fill="${C.ink}">Mom</text>`,
- moon:
-  sh('M76 14A46 46 0 1 0 76 106A58 58 0 0 1 76 14Z',C.gold,5,-4)+
-  `<path d="M30 46C33 49 38 49 41 46" ${I}/><circle cx="35" cy="64" r="4" fill="${C.red}" opacity=".85"/><path d="M33 78C37 81 43 81 46 77" ${I}/>`+
-  hl('M44 22C50 19 56 18 62 18')+
-  star(96,32,12,C.red)+star(102,74,8,C.lt)+star(84,100,6,C.red)+whip(90,48,106,56,4,1.4),
- eye:
-  `<path d="M60 14L64 26H56Z M27 25L37 33L31 37Z M93 25L83 33L89 37Z M10 44L22 48L19 53Z M110 44L98 48L101 53Z" fill="${C.gold}" stroke="${C.ink}" stroke-width="3" stroke-linejoin="round"/>`+
-  sh('M10 64C30 36 90 36 110 64C90 90 30 90 10 64Z',C.lt,0,-5)+
-  `<circle cx="60" cy="64" r="18" fill="${C.green}" ${O}/><circle cx="60" cy="64" r="8" fill="${C.ink}"/><circle cx="66" cy="57.5" r="3.6" fill="${C.lt}"/>`+
-  `<path d="M48 54C51 50 55 48 60 47" fill="none" stroke="${C.ink}" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>`+
-  `<path d="M60 92C55 100 55 106 60 106C65 106 65 100 60 92Z" fill="${C.red}" stroke="${C.ink}" stroke-width="3.2"/>`+hl('M58.5 99.5V103',2),
- anchor:
-  `<circle cx="60" cy="17" r="8" fill="none" stroke="${C.ink}" stroke-width="6"/>`+
-  `<rect x="54.5" y="25" width="11" height="74" rx="3" fill="${C.ink}"/><rect x="36" y="35" width="48" height="10" rx="5" fill="${C.ink}"/>`+
-  `<path d="M24 70C28 95 48 105 60 105C72 105 92 95 96 70" fill="none" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/>`+
-  `<path d="M24 56L13 78H35Z M96 56L85 78H107Z" fill="${C.ink}" stroke="${C.ink}" stroke-width="2" stroke-linejoin="round"/>`+
-  hl('M58 30V92',1.8)+hl('M40 40H52',1.8)+
-  `<path d="M69 25C93 35 37 49 61 60C87 70 35 82 59 94C51 100 45 99 42 93" fill="none" stroke="${C.ink}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`+
-  `<path d="M69 25C93 35 37 49 61 60C87 70 35 82 59 94C51 100 45 99 42 93" fill="none" stroke="${C.red}" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>`,
- moth:
-  sh('M57 64C40 66 22 82 31 97C41 107 56 89 58 74Z',C.red,4,-4)+sh('M63 64C80 66 98 82 89 97C79 107 64 89 62 74Z',C.red,-4,-4)+
-  sh('M57 50C40 21 11 21 13 44C15 60 40 64 57 60Z',C.gold,4,-4)+sh('M63 50C80 21 109 21 107 44C105 60 80 64 63 60Z',C.gold,-4,-4)+
-  `<circle cx="34" cy="41" r="7" fill="${C.lt}" ${O} stroke-width="3.4"/><circle cx="86" cy="41" r="7" fill="${C.lt}" ${O} stroke-width="3.4"/><circle cx="34" cy="41" r="2.6" fill="${C.ink}"/><circle cx="86" cy="41" r="2.6" fill="${C.ink}"/>`+
-  `<path d="M40 82C44 86 48 88 52 86M80 82C76 86 72 88 68 86" ${I}/>`+
-  `<ellipse cx="60" cy="62" rx="6.5" ry="28" fill="${C.ink}"/>`+hl('M58 46V56',2)+
-  `<path d="M57 36C52 25 46 21 39 21M63 36C68 25 74 21 81 21" fill="none" stroke="${C.ink}" stroke-width="3.4" stroke-linecap="round"/><circle cx="39" cy="21" r="2.6" fill="${C.ink}"/><circle cx="81" cy="21" r="2.6" fill="${C.ink}"/>`,
- web:(()=>{let o='';const cx=58,cy=56,n=8;for(let i=0;i<n;i++){const a=(i/n)*Math.PI*2-Math.PI/2;o+=`<line x1="${cx}" y1="${cy}" x2="${(cx+Math.cos(a)*50).toFixed(1)}" y2="${(cy+Math.sin(a)*50).toFixed(1)}" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`}
-  [13,25,37,49].forEach(r=>{let d='';for(let i=0;i<=n;i++){const a=(i/n)*Math.PI*2-Math.PI/2,b=((i-.5)/n)*Math.PI*2-Math.PI/2;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;if(i===0)d+=`M${x.toFixed(1)} ${y.toFixed(1)}`;else{d+=` Q${(cx+Math.cos(b)*r*.78).toFixed(1)} ${(cy+Math.sin(b)*r*.78).toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}`}}o+=`<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="2.6"/>`});
-  o+=`<line x1="92" y1="10" x2="92" y2="76" stroke="${C.ink}" stroke-width="2.2"/>`;
-  o+=`<path d="M84 84C76 78 72 80 70 86M84 90C76 88 72 92 72 98M100 84C108 78 112 80 114 86M100 90C108 88 112 92 112 98M86 80C80 72 76 72 74 76M98 80C104 72 108 72 110 76" fill="none" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
-  o+=sh('M92 79C99 79 103 86 103 93C103 101 98 106 92 106C86 106 81 101 81 93C81 86 85 79 92 79Z',C.red,3,-3);
-  o+=`<circle cx="92" cy="76" r="5.5" fill="${C.ink}"/>`+hl('M95 86C97 88 98 90 98 93',2.2);
-  return o})(),
- bolt:
-  sh('M70 6L30 64L55 64L42 114L92 46L65 46L82 6Z',C.gold,5,-4)+hl('M68 16L46 54',3)+
-  `<path d="M18 30L28 37M13 50L25 52M100 74L109 67M99 93L111 95M28 100L21 108" stroke="${C.red}" stroke-width="4" stroke-linecap="round"/>`+
-  star(100,24,7,C.lt)
+const WM='https://upload.wikimedia.org/wikipedia/commons/thumb/';
+const SHEET={
+ A:WM+'1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg',
+ C:WM+'3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg',
+ F:WM+'2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg',
+ E:WM+'4/4d/Tattoo_Flash_SAAM-1998.84.50E_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50E_1.jpg'
 };
-function svg(k){return `<svg viewBox="0 0 120 120" aria-hidden="true">${ART[k]}</svg>`}
+const SHEET_AR=1280/1012;
+// [sheet, x%, y%, w%, h%] of each design on its sheet
+const CROPS={
+ redmoth:['C',8,10,28,36], friends:['C',8,42,30,45], rose:['C',35,40,30,56], swallow:['C',62,47,28,38],
+ monarch:['C',63,12,30,40], dagger:['A',34,6,18,35], flagwing:['A',50,7,40,31], ship:['A',38,40,24,56],
+ eagle:['A',60,40,33,52], horse:['F',10,52,38,40], wings:['F',60,8,32,38], heart:['E',8,6,22,34]
+};
+const PHOTOS={
+ custom:WM+'6/60/Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg/960px-Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg',
+ mara:WM+'1/1c/Tattoo_Design_with_a_Ship_MET_DP327934.jpg/960px-Tattoo_Design_with_a_Ship_MET_DP327934.jpg',
+ ilse:WM+'1/17/Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg/960px-Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg',
+ dez:WM+'c/ce/Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg/960px-Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg'
+};
+function svg(k){
+  if(PHOTOS[k])return `<span class="pic" aria-hidden="true"><span class="cut img t" style="aspect-ratio:.62;background-image:url('${PHOTOS[k]}')"></span></span>`;
+  const [s,x,y,w,h]=CROPS[k];const ar=(w/h)*SHEET_AR;
+  return `<span class="pic" aria-hidden="true"><span class="cut ${ar>=1?'w':'t'}" style="aspect-ratio:${ar.toFixed(3)};background-image:url('${SHEET[s]}');background-size:${(10000/w).toFixed(1)}% ${(10000/h).toFixed(1)}%;background-position:${(x/(100-w)*100).toFixed(1)}% ${(y/(100-h)*100).toFixed(1)}%"></span></span>`;
+}
 
 const FLASH=[
- {k:'swallow',n:'Swallow',p:120,a:['mara']},
- {k:'dagger',n:'Dagger',p:150,a:['mara','dez']},
+ {k:'friends',n:'Friends swallow',p:150,a:['mara']},
  {k:'rose',n:'Rose',p:140,a:['mara','ilse']},
- {k:'snake',n:'Rattler',p:180,a:['mara','dez']},
- {k:'skull',n:'Skull',p:160,a:['dez','mara']},
- {k:'heart',n:'Mom heart',p:130,a:['mara']},
- {k:'moon',n:'Moon',p:110,a:['ilse','mara']},
- {k:'eye',n:'Third eye',p:140,a:['ilse','dez']},
- {k:'anchor',n:'Anchor',p:120,a:['mara','dez']},
- {k:'moth',n:'Moth',p:170,a:['dez','mara']},
- {k:'web',n:'Web',p:100,a:['dez','ilse']},
- {k:'bolt',n:'Bolt',p:90,a:['ilse','mara','dez']}
+ {k:'ship',n:'Clipper ship',p:220,a:['mara','dez']},
+ {k:'redmoth',n:'Red moth',p:120,a:['ilse','mara']},
+ {k:'dagger',n:'Dagger and moon',p:110,a:['mara','dez']},
+ {k:'eagle',n:'Eagle and anchor',p:200,a:['dez','mara']},
+ {k:'swallow',n:'Blue swallow',p:120,a:['ilse','mara']},
+ {k:'heart',n:'Sweetheart',p:120,a:['mara','ilse']},
+ {k:'horse',n:'Horse',p:160,a:['dez']},
+ {k:'monarch',n:'Monarch',p:130,a:['ilse']},
+ {k:'flagwing',n:'Stars and stripes',p:140,a:['mara']},
+ {k:'wings',n:'Wings',p:100,a:['dez','ilse']}
 ];
 const ARTISTS={
- mara:{n:'Mara Quill',s:'American traditional',rate:180,bio:'Heavy outlines and saturated color that still read in twenty years. Swallows, daggers, anything with a moon.',next:'Thu',art:['swallow','dagger','heart'],seed:3},
- ilse:{n:'Ilse Navarro',s:'Fine line and botanical',rate:160,bio:'Single-needle work, small florals and quiet geometry. The artist most first-timers book.',next:'Wed',art:['rose','moon','eye'],seed:7},
- dez:{n:'Dez Oyelaran',s:'Blackwork and illustrative',rate:200,bio:'Bold black, strong shapes and large pieces. Books full-day sessions for sleeves and backs.',next:'Fri',art:['skull','moth','web'],seed:11}
+ mara:{n:'Mara Quill',s:'American traditional',rate:180,bio:'Heavy outlines and saturated color that still read in twenty years. Ships, swallows, anything with a banner.',next:'Thu',seed:3},
+ ilse:{n:'Ilse Navarro',s:'Fine line and botanical',rate:160,bio:'Light hands, small florals and soft color. The artist most first-timers book.',next:'Wed',seed:7},
+ dez:{n:'Dez Oyelaran',s:'Blackwork and illustrative',rate:200,bio:'Bold black, strong shapes and large pieces. Books full-day sessions for sleeves and backs.',next:'Fri',seed:11}
 };
 const SIZES=[
  {id:'s',n:'Small',d:'Up to palm size, about 2 hours',dep:50},
@@ -534,15 +460,14 @@ const SIZES=[
  {id:'l',n:'Large',d:'Thigh, chest or back piece, full day',dep:150},
  {id:'x',n:'Multi-session',d:'Sleeve or back, several days',dep:200}
 ];
+const by=a=>a.map(id=>ARTISTS[id].n.split(' ')[0]).join(', ');
+document.getElementById('sheet').innerHTML=FLASH.map((f,i)=>`<button class="flash rv" style="--d:${(i%4)*.06}s" data-flash="${f.k}"><span class="frame">${svg(f.k)}</span><span class="row"><span class="nm">${f.n}</span><span class="pr">$${f.p}</span></span><span class="by">${by(f.a)}</span></button>`).join('');
+document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a],i)=>`<article class="artist rv" style="--d:${i*.08}s"><div class="ph"><img src="${PHOTOS[id]}" alt="A piece of vintage flash in ${a.n}'s style" loading="lazy" width="960" height="1150"></div><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small dark" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></article>`).join('');
 
-// render sheet
-const sheet=document.getElementById('sheet');
-sheet.innerHTML=FLASH.map((f,i)=>`<button class="flash" data-flash="${f.k}"><span class="no" aria-hidden="true">${i+1}</span><span class="claim">Claim</span>${svg(f.k)}<span class="nm">${f.n}</span><span class="pr">$${f.p}</span></button>`).join('');
+// reveal on scroll
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
+document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
-// artists
-document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a])=>`<article class="artist"><div class="art">${a.art.map(k=>`<div>${svg(k)}</div>`).join('')}</div><div class="bd"><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></div></article>`).join('');
-
-// booking state
 const st={mode:'flash',flash:null,idea:'',place:'',size:null,artist:null,day:null,time:null,name:'',email:'',step:0,done:false};
 const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),body=document.getElementById('dr-body'),next=document.getElementById('dr-next'),back=document.getElementById('dr-back'),sum=document.getElementById('dr-sum'),foot=document.getElementById('dr-foot');
 let lastFocus=null;
@@ -555,7 +480,7 @@ function open(opts={}){
   document.body.style.overflow='hidden';
   render();setTimeout(()=>document.getElementById('dr-close').focus(),50);
 }
-function close(){drawer.inert=true;drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+function close(){body.dataset.k='';drawer.inert=true;drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-book]');
   if(b){const m=b.dataset.book||'flash';open({mode:m==='custom'?'custom':'flash',artist:b.dataset.artist||null});return}
@@ -605,12 +530,14 @@ next.onclick=()=>{if(!valid())return;if(st.step===4){st.done=true}else st.step++
 back.onclick=()=>{if(st.step>0){st.step--;render()}};
 
 function render(){
+  const k=st.step+'-'+st.done;const anim=body.dataset.k!==k;body.dataset.k=k;
+  const kick=()=>{if(anim){body.classList.remove('anim');void body.offsetWidth;body.classList.add('anim')}};
   document.querySelectorAll('#steps i').forEach((el,i)=>el.classList.toggle('on',i<=st.step));
   foot.style.display=st.done?'none':'flex';
   if(st.done){
     const a=st.artist==='any'?'the first available artist':ARTISTS[st.artist].n;
-    body.innerHTML=`<div class="done">${svg(st.mode==='flash'?st.flash:'heart')}<h3>Your chair is held.</h3><p>${fmtDay(st.day)} at ${st.time} with ${a}. A receipt for your $${dep()} deposit is on its way to ${st.email.replace(/</g,'')}.</p><p class="fine">This is a demo. No payment was taken and no booking was made.</p><button class="btn small" style="margin-top:18px" id="again">Close</button></div>`;
-    document.getElementById('again').onclick=close;return;
+    body.innerHTML=`<div class="done">${svg(st.mode==='flash'?st.flash:'custom')}<h3>Your chair is held.</h3><p>${fmtDay(st.day)} at ${st.time} with ${a}. A receipt for your $${dep()} deposit is on its way to ${st.email.replace(/</g,'')}.</p><p class="fine">This is a demo. No payment was taken and no booking was made.</p><button class="btn small" style="margin-top:18px" id="again">Close</button></div>`;
+    document.getElementById('again').onclick=close;kick();return;
   }
   let h='';
   if(st.step===0){
@@ -643,10 +570,10 @@ function render(){
   }
   if(st.step===4){
     const isF=st.mode==='flash';const a=st.artist==='any'?'First available':ARTISTS[st.artist].n;
-    const top=isF?`${svg(st.flash)}<div><b>${fl().n}</b><span>Flash, $${fl().p} total</span></div>`:`${svg('heart')}<div><b>Custom piece</b><span>${SIZES.find(s=>s.id===st.size).n}${st.place?', '+st.place.toLowerCase():''}</span></div>`;
+    const top=isF?`${svg(st.flash)}<div><b>${fl().n}</b><span>Flash, $${fl().p} total</span></div>`:`${svg('custom')}<div><b>Custom piece</b><span>${SIZES.find(s=>s.id===st.size).n}${st.place?', '+st.place.toLowerCase():''}</span></div>`;
     h+=`<h3>Check and hold your chair</h3><p class="hint">Your deposit comes off the total on the day.</p><div class="review"><div class="rv-top">${top}</div><dl><dt>Artist</dt><dd>${a}</dd><dt>When</dt><dd>${fmtDay(st.day)}, ${st.time}</dd><dt>Name</dt><dd>${st.name.replace(/</g,'')}</dd>${isF?`<dt>Due on the day</dt><dd>$${fl().p-50}</dd>`:`<dt>Rate</dt><dd>${st.artist==='any'?'$160 to $200/h':'$'+ARTISTS[st.artist].rate+'/h'}</dd>`}</dl><div class="due"><span>Deposit today</span><b>$${dep()}</b></div></div><p class="fine">Free to reschedule up to 48 hours before. Late cancels and no-shows keep the deposit.</p>`;
   }
-  body.innerHTML=h;body.scrollTop=0;
+  body.innerHTML=h;body.scrollTop=0;kick();
   // wire
   body.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{st.mode=b.dataset.mode;if(st.artist&&!artistsFor().includes(st.artist)&&st.artist!=='any')st.artist=null;render()});
   body.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{st.flash=b.dataset.pick;if(st.artist&&st.artist!=='any'&&!fl().a.includes(st.artist))st.artist=null;render()});
