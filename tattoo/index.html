@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ironwren Tattoo, Austin TX: flash and custom work</title>
 <meta name="description" content="Ironwren Tattoo in Austin, Texas. Pick a flash piece off the wall or start a custom tattoo, choose your artist and hold your chair with a deposit.">
-<link rel="preconnect" href="https://upload.wikimedia.org">
 <link rel="preload" href="../fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="img/sheet-c.webp" fetchpriority="high">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2622'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23F4EEE2'%3EI%3C/text%3E%3C/svg%3E">
 <style>
 @font-face{font-family:'Familjen Grotesk';src:url('../fonts/familjen.woff2') format('woff2');font-weight:400 700;font-display:swap}
@@ -303,9 +302,9 @@ textarea.f-in{min-height:110px;resize:vertical}
       <div class="facts"><div><b>From $100</b><span>flash, all in</span></div><div><b>$50</b><span>holds your chair</span></div><div><b>48 hours</b><span>to reschedule, free</span></div></div>
     </div>
     <div class="wall" aria-hidden="true">
-      <img class="sh s2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg" width="960" height="767" alt="">
-      <img class="sh s1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg" width="1280" height="1009" alt="" fetchpriority="high">
-      <img class="sh s3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/960px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg" width="960" height="767" alt="">
+      <img class="sh s2" src="img/sheet-a-960.webp" width="960" height="767" alt="" decoding="async">
+      <img class="sh s1" src="img/sheet-c.webp" width="1280" height="1009" alt="" fetchpriority="high">
+      <img class="sh s3" src="img/sheet-f-960.webp" width="960" height="767" alt="" decoding="async">
     </div>
   </div>
 </section>
@@ -409,12 +408,12 @@ textarea.f-in{min-height:110px;resize:vertical}
 </aside>
 
 <script>
-const WM='https://upload.wikimedia.org/wikipedia/commons/thumb/';
+const WM='img/';
 const SHEET={
- A:WM+'1/19/Tattoo_Flash_SAAM-1998.84.50A_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50A_1.jpg',
- C:WM+'3/39/Tattoo_Flash_SAAM-1998.84.50C_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50C_1.jpg',
- F:WM+'2/2f/Tattoo_Flash_SAAM-1998.84.50F_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50F_1.jpg',
- E:WM+'4/4d/Tattoo_Flash_SAAM-1998.84.50E_1.jpg/1280px-Tattoo_Flash_SAAM-1998.84.50E_1.jpg'
+ A:WM+'sheet-a.webp',
+ C:WM+'sheet-c.webp',
+ F:WM+'sheet-f.webp',
+ E:WM+'sheet-e.webp'
 };
 const SHEET_AR=1280/1012;
 // [sheet, x%, y%, w%, h%] of each design on its sheet
@@ -424,10 +423,10 @@ const CROPS={
  eagle:['A',60,40,33,52], horse:['F',10,52,38,40], wings:['F',60,8,32,38], heart:['E',8,6,22,34]
 };
 const PHOTOS={
- custom:WM+'6/60/Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg/960px-Tattoo_Design_of_a_Female_Performer_MET_DP836707.jpg',
- mara:WM+'1/1c/Tattoo_Design_with_a_Ship_MET_DP327934.jpg/960px-Tattoo_Design_with_a_Ship_MET_DP327934.jpg',
- ilse:WM+'1/17/Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg/960px-Tattoo_Design_for_a_Butterfly_MET_DP836714.jpg',
- dez:WM+'c/ce/Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg/960px-Tattoo_Design_with_a_Dragon_and_Snake_%28Inspired_by_Japanese_Examples%29_MET_DP836708.jpg'
+ custom:WM+'performer.webp',
+ mara:WM+'ship.webp',
+ ilse:WM+'butterfly.webp',
+ dez:WM+'dragon.webp'
 };
 function svg(k){
   if(PHOTOS[k])return `<span class="pic" aria-hidden="true"><span class="cut img t" style="aspect-ratio:.62;background-image:url('${PHOTOS[k]}')"></span></span>`;
@@ -462,7 +461,7 @@ const SIZES=[
 ];
 const by=a=>a.map(id=>ARTISTS[id].n.split(' ')[0]).join(', ');
 document.getElementById('sheet').innerHTML=FLASH.map((f,i)=>`<button class="flash rv" style="--d:${(i%4)*.06}s" data-flash="${f.k}"><span class="frame">${svg(f.k)}</span><span class="row"><span class="nm">${f.n}</span><span class="pr">$${f.p}</span></span><span class="by">${by(f.a)}</span></button>`).join('');
-document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a],i)=>`<article class="artist rv" style="--d:${i*.08}s"><div class="ph"><img src="${PHOTOS[id]}" alt="A piece of vintage flash in ${a.n}'s style" loading="lazy" width="960" height="1150"></div><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small dark" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></article>`).join('');
+document.getElementById('artist-cards').innerHTML=Object.entries(ARTISTS).map(([id,a],i)=>`<article class="artist rv" style="--d:${i*.08}s"><div class="ph"><img src="${PHOTOS[id]}" alt="A piece of vintage flash in ${a.n}'s style" loading="lazy" width="720" height="1000"></div><h3>${a.n}</h3><span class="style">${a.s}</span><p>${a.bio}</p><div class="meta"><span>Custom rate <b>$${a.rate}/h</b></span><span>Next opening <b>${a.next}</b></span></div><button class="btn small dark" data-book="custom" data-artist="${id}">Book ${a.n.split(' ')[0]}</button></article>`).join('');
 
 // reveal on scroll
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
